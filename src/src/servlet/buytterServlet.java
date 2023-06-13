@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class buytter
+ * Servlet implementation class buytterServlet
  */
-@WebServlet("/buytter")
-public class buytter extends HttpServlet {
+@WebServlet("/buytterServlet")
+public class buytterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**

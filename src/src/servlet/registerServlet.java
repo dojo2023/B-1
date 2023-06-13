@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class register
+ * Servlet implementation class registerServlet
  */
-@WebServlet("/register")
-public class register extends HttpServlet {
+@WebServlet("/registerServlet")
+public class registerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**

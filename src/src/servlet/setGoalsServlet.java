@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class setGoals
+ * Servlet implementation class setGoalsServlet
  */
-@WebServlet("/setGoals")
-public class setGoals extends HttpServlet {
+@WebServlet("/setGoalsServlet")
+public class setGoalsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**

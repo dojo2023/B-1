@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ranking
+ * Servlet implementation class rankingServlet
  */
-@WebServlet("/ranking")
-public class ranking extends HttpServlet {
+@WebServlet("/rankingServlet")
+public class rankingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**

@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class egg
+ * Servlet implementation class eggServlet
  */
-@WebServlet("/egg")
-public class egg extends HttpServlet {
+@WebServlet("/eggServlet")
+public class eggServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**

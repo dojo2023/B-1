@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class calendar
+ * Servlet implementation class calendarServlet
  */
-@WebServlet("/calendar")
-public class calendar extends HttpServlet {
+@WebServlet("/calendarServlet")
+public class calendarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
