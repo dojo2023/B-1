@@ -24,7 +24,9 @@
 </header>
 </head>
 <body>
+<!--↓登録成功か失敗かの変数  -->
 <h1><c:out value="${result.title}" /></h1>
+<!--↓どこに戻るかのURL指定  -->
 <h2><a href="${result.backTo}">リターン</a></h2>
 <footer>
 <p>&copy;Ifrit.B</p>
