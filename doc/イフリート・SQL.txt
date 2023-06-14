@@ -1,0 +1,132 @@
+かけいぼっちの情報
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/dojo6Data/B1
+
+【ユーザー名】	【パスワード】
+sa		（なし）
+
+
+<ユーザーテーブル>
+CREATE TABLE idpws(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+user_pw varchar(20) NOT NULL,
+user_name varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+「IDPWサンプルデータ（ログイン用）」
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('aa','bb','cc')
+
+「ログインは　ID＝aa, PW＝bb,　でログインできます。ユーザ名＝cc, 　です」
+
+
+
+<収支テーブル>
+CREATE TABLE payments(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+pay_category varchar(20) NOT NULL,
+pay_money int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+user_id varchar(20) NOT NULL UNIQUE
+)
+
+<投稿テーブル>
+CREATE TABLE buytters(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+b_comment varchar(20),
+b_pic varchar(20),
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<目標テーブル>
+CREATE TABLE goals(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+g_goal int NOT NULL,
+g_limit date NOT NULL,
+g_want varchar(140),
+g_wantpic varchar(140),
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+c_name varchar(20) NOT NULL,
+user_id varchar(20) NOT NULL UNIQUE,
+g_available int NOT NULL
+)
+
+<キャラクターステータステーブル>
+CREATE TABLE characters(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+char_id varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<キャラクターイメージテーブル>
+CREATE TABLE charpics(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+char_id varchar(20) NOT NULL,
+char_pic varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<ナイスバイカウンターテーブル>
+CREATE TABLE nicebuycounts(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+buyte_id int NOT NULL,
+buyte_count int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<ポイントテーブル>
+CREATE TABLE points(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+point_pm int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<検索履歴テーブル>
+CREATE TABLE historys(
+id int　NOT NULL PRIMARY KEY,
+user_id varchar(20) NOT NULL UNIQUE,
+s_history varchar(140) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<装飾品イメージテーブル>
+CREATE TABLE itempics(
+id int　NOT NULL PRIMARY KEY,
+item_id varchar(20) NOT NULL,
+item_pic varchar(140) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<装飾品ステータステーブル>
+CREATE TABLE items(
+id int　NOT NULL PRIMARY KEY,
+user_id varchar(20) NOT NULL UNIQUE,
+item_id varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<貯金テーブル>
+CREATE TABLE banks(
+id int　NOT NULL PRIMARY KEY,
+user_id varchar(20) NOT NULL UNIQUE,
+b_bank int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
