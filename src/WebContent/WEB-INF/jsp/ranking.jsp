@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ランキング画面</title>
+<title>ランキング</title>
 </head>
 <body>
 <header>
