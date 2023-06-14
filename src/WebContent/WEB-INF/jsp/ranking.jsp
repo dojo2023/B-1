@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ランキング</title>
+<title>ランキング|かけいぼっち</title>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/ranking.css">
 </head>
 <body>
 <header>
