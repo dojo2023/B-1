@@ -74,7 +74,8 @@ id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 char_id varchar(20) NOT NULL,
 char_pic varchar(20) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
-update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+c_health int NOT NULL
 )
 
 <ナイスバイカウンターテーブル>
@@ -110,7 +111,8 @@ id int　NOT NULL PRIMARY KEY,
 item_id varchar(20) NOT NULL,
 item_pic varchar(140) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
-update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+item_buy int NOT NULL
 )
 
 <装飾品ステータステーブル>
