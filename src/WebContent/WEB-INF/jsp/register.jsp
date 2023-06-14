@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- ↓共通部分（ｃｓｓとタイトル名は変更してください）-->
-<title>カレンダー|かけいぼっち</title>
+<title>新規登録|かけいぼっち</title>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/register.css">
 </head>
