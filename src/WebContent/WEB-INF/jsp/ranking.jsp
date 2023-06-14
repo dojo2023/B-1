@@ -30,6 +30,7 @@
 <th>pt</th>
 <th>キャラクター</th>
 </tr>
+<!--↓ランキング一覧をクラス型に格納して、それを受けわたして、すべての値をループ  -->
 <c:forEach var="e" items="${rankList}">
 <tr>
 <td><c:out value="${e.rank}" /></td>
@@ -38,7 +39,9 @@
 <td><img src="./upload/${e.pic}"></td>
 </tr>
 </c:forEach>
+<!--↓あなたのrank  -->
 <p>あなたは<c:out value="${rank.you}"/>位</p>
+<!-- 累計ポイント出力  -->
 <p><c:out value="${rank.point}" />ptです</p>
 <footer>
 <p>&copy;Ifrit.B</p>
