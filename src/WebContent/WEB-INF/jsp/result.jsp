@@ -22,8 +22,6 @@
 </ul>
 </nav>
 </header>
-</head>
-<body>
 <!--↓登録成功か失敗かの変数  -->
 <h1><c:out value="${result.title}" /></h1>
 <!--↓どこに戻るかのURL指定  -->
