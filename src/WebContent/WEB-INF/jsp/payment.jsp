@@ -34,6 +34,7 @@
 
 <p>今日使えるお金 円</p>
 
+<form method="POST" action="/Ifrit/paymentServlet">
 <select name="paymentCategory">
 	<option value="">カテゴリー選択</option>
 	<option value="food">食費</option>
@@ -51,8 +52,11 @@
 <p><input type="text" name="paymoney">円</p>
 
 <input type="submit" value="登録">
+</form>
 
+<table>
 <!-- 支出入力したモノが　カテゴリー、金額/円　で表示  -->
+</table>
 
 <p>支出の合計 円</p>
 
