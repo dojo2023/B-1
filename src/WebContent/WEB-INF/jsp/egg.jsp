@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>卵誕生画面</title>
+
+<title>たまご誕生|かけいぼっち</title>
+<link rel="stylesheet" href="css/common.css">
+
 </head>
 <body>
-たまごさん
+
+<p>卵誕生動画</p>
+
+<footer>
+<p>&copy;Ifrit.B</p>
+</footer>
+
 </body>
 </html>
