@@ -32,7 +32,8 @@
 </c:forEach>
 </table>
 
-<input type="submit" value="部屋に戻る">
+<input type="button" onclick="history.back()" value="部屋に戻る">
+<!-- <input type="submit" value="部屋に戻る"> -->
 
 </header>
 
