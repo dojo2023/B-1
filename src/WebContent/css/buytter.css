@@ -1,1 +1,21 @@
 @charset "UTF-8";
+
+.tlbox {
+  width: 900px;                /* 横幅を200pxに指定 */
+  height: 400px;               /* 横幅を200pxに指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+}
+.buyeetbox {
+  width: 900px;                /* 横幅を200pxに指定 */
+  height: 400px;               /* 横幅を200pxに指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+}
+.searchbox {
+  width: 900px;                /* 横幅を200pxに指定 */
+  height: 400px;               /* 横幅を200pxに指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+}
+
+
+
