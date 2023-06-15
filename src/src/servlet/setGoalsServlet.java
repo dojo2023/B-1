@@ -38,4 +38,17 @@ public class setGoalsServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+	// リクエストパラメータを取得する
+	request.setCharacterEncoding("UTF-8")
+	String goal = request.getParameter("ggoal");
+	int ggoal = Integer.parsenInt(goal);
+
+	String available = request.getParameter("gavailable");
+	int gavailable  = Integer.parsenInt(available);
+
+	String limit = request.getParameter("glimit");
+
+	String want = request.getParameter("gwant");
+
+	// 登録処理を行う
 }
