@@ -32,7 +32,7 @@
 
 <p>今日の日付表示</p>
 
-<p>今日使えるお金 円</p>
+<p>今日使えるお金<c:out value="${gavailable}"/>円</p>
 
 <form method="POST" action="/Ifrit/paymentServlet">
 <select name="paymentCategory">
@@ -55,10 +55,14 @@
 </form>
 
 <table>
-<!-- 支出入力したモノが　カテゴリー、金額/円　で表示  -->
+<tr>
+<td><c:out value="${createdat}"/></td>
+<td><c:out value="${paycategory}"/></td>
+<td><c:out value="${paymoney}"/></td>
+</tr>
 </table>
 
-<p>支出の合計 円</p>
+<p>支出の合計<c:out value="${paymoney}"/>円</p>
 
 <!-- ↓共通部分 -->
 <footer>

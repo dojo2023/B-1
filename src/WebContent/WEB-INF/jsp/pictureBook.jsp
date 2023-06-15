@@ -25,21 +25,27 @@
 <c:forEach var="e" items="${charList}" >
 <tr>
 <td>
-		<c:out value="${char_pic}"/><br>
+		<img src="./upload/${char_pic}"><br>
 		<c:out value="${char_id}"/>
 </td>
 </tr>
 </c:forEach>
 </table>
 
-<input type="submit" value="部屋に戻る">
+<input type="button" onclick="history.back()" value="部屋に戻る">
+<!-- <input type="submit" value="部屋に戻る"> -->
 
 </header>
 
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
 <title>Insert title here</title>
 </head>
-<body>
-図鑑
+
+<!-- ↓共通部分 -->
+<footer>
+<p>&copy;Ifrit.B</p>
+</footer>
+<!-- ↑共通部分 -->
+
 </body>
 </html>
