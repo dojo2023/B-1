@@ -27,13 +27,15 @@ public class rankingServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
+		  //ログインせずに直接来たら、ログイン画面に戻す処理
+		  //↓HttpSessionはここで使ったら37行目のとこでは使わないでね！
 		  HttpSession session = request.getSession();
 			if (session.getAttribute("userid") == null) {
-				response.sendRedirect("/Ifrit/LoginServlet");
+				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
 			//セッションスコープにあるuseridを取得
-			String userid = session.getAttribute("userid");
+			String userid = (String)session.getAttribute("userid");
 
 		  //ユーザ名取り出す
 		  idpwsDao ipd = new idpwsDao();
