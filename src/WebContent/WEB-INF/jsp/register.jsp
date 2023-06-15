@@ -17,26 +17,26 @@
 </head>
 <body>
 <h2><img src=""></h2>
-<form method="POST" action="/ifrit/refisterServlet">
+<form method="POST" action="/ifrit/registerServlet">
 <table>
 <tr>
 <th>new ID</th>
-<td><imput type="text" name="userid"></td>
+<td><input type="text" name="userid"></td>
 </tr>
 <tr>
 <th>new PW</th>
-<td><imput type="password" name="userpw"></td>
+<td><input type="password" name="userpw"></td>
 </tr>
 <tr>
 <th>ユーザ名</th>
-<td><imput type="text" name="username"></td>
+<td><input type="text" name="username"></td>
 </tr>
 <tr>
 <td>※一度登録したユーザ名は変更できません。</td>
 </tr>
 <tr>
 <td><input type="submit" name="regist" value="登録"></td>
-<td><input type=”button” onclick=”window.history.back();” value=”戻る”></td>
+<td><input type="button" onclick="window.history.back();" value="戻る"></td>
 </tr>
 </table>
 
