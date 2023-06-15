@@ -25,7 +25,7 @@
 <c:forEach var="e" items="${charList}" >
 <tr>
 <td>
-		<c:out value="${char_pic}"/><br>
+		<img src="./upload/${char_pic}"><br>
 		<c:out value="${char_id}"/>
 </td>
 </tr>
