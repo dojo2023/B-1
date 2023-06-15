@@ -40,7 +40,12 @@
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
 <title>Insert title here</title>
 </head>
-<body>
-図鑑
+
+<!-- ↓共通部分 -->
+<footer>
+<p>&copy;Ifrit.B</p>
+</footer>
+<!-- ↑共通部分 -->
+
 </body>
 </html>
