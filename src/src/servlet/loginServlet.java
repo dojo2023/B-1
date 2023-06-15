@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.idpwsDAO;
 
 /**
  * Servlet implementation class loginServlet
@@ -23,7 +26,7 @@ public class loginServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
-		    // フォワード
+		    // ログインページにフォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
 		            ("/WEB-INF/jsp/login.jsp");
@@ -34,8 +37,32 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		// リクエストパラメータを取得する
+				request.setCharacterEncoding("UTF-8");
 
-}
+				String userid = request.getParameter("userid");
+				String userpw = request.getParameter("userpw");
+
+				// ログイン処理を行う
+				idpwsDAO iDao = new idpwsDAO();
+				if (iDao.isLoginOK(new idpws(userid, userpw))) {	// ログイン成功
+
+					// セッションスコープにuseridを格納する
+					HttpSession session = request.getSession();
+					session.setAttribute("userid",userid);
+
+
+					// カレンダーサーブレットにリダイレクトする
+					response.sendRedirect("/ifrit/calendarServlet");
+				}
+				else {									// ログイン失敗
+					// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+					request.setAttribute("result",
+					new Result("ログイン失敗", "IDまたはパスワードに間違いがあります。", "/ifrit/loginServlet"));
+
+					// 結果ページにフォワードする
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+					dispatcher.forward(request, response);
+				}
+			}
+		}
