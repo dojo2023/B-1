@@ -52,7 +52,7 @@
 <tr>
 <td>
 	<label><br>
-	<input type="file" name="gwantpic" accept="image">
+	<input type="file" name="gwantpic" accept=".png">
 	<!-- acceptでファイルの種類を指定できるかも…？.jpegとか
 
 	画面内に選択した画像が表示される用にするときは以下のコードとJS組み合わせて使用
