@@ -37,14 +37,14 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストパラメータを取得する
+		// リクエストパラメータを取得する （入力された値を受け取り、変数に格納する）
 				request.setCharacterEncoding("UTF-8");
 
 				String userid = request.getParameter("userid");
 				String userpw = request.getParameter("userpw");
 
-				// ログイン処理を行う
-				idpwsDAO iDao = new idpwsDAO();
+				// ログイン処理を行う （SQLを動作させるDAO）
+				idpwsDAO iDao = new idpwsDAO(); //インスタンス化したもの
 				if (iDao.isLoginOK(new idpws(userid, userpw))) {	// ログイン成功
 
 					// セッションスコープにuseridを格納する
