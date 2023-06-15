@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Result;
+
 /**
  * Servlet implementation class resultServlet
  */
@@ -22,6 +24,10 @@ public class resultServlet extends HttpServlet {
 	  protected void doGet(HttpServletRequest request,
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
+		  //リザルトクラスをインスタンス化
+		  Result result = new Result();
+		  //リクエストスコープにresultという名前で格納して、jspで取り出す。
+		  request.setAttribute("result",result(getTitle(),getBackTo()));
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
