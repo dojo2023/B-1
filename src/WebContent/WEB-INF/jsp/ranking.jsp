@@ -40,7 +40,7 @@
 <td><c:out value="${e.point}" /></td>
 <td><img src="./upload/${e.pic}"></td>
 </tr>
-<c:set value="${rank + 1}" var="rank">
+<c:set value="${rank + 1}" var="rank"></c:set>>
 </c:forEach>
 <!--↓あなたのrank  -->
 <p>あなたは<c:out value="${rank.you}"/>位</p>
