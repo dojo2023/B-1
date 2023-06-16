@@ -2,14 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import dao.idpwsDAO;
 import dao.paymentsDAO;
 import dao.buyttersDAO;
@@ -26,6 +18,7 @@ import model.Idpws;
 import model.Payments;
 import model.Result;
 import model.Buytters;
+import model.LoginUser;
 import model.Calendar;
 import model.CalendarDate;
 import model.Room;
@@ -36,7 +29,6 @@ import model.Character;
 import model.PictuerBook;
 import model.Result;
 import model.DressUp;
-
 /**
  * Servlet implementation class loginServlet
  */
