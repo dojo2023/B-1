@@ -36,6 +36,8 @@ public class paymentServlet extends HttpServlet {
 			String category = request.getParameter("paycategory");
 			String paymoney = request.getParameter("paymoney");
 
+			//Daoで多分処理
+
 			// 支出入力結果をリクエストスコープに格納する
 			request.setAttribute(paymentList,"paymentList" );
 
@@ -46,6 +48,7 @@ public class paymentServlet extends HttpServlet {
 		    dispatcher.forward(request, response);
 		  }
 
+	  //今日使える金額と支出合計のDaoの処理など未入力
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
