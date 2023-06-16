@@ -56,6 +56,7 @@ public class paymentServlet extends HttpServlet {
 		}
 
 
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String category = request.getParameter("paycategory");
@@ -66,6 +67,14 @@ public class paymentServlet extends HttpServlet {
 		// 支出入力結果をリクエストスコープに格納する
 		request.setAttribute(paymentList,"paymentList" );
 
+		// フォワード
+	    RequestDispatcher dispatcher =
+	        request.getRequestDispatcher
+	            ("/WEB-INF/jsp/payment.jsp");
+	    dispatcher.forward(request, response);
+	  }
 	}
 
-}
+
+
+
