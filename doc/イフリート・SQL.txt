@@ -131,12 +131,14 @@ DELETE FROM itempics where id = 4
 
 <装飾品ステータステーブル>
 CREATE TABLE items(
-id int　NOT NULL PRIMARY KEY,
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
 user_id varchar(20) NOT NULL UNIQUE,
 item_id varchar(20) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+
+drop table items
 「サンプル」
 INSERT INTO items (user_id,item_id) values('aa','1')
 
