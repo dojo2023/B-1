@@ -37,7 +37,7 @@ public class paymentServlet extends HttpServlet {
 			String paymoney = request.getParameter("paymoney");
 
 			// 検索結果をリクエストスコープに格納する
-			request.setAttribute(paymentList",paymentList );
+			request.setAttribute(paymentList,"paymentList" );
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
