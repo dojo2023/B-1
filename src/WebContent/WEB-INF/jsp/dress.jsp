@@ -25,8 +25,8 @@
  <tr>
  	<!-- 装飾品の画像 -->
  	<td>装飾品の画像<img src="./upload/${itemBuy}"><br>
- 	<!-- チェックボックスと必要なポイント数の表示 -->
- 	チェックボックスと必要なポイント数の表示<input type="checkbox" name="" value=""> <c:out value="${itemId}" />pt </td>
+ 	<!-- ラジオボタンと必要なポイント数の表示 -->
+ 	ラジオボタンと必要なポイント数の表示<input type="radio" name="" value=""> <c:out value="${itemId}" />pt </td>
  </tr>
 </c:forEach>
 </table>
