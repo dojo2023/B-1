@@ -67,6 +67,9 @@ char_id varchar(20) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+「サンプル」
+INSERT INTO characters (user_id,char_id) values('aa','1')
+
 
 <キャラクターイメージテーブル>
 CREATE TABLE charpics(
@@ -77,6 +80,11 @@ created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 c_health int NOT NULL
 )
+「サンプル」
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','ham.png','0')
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick1.png','1')
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick2.png','2\')
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick3.png','3')
 
 <ナイスバイカウンターテーブル>
 CREATE TABLE nicebuycounts(
@@ -98,7 +106,7 @@ update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 <検索履歴テーブル>
 CREATE TABLE historys(
-id int　NOT NULL PRIMARY KEY,
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
 user_id varchar(20) NOT NULL UNIQUE,
 s_history varchar(140) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -107,13 +115,19 @@ update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 <装飾品イメージテーブル>
 CREATE TABLE itempics(
-id int　NOT NULL PRIMARY KEY,
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
 item_id varchar(20) NOT NULL,
 item_pic varchar(140) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 item_buy int NOT NULL
 )
+「サンプル」
+INSERT INTO itempics (item_id,item_pic,item_buy) values('1','pika.png','0')
+INSERT INTO itempics (item_id,item_pic,item_buy) values('1','nobuy.png','0')
+DELETE FROM itempics where id = 2
+DELETE FROM itempics where id = 3
+DELETE FROM itempics where id = 4
 
 <装飾品ステータステーブル>
 CREATE TABLE items(
@@ -123,10 +137,12 @@ item_id varchar(20) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+「サンプル」
+INSERT INTO items (user_id,item_id) values('aa','1')
 
 <貯金テーブル>
 CREATE TABLE banks(
-id int　NOT NULL PRIMARY KEY,
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
 user_id varchar(20) NOT NULL UNIQUE,
 b_bank int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
