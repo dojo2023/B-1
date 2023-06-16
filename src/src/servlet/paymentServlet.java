@@ -31,15 +31,6 @@ public class paymentServlet extends HttpServlet {
 				return;
 			}
 
-			// リクエストパラメータを取得する
-			request.setCharacterEncoding("UTF-8");
-			String category = request.getParameter("paycategory");
-			String paymoney = request.getParameter("paymoney");
-
-			//Daoで多分処理
-
-			// 支出入力結果をリクエストスコープに格納する
-			request.setAttribute(paymentList,"paymentList" );
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
@@ -56,6 +47,25 @@ public class paymentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/Ifrit/loginServlet");
+			return;
+		}
+
+
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String category = request.getParameter("paycategory");
+		String paymoney = request.getParameter("paymoney");
+
+		//Daoで多分処理
+
+		// 支出入力結果をリクエストスコープに格納する
+		request.setAttribute(paymentList,"paymentList" );
+
 	}
 
 }
