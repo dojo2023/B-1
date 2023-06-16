@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import dao.idpwsDAO;
 import dao.paymentsDAO;
 import dao.buyttersDAO;
@@ -28,7 +27,7 @@ import model.Buytters;
 import model.Calendar;
 import model.CalendarDate;
 import model.Room;
-import model.achievement;
+import model.Achievement;
 import model.Ranking;
 import model.ResultGoals;
 import model.Character;
