@@ -24,9 +24,20 @@ public class paymentServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
-			//セッションスコープにあるuseridを取得
+			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-			String userid = (String)session.getAttribute("userid");
+			if (session.getAttribute("id") == null) {
+				response.sendRedirect("/Ifrit/loginServlet");
+				return;
+			}
+
+			// リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			String category = request.getParameter("paycategory");
+			String paymoney = request.getParameter("paymoney");
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute(paymentList",paymentList );
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
@@ -34,6 +45,7 @@ public class paymentServlet extends HttpServlet {
 		            ("/WEB-INF/jsp/payment.jsp");
 		    dispatcher.forward(request, response);
 		  }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
