@@ -21,15 +21,15 @@
 
 <h2>ログイン</h2>
 
-<form method="post" action="/ifrit/loginServlet" class="" >
+<form method="post" action="/Ifrit/loginServlet" class="" >
 <label>
 ID<br>
-<input type="text" name="" class=""><br>
+<input type="text" name="userid" class=""><br>
 </label>
 
 <label>
 パスワード<br>
-<input type="password" name="" class=""><br>
+<input type="password" name="userpw" class=""><br>
 </label>
 
 <br>
