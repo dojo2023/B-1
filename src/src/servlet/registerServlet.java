@@ -40,15 +40,13 @@ public class registerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
-				String id = request.getParameter("ID");
-				String pw = request.getParameter("PW");
+				String userid = request.getParameter("userid");
+				String userpw = request.getParameter("userpw");
+				String username = request.getParameter("username");
+				
 				IdpwDAO iDao = new IdpwDAO();
 
-				int hashCode = pw.hashCode();
-				Integer hashCode2 = Integer.valueOf(hashCode);
-				pw = hashCode2.toString();
-
-				if (iDao.insert(new Idpw(id,pw)) == 0) {	// 登録成功
+				if (iDao.register(new Idpw(id,pw)) == 0) {	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "レコードを登録しました。", "/simpleBC/LoginServlet"));
 				}
