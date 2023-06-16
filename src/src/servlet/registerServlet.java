@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.idpwsDAO;
-import model.Idpws;
-import model.Result;
-import dao.idpwsDAO;
 import dao.paymentsDAO;
 import dao.buyttersDAO;
 import dao.goalsDAO;
@@ -28,6 +25,7 @@ import model.Idpws;
 import model.Payments;
 import model.Result;
 import model.Buytters;
+import model.LoginUser;
 import model.Calendar;
 import model.CalendarDate;
 import model.Room;
