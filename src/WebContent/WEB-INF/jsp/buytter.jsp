@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>投稿画面</title>
+<title>投稿画面|かけいぼっち</title>
 
 <link rel="stylesheet" href="/Ifrit/css/buytter.css">
 
@@ -36,9 +37,9 @@
 <!-- ↓３,４,５(TLと投稿と検索のボタン)↓ -->
 <table>
 	<tr>
-		<td><input type="button" onclick="location.href='(tlboxだけを表示)????????'" value="TL"></td>
-		<td><input type="submit" onclick="(buyeetboxだけを表示)???????????" value="投稿"></td>
-		<td><input type="submit" onclick="(searchboxだけを表示)???????????" value="検索"></td>
+		<td><input type="button" onclick="window.location.reload();" value="TL"></td>
+		<td><input type="button" onclick="(buyeetboxだけを表示)???????????" value="投稿"></td>
+		<td><input type="button" onclick="(searchboxだけを表示)???????????" value="検索"></td>
 	</tr>
 </table>
 <!-- ↑３,４,５(TLと投稿と検索のボタン)おわ↑ -->
@@ -59,7 +60,7 @@
 
 <!-- ↓７～１２(投稿の繰り返し構文)↓ -->
 <c:forEach var="e" items="${buyeetList}" >
-	<form method="POST" action="/buytterServlet">
+	<form method="POST" action="/Ifrit/buytterServlet">
 
 	<table>
 		<tr><td><label><c:out value="${tlUsername}" /></label></td><td><label><c:out value="${tlTime}" /></label></td></tr>
@@ -85,7 +86,7 @@
 	<tr><td><input type="text" name="postComment"></td></tr>
 	<tr><td>投稿画像</td></tr>
 	<tr><td>投稿画像を入れるやつ</td></tr>
-	<tr><td><input type="submit" onclick="(バイートする処理)???????????" value="バイートする" name="postSubmit"></td></tr>
+	<tr><td><input type="submit" onclick="window.location.reload();" value="バイートする" name="postSubmit"></td></tr>
 </table>
 
 	</form>
