@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.idpwsDAO;
+import model.Idpws;
 import model.LoginUser;
 
 /**
@@ -46,7 +47,7 @@ public class loginServlet extends HttpServlet {
 
 				// ログイン処理を行う （SQLを動作させるDAO）
 				idpwsDAO iDao = new idpwsDAO(); //インスタンス化したもの
-				if (iDao.isLoginOK(new idpws(userid, userpw))) {	// ログイン成功
+				if (iDao.isLoginOK(new Idpws(userid, userpw))) {	// ログイン成功
 
 				// セッションスコープにuseridを格納する
 				HttpSession session = request.getSession();
