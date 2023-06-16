@@ -15,6 +15,12 @@ public class Idpws implements Serializable{
 		this.username = username;
 	}
 
+	public Idpws(String userid, String userpw) {
+		super();
+		this.userid = userid;
+		this.userpw = userpw;
+	}
+
 	public String getUserid() {
 		return userid;
 	}

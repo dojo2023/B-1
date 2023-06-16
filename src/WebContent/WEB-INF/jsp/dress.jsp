@@ -20,6 +20,8 @@
 
 <h3>着せ替えショップ</h3>
 
+<p><c:out value="${pointPm}" />pt</p>
+
 <table>
 <c:forEach var="" items="${itemList}">
  <tr>
@@ -32,8 +34,8 @@
 </table>
 
 <form method="post" action="/ifrit/dressServlet" class="" >
-<input type="submit" name="" value="着替える">
-<input type="submit" name="" value="購入">
+<input type="submit" name="dressup" value="着替える">
+<input type="submit" name="buy" value="購入">
 <br>
 </form>
 

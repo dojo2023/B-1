@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class setGoalsServlet
@@ -23,6 +24,14 @@ public class setGoalsServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
+		    // もしもログインしていなかったらログインサーブレットにリダイレクトする
+		    HttpSession session = request.getSession();
+		    if (session.getAttribute("id") == null) {
+			    response.sendRedirect("/Ifrit/loginServlet");
+				return;
+		    }
+
+
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
@@ -35,7 +44,7 @@ public class setGoalsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		doPost(request, response);
 	}
 
 	// リクエストパラメータを取得する
@@ -51,4 +60,13 @@ public class setGoalsServlet extends HttpServlet {
 	String want = request.getParameter("gwant");
 
 	// 登録処理を行う
+
+
+
+	// 結果ページにフォワードする
+		RequestDispatcher dispatcher =
+			request.getRequestDispatcher
+				("/WEB-INF/jsp/result.jsp");
+		dispatcher.forward(request, response);
+
 }

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.idpwsDAO;
+import dao.paymentsDAO;
+
 /**
  * Servlet implementation class paymentServlet
  */
@@ -63,6 +66,8 @@ public class paymentServlet extends HttpServlet {
 		String paymoney = request.getParameter("paymoney");
 
 		//Daoで多分処理
+		paymentsDAO payDao = new paymentsDAO(); //インスタンス化したもの
+		if (payDao.inputPay(new Payments(paycategory, paymoney))) {	// ログイン成功
 
 		// 支出入力結果をリクエストスコープに格納する
 		request.setAttribute(paymentList,"paymentList" );
