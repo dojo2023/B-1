@@ -78,7 +78,7 @@ public class loginServlet extends HttpServlet {
 
 
 					// カレンダーサーブレットにリダイレクトする
-					response.sendRedirect("/ifrit/calendarServlet");
+					response.sendRedirect("/Ifrit/calendarServlet");
 				}
 
 			}
