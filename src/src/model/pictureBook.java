@@ -2,10 +2,10 @@ package model;
 
 import java.io.Serializable;
 
-public class pictureBook implements Serializable{
+public class PictureBook implements Serializable{
 	private String charpic;
 	private int charid;
-	public pictureBook(String charpic, int charid) {
+	public PictureBook(String charpic, int charid) {
 		super();
 		this.charpic = charpic;
 		this.charid = charid;
