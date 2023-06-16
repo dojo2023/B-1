@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.idpwsDAO;
+import model.LoginUser;
 
 /**
  * Servlet implementation class loginServlet
@@ -47,9 +48,9 @@ public class loginServlet extends HttpServlet {
 				idpwsDAO iDao = new idpwsDAO(); //インスタンス化したもの
 				if (iDao.isLoginOK(new idpws(userid, userpw))) {	// ログイン成功
 
-					// セッションスコープにuseridを格納する
-					HttpSession session = request.getSession();
-					session.setAttribute("userid",userid);
+				// セッションスコープにuseridを格納する
+				HttpSession session = request.getSession();
+				session.setAttribute("userid",new LoginUser(userid));
 
 
 					// カレンダーサーブレットにリダイレクトする
