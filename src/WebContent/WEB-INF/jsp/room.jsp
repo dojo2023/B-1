@@ -30,16 +30,16 @@
 <!--↓　キャラステータス　-->
 <table>
     <tr>
-        <td>目標達成度：<c:out value=""></td>
+        <td>目標達成度：<c:out value="" /></td>
     </tr>
     <tr>
-        <td>出会って<c:out value=""></c:out>日目</td>
+        <td>出会って<c:out value="" />日目</td>
     </tr>
     <tr>
-        <td>状態：<c:out value=""></c:out></td>
+        <td>状態：<c:out value="" /></td>
     </tr>
     <tr>
-        <td>コメント：<c:out value=""></c:out></td>
+        <td>コメント：<c:out value="" /></td>
     </tr>
 
 <!--↓　累計獲得ポイント表示　-->
