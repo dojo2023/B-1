@@ -30,7 +30,7 @@ import model.Buytters;
 import model.Calendar;
 import model.CalendarDate;
 import model.Room;
-import model.achievement;
+import model.Achievement;
 import model.Ranking;
 import model.ResultGoals;
 import model.Character;
