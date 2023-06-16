@@ -23,6 +23,9 @@ public class roomServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
+
+
+
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
