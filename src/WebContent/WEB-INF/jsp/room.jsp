@@ -17,14 +17,17 @@
 
 <h2><c:out value="${c_name}" />の部屋</h2>
 
-<a href=""><img src="カレンダー画像" alt="カレンダーへ"></a>
-<a href=""><img src="支出入力画像" alt="支出入力へ"></a>
-<a href=""><img src="達成状況画像" alt="達成状況へ"></a>
-<a href=""><img src="Buytter画像" alt="Butterへ"></a>
-<a href=""><img src="着せ替えショップ画像" alt="着せ替えショップ"></a>
-<a href=""><img src="図鑑画像" alt="図鑑"></a>
+<a href="/Ifrit/calendarServelet"><img src="カレンダー画像" alt="カレンダーへ"></a>
+<a href="/Ifrit/paymentServelet"><img src="支出入力画像" alt="支出入力へ"></a>
+<a href="/Ifrit/achievementServelet"><img src="達成状況画像" alt="達成状況へ"></a>
+<a href="/Ifrit/buytterServelet"><img src="Buytter画像" alt="Butterへ"></a>
+<a href="/Ifrit/dressServelet"><img src="着せ替えショップ画像" alt="着せ替えショップへ"></a>
+<a href="/Ifrit/pictureBookServlet"><img src="図鑑画像" alt="図鑑へ"></a>
 
+<!--↓　状態にあったキャラ画像表示　-->
+<img src="./img/characters/${c_name}">
 
+<!--↓　キャラステータス　-->
 <table>
     <tr>
         <td>目標達成度：</td>
@@ -38,6 +41,13 @@
     <tr>
         <td>コメント：</td>
     </tr>
+
+<!--↓　累計獲得ポイント表示　-->
+<h3><c:out value="/${point_pm}" /></h3>
+
+<!--↓　ランキング表示　-->
+<a href="/Ifrit/rankingServlet"><img src="ランキング画像" alt="ランキングへ"></a>
+
 </table>
 
 
@@ -81,7 +91,7 @@ class Sample {
 
 switch (num){
     case 0:System.out.println("喋る前に飲む");
-}
+
 break;
 case 1:System.out.println("喋る前に飲む");
 break;
@@ -101,3 +111,4 @@ case 8:System.out.println("喉が痛いときにマシュマロを食べると�
 break;
 case 9:System.out.println("プーマとアディダスの創設者は兄弟、そして仲がめっちゃ悪い。");
 break;
+}
