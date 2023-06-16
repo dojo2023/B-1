@@ -2,10 +2,10 @@ package model;
 
 import java.io.Serializable;
 
-public class resultGoals implements Serializable{
+public class ResultGoals implements Serializable{
 	private String message;
 	private String pic;
-	public resultGoals(String message, String pic) {
+	public ResultGoals(String message, String pic) {
 		super();
 		this.message = message;
 		this.pic = pic;
