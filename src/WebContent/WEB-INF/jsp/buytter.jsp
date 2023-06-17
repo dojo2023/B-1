@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- %@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" % -->
 
 <!DOCTYPE html>
 <html>
@@ -63,11 +64,14 @@
 	<form method="POST" action="/Ifrit/buytterServlet">
 
 	<table>
-		<tr><td><label><c:out value="${tlUsername}" /></label></td><td><label><c:out value="${tlTime}" /></label></td></tr>
-		<tr><td><label><c:out value="${tlComment}" /></label></td></tr>
-		<tr><td><label><c:out value="${tlPicture}" /></label></td></tr>
+		<tr><td><label><c:out value="${e.user_id}" /></label></td><td><label><c:out value="${e.created_at}" /></label></td></tr>
+		<tr><td><label><c:out value="${e.b_comment}" /></label></td></tr>
+		<tr><td><label><img src="./upload/${e.b_pic}"></label></td></tr>
 		<tr><td><input type="checkbox" name="tlStump" value="nice buy!!"></td>
 			<td><c:out value="${tlStumpNumber}" /></td></tr>
+
+		<!-- nice buyのカウント数表示ってjavascriptですか？？？？？ -->
+
 	</table>
 
 	</form>
