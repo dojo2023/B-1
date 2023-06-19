@@ -14,6 +14,8 @@ public class Achievement implements Serializable{
 		this.paymoney = paymoney;
 		this.pointpm = pointpm;
 	}
+
+
 	public int getBbank() {
 		return bbank;
 	}
