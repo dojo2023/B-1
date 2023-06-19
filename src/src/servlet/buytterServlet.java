@@ -45,6 +45,8 @@ public class buytterServlet extends HttpServlet {
 
 		  // buytterDAOのオブジェクト宣言
 		  buytterDAO objDao = new buytterDAO();
+
+//		  List<Buytters> buyeetList= objDao.select(new Buytters(id, user_id, b_comment, b_pic, created_at));
 		  List<Buytters> buyeetList= objDao.select(new Buytters(id, user_id, b_comment, b_pic, created_at));
 
 		  // 並び変えた投稿をリクエストスコープに格納する

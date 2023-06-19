@@ -33,7 +33,7 @@ public class buytterDAO {
 			// ？には↓記述の「setString」が入るよ。
 			// ↓この文の最後に「order by id desc」って書いてて、
 			// これが「idの降順」って意味だよ。
-			String sql = "select * from buytters where id and user_id and b_comment and b_pic and created_at order by id desc";
+			String sql = "select id, user_id, b_comment, b_pic, created_at from buytters order by id desc";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を実行し、結果表を取得する
