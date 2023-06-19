@@ -19,8 +19,11 @@ created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 「IDPWサンプルデータ（ログイン用）」
-INSERT INTO idpws (user_id,user_pw,user_name) VALUES('aa','bb','cc')
-
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('aa','bb','cc');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('海田ふうと','umida0101','yamada');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('低田しんのすけ','hikuda0202','しんちゃん');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('ooguro','ooguro0303','おぐ');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('01020304','123456789','666');
 「ログインは　ID＝aa, PW＝bb,　でログインできます。ユーザ名＝cc, 　です」
 
 
@@ -34,6 +37,13 @@ created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 user_id varchar(20) NOT NULL UNIQUE
 )
+「サンプルデータ」
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('食費','300','aa');
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('交通費','2100','aa');
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('食費','3300','ooguro');
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('ペット費用','3050','ooguro');
+
+
 
 <投稿テーブル>
 CREATE TABLE buytters(
@@ -44,6 +54,10 @@ b_pic varchar(20),
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+「サンプル」
+INSERT INTO idpws (user_id,b_comment,b_pic) VALUES('aa','がんばる','buytter.png');
+
+
 
 <目標テーブル>
 CREATE TABLE goals(
