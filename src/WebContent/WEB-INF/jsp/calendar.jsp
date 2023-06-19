@@ -28,11 +28,7 @@
 </header>
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
 
-
-
-
-<!-- ↓カレンダー画面 -->カレンダー画面さん
- <div class="wrapper">
+<div class="wrapper">
     <!-- xxxx年xx月を表示 -->
     <h1 id="header"></h1>
 
@@ -42,10 +38,10 @@
         <button id="next" onclick="next()"></button>
     </div>
 
-    <!-- カレンダ画面ー -->
+    <!-- カレンダー -->
     <div id="calendar"></div>
 </div>
-<!-- ↑カレンダー画面 -->
+
 <p>目標：<input type="text" name="gwant"></p>
 						<!--欲しいもの↑-->
 
@@ -64,6 +60,6 @@
 <!-- ↑共通部分 -->
 
 
-
+<script type="text/javascript" src="calendar.js"></script>
 </body>
 </html>
