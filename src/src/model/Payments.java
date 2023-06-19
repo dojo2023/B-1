@@ -13,6 +13,7 @@ public class Payments implements Serializable{
 		this.paymoney = paymoney;
 	}
 
+
 	public String getPaycategory() {
 		return paycategory;
 	}
