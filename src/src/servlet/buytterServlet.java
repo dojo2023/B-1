@@ -30,7 +30,7 @@ public class buytterServlet extends HttpServlet {
 
 		// もしもログインしていなかったらloginServlet.javaにリダイレクトする
 			HttpSession session = request.getSession();
-			if (session.getAttribute("userid") == null) {
+			if (session.getAttribute("id") == null) {
 				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
@@ -64,7 +64,7 @@ public class buytterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-			if (session.getAttribute("userid") == null) {
+			if (session.getAttribute("id") == null) {
 				response.sendRedirect("/Ifrit/LoginServlet");
 				return;
 			}
