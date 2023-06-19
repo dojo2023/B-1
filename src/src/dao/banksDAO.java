@@ -24,7 +24,7 @@ public class banksDAO {
 		String sql = "select sum (b_bank) from banks where user_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
-		// SQL文を完成させる
+		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 		pStmt.setString(1, userid);
 
 		// SQL文を実行し、結果表を取得する
