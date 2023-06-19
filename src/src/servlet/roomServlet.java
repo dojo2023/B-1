@@ -1,6 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -69,17 +74,83 @@ public class roomServlet extends HttpServlet {
 		int ggoal = gd.getggoal(userid);
 		int bbank = bd.getbbank(userid);
 
-		 = bbank / ggoal 
+		int gratio = bbank / ggoal 
 
 		//出会って何日目を取り出す
-		goalsDao gd = new goalsDao ();
 
-		String updateat = gd.getupdateat(userid);
+		Timestamp updateat = gd.getupdateat(userid);
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd");
+
+		// 現在日時を取得
+  		Timestamp timestamp = new Timestamp(updateat);
+
+		// Date型へ変換
+  		Date date2 = new Date(timestamp.getTime());
+
+		Date meet = date2 - updateat
 
 		//状態を取り出す
+		healthsDao hd = new healthsDao ();
 
-		//コメントを取り出す
+		int healthpm = hd.gethealthpm(userid);
+
+		String health; 
 		
+		switch (healthpm) {
+			case 0: 
+			health = "健康";
+			break;
+			case 1:
+			health = "高熱";
+			break;
+			case 2:
+			health = "重体";
+			break;
+			case 3:
+			health = "絶命寸前";
+			break;
+		}
+		//コメントを取り出す
+		Random rand = new Randam();
+		int num = rand.nextInt(10) + 100;
+
+		String comment;
+
+		switch (num) {
+			case 0: 
+			num = "今日も一日頑張ろうね！";
+			break;
+			case 1:
+			num = "上手くお金管理できてて偉い！";
+			break;
+			case 2:
+			num = "たまには休憩も必要だね！";
+			break;
+			case 3:
+			num = "ご褒美もたまには必要！";
+			break;
+			case 4: 
+			num = "頑張りすぎないようにね！";
+			break;
+			case 5:
+			num = "たくさんお金を貯めて欲しいものを買おう！";
+			break;
+			case 6:
+			num = "毎日ログインすれば、ポイントも貯まる！";
+			break;
+			case 7:
+			num = "節約した分だけ得した気分になれると思うよ！";
+			break;
+			case 8: 
+			num = "健康第一！";
+			break;
+			case 9:
+			num = "喋る前に飲む。";
+			break;
+
+		}
+
 
 
 		
