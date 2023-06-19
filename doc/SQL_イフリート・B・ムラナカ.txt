@@ -35,28 +35,36 @@ pay_category varchar(20) NOT NULL,
 pay_money int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-user_id varchar(20) NOT NULL UNIQUE
+user_id varchar(20) NOT NULL 
 )
+
+drop table payments
 「サンプルデータ」
-INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('食費','300','aa');
-INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('交通費','2100','aa');
-INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('食費','3300','ooguro');
-INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('ペット費用','3050','ooguro');
+INSERT INTO payments (pay_category,pay_money,user_id) VALUES('食費','300','aa');
+INSERT INTO payments (pay_category,pay_money,user_id) VALUES('交通費','2100','aa');
+INSERT INTO payments (pay_category,pay_money,user_id) VALUES('食費','3300','ooguro');
+INSERT INTO payments (pay_category,pay_money,user_id) VALUES('ペット費用','3050','ooguro');
 
 
 
 <投稿テーブル>
 CREATE TABLE buytters(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-user_id varchar(20) NOT NULL UNIQUE,
+user_id varchar(20) NOT NULL,
 b_comment varchar(20),
 b_pic varchar(20),
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
-「サンプル」
-INSERT INTO idpws (user_id,b_comment,b_pic) VALUES('aa','がんばる','buytter.png');
+「テーブル作成消すとき使ってね」
+drop table buytters
 
+「サンプル」
+INSERT INTO buytters (user_id,b_comment,b_pic) VALUES('aa','がんばる','buytter.png');
+INSERT INTO buytters (user_id,b_comment,b_pic) VALUES('aa','まけるな','buytter2.png');
+INSERT INTO buytters (user_id,b_comment,b_pic) VALUES('aa','おれすげー','buytter3.png');
+INSERT INTO buytters (user_id,b_comment,b_pic) VALUES('ooguro','ブランド最高','buytter4.png');
+INSERT INTO buytters (user_id,b_comment,b_pic) VALUES('ooguro','つかれたねたい','buytter5.png');
 
 
 <目標テーブル>
@@ -72,6 +80,12 @@ c_name varchar(20) NOT NULL,
 user_id varchar(20) NOT NULL UNIQUE,
 g_available int NOT NULL
 )
+「サンプル」
+INSERT INTO goals (g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) VALUES('100000','2022-02-01','グッチのカバン','gutti.png','くちぱぱっち','aa','20000000');
+INSERT INTO goals (g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) VALUES('300000','2023-12-05','コーチのコート','coach.png','こーちぱっち','海田ふうと','90000000');
+INSERT INTO goals (g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) VALUES('400000','2022-11-03','トミーウッドの指輪','tommy.png','とみーっち','ooguro','21000000');
+INSERT INTO goals (g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) VALUES('700000','2022-09-21','Diorのファンデ','dior.png','ディオールっち','低田しんのすけ','53000000');
+INSERT INTO goals (g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) VALUES('900000','2022-08-11','ジルのクリスマスコフレ','gill.png','ジルジルっち','01020304','960000');
 
 <キャラクターステータステーブル>
 CREATE TABLE characters(
@@ -82,7 +96,12 @@ created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 「サンプル」
-INSERT INTO characters (user_id,char_id) values('aa','1')
+INSERT INTO characters (user_id,char_id) values('aa','1');
+INSERT INTO characters (user_id,char_id) values('海田ふうと','2');
+INSERT INTO characters (user_id,char_id) values('低田しんのすけ','3');
+INSERT INTO characters (user_id,char_id) values('ooguro','4');
+INSERT INTO characters (user_id,char_id) values('01020304','5');
+
 
 
 <キャラクターイメージテーブル>
@@ -95,11 +114,16 @@ update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 c_health int NOT NULL
 )
 「サンプル」
-INSERT INTO charpics (char_id,char_pic,c_health) values('1','ham.png','0')
-INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick1.png','1')
-INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick2.png','2\')
-INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick3.png','3')
-
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','ham.png','0');
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick1.png','1');
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick2.png','2');
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick3.png','3');
+「二回目サンプル」
+INSERT INTO charpics (char_id,char_pic,c_health) values('2','tora.png','0');
+INSERT INTO charpics (char_id,char_pic,c_health) values('2','tora1.png','1');
+INSERT INTO charpics (char_id,char_pic,c_health) values('2','tora2.png','2');
+INSERT INTO charpics (char_id,char_pic,c_health) values('2','tora3.png','3');
+INSERT INTO charpics (char_id,char_pic,c_health) values('3','aki.png','0');
 <ナイスバイカウンターテーブル>
 CREATE TABLE nicebuycounts(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -108,24 +132,60 @@ buyte_count int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
-
+「サンプル」
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('1','1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('1','-1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('1','1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('1','1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('1','1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('2','1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('2','-1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('3','1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('3','1');
+INSERT INTO nicebuycounts (buyte_id,buyte_count) values('4','1');
 <ポイントテーブル>
 CREATE TABLE points(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-user_id varchar(20) NOT NULL UNIQUE,
+user_id varchar(20) NOT NULL,
 point_pm int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 
+「テーブル削除」
+drop table points
+「サンプル」
+INSERT INTO points (user_id,point_pm) values('aa','32');
+INSERT INTO points (user_id,point_pm) values('aa','811');
+INSERT INTO points (user_id,point_pm) values('aa','-10');
+INSERT INTO points (user_id,point_pm) values('海田ふうと','232');
+INSERT INTO points (user_id,point_pm) values('海田ふうと','-32');
+INSERT INTO points (user_id,point_pm) values('ooguro','55');
+INSERT INTO points (user_id,point_pm) values('ooguro','332');
+INSERT INTO points (user_id,point_pm) values('ooguro','-100');
+
 <検索履歴テーブル>
 CREATE TABLE historys(
 id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
-user_id varchar(20) NOT NULL UNIQUE,
+user_id varchar(20) NOT NULL,
 s_history varchar(140) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+
+「テーブル削除」
+drop table historys
+「サンプル」
+INSERT INTO historys (user_id,s_history) values('aa','グッチ');
+INSERT INTO historys (user_id,s_history) values('aa','コーチ');
+INSERT INTO historys (user_id,s_history) values('海田ふうと','美女');
+INSERT INTO historys (user_id,s_history) values('ooguro','写真好き');
+INSERT INTO historys (user_id,s_history) values('ooguro','居酒屋');
+INSERT INTO historys (user_id,s_history) values('aa','高田');
+INSERT INTO historys (user_id,s_history) values('aa','山田');
+INSERT INTO historys (user_id,s_history) values('aa','小黒');
+
+
 
 <装飾品イメージテーブル>
 CREATE TABLE itempics(
@@ -139,9 +199,7 @@ item_buy int NOT NULL
 「サンプル」
 INSERT INTO itempics (item_id,item_pic,item_buy) values('1','pika.png','0')
 INSERT INTO itempics (item_id,item_pic,item_buy) values('1','nobuy.png','0')
-DELETE FROM itempics where id = 2
-DELETE FROM itempics where id = 3
-DELETE FROM itempics where id = 4
+
 
 <装飾品ステータステーブル>
 CREATE TABLE items(
@@ -152,24 +210,47 @@ created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 
-drop table items
 「サンプル」
 INSERT INTO items (user_id,item_id) values('aa','1')
 
 <貯金テーブル>
 CREATE TABLE banks(
 id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
-user_id varchar(20) NOT NULL UNIQUE,
+user_id varchar(20) NOT NULL,
 b_bank int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 
+drop table banks;
+「サンプル」
+INSERT INTO banks (user_id,b_bank) values('aa','10000');
+INSERT INTO banks (user_id,b_bank) values('aa','3000');
+INSERT INTO banks (user_id,b_bank) values('aa','-3000');
+INSERT INTO banks (user_id,b_bank) values('aa','310000');
+INSERT INTO banks (user_id,b_bank) values('aa','-10000');
+INSERT INTO banks (user_id,b_bank) values('海田ふうと','120000');
+INSERT INTO banks (user_id,b_bank) values('海田ふうと','-10000');
+
+
 <健康テーブル>
-CREATE TABLE heaths(
+CREATE TABLE healths(
 id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
-user_id varchar(20) NOT NULL UNIQUE,
+user_id varchar(20) NOT NULL,
 health_pm int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+
+drop table healths
+
+「サンプル」
+INSERT INTO healths (user_id,health_pm) values('aa','1');
+INSERT INTO healths (user_id,health_pm) values('aa','1');
+INSERT INTO healths (user_id,health_pm) values('aa','-1');
+INSERT INTO healths (user_id,health_pm) values('aa','1');
+INSERT INTO healths (user_id,health_pm) values('海田ふうと','1');
+INSERT INTO healths (user_id,health_pm) values('海田ふうと','1');
+INSERT INTO healths (user_id,health_pm) values('ooguro','1');
+
+
