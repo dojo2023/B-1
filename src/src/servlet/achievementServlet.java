@@ -35,10 +35,11 @@ public class achievementServlet extends HttpServlet {
 				return;
 			}
 
+			String userid = (String)session.getAttribute("userid");
 
-			// 検索処理を行う
+			// 貯金額を出す
 			banksDAO bnkDAO = new banksDAO();
-			List<Payments> paymentsList = payDAO.list(new Payments(category, payMoney));
+			int banks = bnkDAO.select(userid);
 
 			// 検索処理を行う
 			pointsDAO pDAO = new pointsDAO();
