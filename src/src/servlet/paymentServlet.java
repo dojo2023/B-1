@@ -68,7 +68,7 @@ public class paymentServlet extends HttpServlet {
 
 		// 検索処理を行う
 		paymentsDAO payDAO = new paymentsDAO();
-		List<Payments> paymentsList = payDAO.select(new Payments(paycategory, paymoney));
+		List<Payments> paymentsList = payDAO.list(new Payments(paycategory, paymoney));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("paymentsList", paymentsList);
