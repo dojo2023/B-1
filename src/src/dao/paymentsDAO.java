@@ -12,7 +12,7 @@ import model.Payments;
 
 public class paymentsDAO {
 
-public List<Payments> list() {
+public List<Payments> list(Payments Payments) {
 	Connection conn = null;
 	List<Payments> paymentsList = new ArrayList<Payments>();
 
