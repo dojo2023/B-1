@@ -9,8 +9,8 @@
 
 <!-- ↓共通部分（ｃｓｓとタイトル名は変更してください）-->
 <title>カレンダー|かけいぼっち</title>
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/calendar.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/calendar.css">
 </head>
 <body>
 <header>
@@ -38,11 +38,11 @@
 
     <!-- ボタンクリックで月移動 -->
     <div id="next-prev-button">
-        <button id="prev" onclick="prev()">‹</button>
-        <button id="next" onclick="next()">›</button>
+        <button id="prev" onclick="prev()"></button>
+        <button id="next" onclick="next()"></button>
     </div>
 
-    <!-- カレンダー -->
+    <!-- カレンダ画面ー -->
     <div id="calendar"></div>
 </div>
 <!-- ↑カレンダー画面 -->
