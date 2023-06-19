@@ -49,9 +49,40 @@ public class roomServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
+// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/Ifrit/loginServlet");
+			return;
+		}
+		//セッションスコープにあるuseridを取得
+		String userid = (String)session.getAttribute("userid");
+
+		//キャラクター名を取り出す
+		goalsDao gd = new goalsDao ();
+		
+		String cname = gd.getcname(userid);
+
+		//目標達成度を取り出す
+		banksDao bd = new banksDao ();
+
+		int ggoal = gd.getggoal(userid);
+		int bbank = bd.getbbank(userid);
+
+		 = bbank / ggoal 
+
+		//出会って何日目を取り出す
+		goalsDao gd = new goalsDao ();
+
+		String updateat = gd.getupdateat(userid);
+
+		//状態を取り出す
+
+		//コメントを取り出す
+		
 
 
-
+		
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
