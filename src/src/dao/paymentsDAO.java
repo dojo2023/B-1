@@ -17,7 +17,7 @@ import model.Achievement;
 import model.Ranking;
 import model.ResultGoals;
 import model.Character;
-import model.PictuerBook;
+import model.PictureBook;
 import model.Result;
 import model.DressUp;
 
