@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import dao.idpwsDAO;
 import dao.paymentsDAO;
 import dao.buyttersDAO;
@@ -52,7 +53,7 @@ public class calendarServlet extends HttpServlet {
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/Ifrit/loginServlet");
 				return;
 		}
