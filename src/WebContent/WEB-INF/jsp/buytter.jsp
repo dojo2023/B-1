@@ -20,12 +20,12 @@
 <h1>かけいぼっち</h1>
 <nav class="menu">
 <ul>
-	<li>カレンダー</li>
-	<li>達成状況</li>
-	<li>投稿</li>
-	<li>お部屋</li>
-	<li>ランキング</li>
-	<li>ログアウト</li>
+	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
+	<li><a href="/Ifrit/achievementServlet">達成状況</a></li>
+	<li><a href="/Ifrit/buytterServlet">投稿</a></li>
+	<li><a href="/Ifrit/roomServlet">お部屋</a></li>
+	<li><a href="/Ifrit/rankingServlet">ランキング</a></li>
+	<li><a href="/Ifrit/loginServlet">ログアウト</a></li>
 </ul>
 </nav>
 </header>
@@ -55,7 +55,7 @@
 <!-- ↑６(リロードボタン)おわ↑ -->
 
 <!-- 投稿が無かった時の処理 -->
-<c:if test="${empty buyeetList}">
+<c:if test="${empty buyeetList}" >
 	<p>一致するデータはありません。</p>
 </c:if>
 
@@ -87,10 +87,10 @@
 <table>
 	<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
 	<tr><td>投稿コメント</td></tr>
-	<tr><td><input type="text" name="postComment"></td></tr>
+	<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
 	<tr><td>投稿画像</td></tr>
-	<tr><td>投稿画像を入れるやつ</td></tr>
-	<tr><td><input type="submit" onclick="window.location.reload();" value="バイートする" name="postSubmit"></td></tr>
+	<tr><td><input type="file" name="postPic" accept=".png" alt="画像なし"></td></tr>
+	<tr><td><input type="submit" value="バイートする" name="postSubmit"></td></tr>
 </table>
 
 	</form>
@@ -103,8 +103,8 @@
 
 <table>
 	<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
-	<tr><td><input type="text" name="searchBox"></td>
-		<td><input type ="image" name="searchSubmit" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>
+	<tr><td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
+		<td><input type ="image" name="searchSubmit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>
 	<tr><td><label>最近の検索</label></td></tr>
 	<tr><td><c:forEach var="e" items="${searchHistory}" >
 				<c:out value="${searchHistory}" />

@@ -54,7 +54,7 @@ public class dressServlet extends HttpServlet {
 
 		 	// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
+			if (session.getAttribute("userid") == null) {
 				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
@@ -79,7 +79,7 @@ public class dressServlet extends HttpServlet {
 		doGet(request, response);
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/Ifrit/loginServlet");
 			return;
 		}

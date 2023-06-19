@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +19,12 @@
 <h1>かけいぼっち</h1>
 <nav class="menu">
 <ul>
-	<li>カレンダー</li>
-	<li>達成状況</li>
-	<li>投稿</li>
-	<li>お部屋</li>
-	<li>ランキング</li>
-	<li>ログアウト</li>
+	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
+	<li><a href="/Ifrit/achievementServlet">達成状況</a></li>
+	<li><a href="/Ifrit/buytterServlet">投稿</a></li>
+	<li><a href="/Ifrit/roomServlet">お部屋</a></li>
+	<li><a href="/Ifrit/rankingServlet">ランキング</a></li>
+	<li><a href="/Ifrit/loginServlet">ログアウト</a></li>
 </ul>
 </nav>
 
@@ -56,9 +58,9 @@
 
 <table>
 <tr>
-<td><c:out value="${createdat}"/></td>
-<td><c:out value="${paycategory}"/></td>
-<td><c:out value="${paymoney}"/></td>
+<c:forEach var="e" items="${paymentsList}"></c:forEach>
+<td><c:out value="${e.paycategory}"/><br>
+	<c:out value="${e.paymoney}"/><br></td>
 </tr>
 </table>
 

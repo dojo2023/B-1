@@ -7,21 +7,17 @@ var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 window.onload = function () {
     showProcess(today, calendar);
 };
-
-
 // 前の月表示
 function prev(){
     showDate.setMonth(showDate.getMonth() - 1);
     showProcess(showDate);
 }
 
-
 // 次の月表示
 function next(){
     showDate.setMonth(showDate.getMonth() + 1);
     showProcess(showDate);
 }
-
 
 // カレンダー表示
 function showProcess(date) {
@@ -32,7 +28,6 @@ function showProcess(date) {
     var calendar = createProcess(year, month);
     document.querySelector('#calendar').innerHTML = calendar;
 }
-
 
 // カレンダー作成
 function createProcess(year, month) {
@@ -77,8 +72,3 @@ function createProcess(year, month) {
     }
     return calendar;
 }
-
-
-/**
- *
- */

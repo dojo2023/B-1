@@ -150,3 +150,12 @@ b_bank int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
+
+<健康テーブル>
+CREATE TABLE heaths(
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+health_pm int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)

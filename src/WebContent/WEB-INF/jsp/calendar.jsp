@@ -9,20 +9,20 @@
 
 <!-- ↓共通部分（ｃｓｓとタイトル名は変更してください）-->
 <title>カレンダー|かけいぼっち</title>
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/calendar.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/calendar.css">
 </head>
 <body>
 <header>
 <h1>かけいぼっち</h1>
 <nav class="menu">
 <ul>
-	<li>カレンダー</li>
-	<li>達成状況</li>
-	<li>投稿</li>
-	<li>お部屋</li>
-	<li>ランキング</li>
-	<li>ログアウト</li>
+	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
+	<li><a href="/Ifrit/achievementServlet">達成状況</a></li>
+	<li><a href="/Ifrit/buytterServlet">投稿</a></li>
+	<li><a href="/Ifrit/roomServlet">お部屋</a></li>
+	<li><a href="/Ifrit/rankingServlet">ランキング</a></li>
+	<li><a href="/Ifrit/loginServlet">ログアウト</a></li>
 </ul>
 </nav>
 </header>
@@ -38,11 +38,11 @@
 
     <!-- ボタンクリックで月移動 -->
     <div id="next-prev-button">
-        <button id="prev" onclick="prev()">‹</button>
-        <button id="next" onclick="next()">›</button>
+        <button id="prev" onclick="prev()"></button>
+        <button id="next" onclick="next()"></button>
     </div>
 
-    <!-- カレンダー -->
+    <!-- カレンダ画面ー -->
     <div id="calendar"></div>
 </div>
 <!-- ↑カレンダー画面 -->

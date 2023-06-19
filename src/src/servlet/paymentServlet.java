@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,33 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.idpwsDAO;
 import dao.paymentsDAO;
-import dao.buyttersDAO;
-import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.itemsDAO;
-import dao.banksDAO;
-import model.Idpws;
 import model.Payments;
-import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
-import model.DressUp;
 
 /**
  * Servlet implementation class paymentServlet
@@ -54,7 +30,7 @@ public class paymentServlet extends HttpServlet {
 
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
+			if (session.getAttribute("userid") == null) {
 				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
@@ -78,7 +54,7 @@ public class paymentServlet extends HttpServlet {
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/Ifrit/loginServlet");
 			return;
 		}
@@ -90,12 +66,15 @@ public class paymentServlet extends HttpServlet {
 		String category = request.getParameter("paycategory");
 		String paymoney = request.getParameter("paymoney");
 
-		//Daoで多分処理
-		paymentsDAO payDao = new paymentsDAO(); //インスタンス化したもの
-		if (payDao.inputPay(new Payments(paycategory, paymoney))) {	// ログイン成功
+		int payMoney = Integer.parseInt(paymoney);
 
-		// 支出入力結果をリクエストスコープに格納する
-		request.setAttribute(paymentList,"paymentList" );
+
+		// 検索処理を行う
+		paymentsDAO payDAO = new paymentsDAO();
+		List<Payments> paymentsList = payDAO.list(new Payments(category, payMoney));
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("paymentsList", paymentsList);
 
 		// フォワード
 	    RequestDispatcher dispatcher =
