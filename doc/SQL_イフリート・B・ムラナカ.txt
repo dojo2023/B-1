@@ -1,0 +1,175 @@
+かけいぼっちの情報
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/dojo6Data/B1
+
+【ユーザー名】	【パスワード】
+sa		（なし）
+
+
+<ユーザーテーブル>
+CREATE TABLE idpws(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+user_pw varchar(20) NOT NULL,
+user_name varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+「IDPWサンプルデータ（ログイン用）」
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('aa','bb','cc');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('海田ふうと','umida0101','yamada');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('低田しんのすけ','hikuda0202','しんちゃん');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('ooguro','ooguro0303','おぐ');
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('01020304','123456789','666');
+「ログインは　ID＝aa, PW＝bb,　でログインできます。ユーザ名＝cc, 　です」
+
+
+
+<収支テーブル>
+CREATE TABLE payments(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+pay_category varchar(20) NOT NULL,
+pay_money int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+user_id varchar(20) NOT NULL UNIQUE
+)
+「サンプルデータ」
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('食費','300','aa');
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('交通費','2100','aa');
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('食費','3300','ooguro');
+INSERT INTO idpws (pay_category,pay_money,user_id) VALUES('ペット費用','3050','ooguro');
+
+
+
+<投稿テーブル>
+CREATE TABLE buytters(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+b_comment varchar(20),
+b_pic varchar(20),
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+「サンプル」
+INSERT INTO idpws (user_id,b_comment,b_pic) VALUES('aa','がんばる','buytter.png');
+
+
+
+<目標テーブル>
+CREATE TABLE goals(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+g_goal int NOT NULL,
+g_limit date NOT NULL,
+g_want varchar(140),
+g_wantpic varchar(140),
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+c_name varchar(20) NOT NULL,
+user_id varchar(20) NOT NULL UNIQUE,
+g_available int NOT NULL
+)
+
+<キャラクターステータステーブル>
+CREATE TABLE characters(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+char_id varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+「サンプル」
+INSERT INTO characters (user_id,char_id) values('aa','1')
+
+
+<キャラクターイメージテーブル>
+CREATE TABLE charpics(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+char_id varchar(20) NOT NULL,
+char_pic varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+c_health int NOT NULL
+)
+「サンプル」
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','ham.png','0')
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick1.png','1')
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick2.png','2\')
+INSERT INTO charpics (char_id,char_pic,c_health) values('1','sick3.png','3')
+
+<ナイスバイカウンターテーブル>
+CREATE TABLE nicebuycounts(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+buyte_id int NOT NULL,
+buyte_count int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<ポイントテーブル>
+CREATE TABLE points(
+id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+point_pm int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<検索履歴テーブル>
+CREATE TABLE historys(
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+s_history varchar(140) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<装飾品イメージテーブル>
+CREATE TABLE itempics(
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
+item_id varchar(20) NOT NULL,
+item_pic varchar(140) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+item_buy int NOT NULL
+)
+「サンプル」
+INSERT INTO itempics (item_id,item_pic,item_buy) values('1','pika.png','0')
+INSERT INTO itempics (item_id,item_pic,item_buy) values('1','nobuy.png','0')
+DELETE FROM itempics where id = 2
+DELETE FROM itempics where id = 3
+DELETE FROM itempics where id = 4
+
+<装飾品ステータステーブル>
+CREATE TABLE items(
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+item_id varchar(20) NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+drop table items
+「サンプル」
+INSERT INTO items (user_id,item_id) values('aa','1')
+
+<貯金テーブル>
+CREATE TABLE banks(
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+b_bank int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+<健康テーブル>
+CREATE TABLE heaths(
+id int　NOT NULL PRIMARY KEY AUTO_INCREMENT,
+user_id varchar(20) NOT NULL UNIQUE,
+health_pm int NOT NULL,
+created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
