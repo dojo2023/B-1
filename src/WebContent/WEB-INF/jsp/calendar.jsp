@@ -9,8 +9,8 @@
 
 <!-- ↓共通部分（ｃｓｓとタイトル名は変更してください）-->
 <title>カレンダー|かけいぼっち</title>
-<link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="/css/calendar.css">
+<link rel="stylesheet" href="/Ifrit/css/common.css">
+<link rel="stylesheet" href="/Ifrit/css/calendar.css">
 </head>
 <body>
 <header>
@@ -60,6 +60,6 @@
 <!-- ↑共通部分 -->
 
 
-<script type="text/javascript" src="calendar.js"></script>
+<script src="./js/calendar.js"></script>
 </body>
 </html>
