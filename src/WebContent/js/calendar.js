@@ -1,3 +1,5 @@
+'use strict';
+
 const week = ["日", "月", "火", "水", "木", "金", "土"];
 const today = new Date();
 // 月末だとずれる可能性があるため、1日固定で取得
@@ -72,3 +74,4 @@ function createProcess(year, month) {
     }
     return calendar;
 }
+
