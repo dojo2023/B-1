@@ -66,9 +66,12 @@ public class paymentServlet extends HttpServlet {
 		String category = request.getParameter("paycategory");
 		String paymoney = request.getParameter("paymoney");
 
+		int payMoney = Integer.parseInt(paymoney);
+
+
 		// 検索処理を行う
 		paymentsDAO payDAO = new paymentsDAO();
-		List<Payments> paymentsList = payDAO.list(new Payments(paycategory, paymoney));
+		List<Payments> paymentsList = payDAO.list(new Payments(category, payMoney));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("paymentsList", paymentsList);
