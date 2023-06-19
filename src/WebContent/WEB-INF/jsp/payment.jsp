@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,9 +58,9 @@
 
 <table>
 <tr>
-<td><c:out value="${createdat}"/></td>
-<td><c:out value="${paycategory}"/></td>
-<td><c:out value="${paymoney}"/></td>
+<c:forEach var="e" items="${paymentsList}"></c:forEach>
+<td><c:out value="${e.paycategory}"/><br>
+	<c:out value="${e.paymoney}"/><br></td>
 </tr>
 </table>
 
