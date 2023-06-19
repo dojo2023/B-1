@@ -23,9 +23,7 @@ public class Buytters implements Serializable{
 	// 引数のないコンストラクタも生成
 	public Buytters() {
 		super();
-		this.id = "";
 		this.b_pic = "";
-		this.created_at = "";
 	}
 
 	public String getId() {

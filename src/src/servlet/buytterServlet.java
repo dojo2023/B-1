@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.buytterDAO;
 import model.Buytters;
+import model.Result;
 @WebServlet("/buytterServlet")
 public class buytterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,11 +30,11 @@ public class buytterServlet extends HttpServlet {
 			  throws ServletException, IOException {
 
 		// もしもログインしていなかったらloginServlet.javaにリダイレクトする
-			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/Ifrit/loginServlet");
-				return;
-			}
+			  HttpSession session = request.getSession();
+				if (session.getAttribute("userid") == null) {
+					response.sendRedirect("/Ifrit/loginServlet");
+					return;
+				}
 
 		  // ログイン情報があれば、最終的にbuytter.jspにフォワードしたい
 		  // top画面はTL画面で、最新buyeet順に表示
@@ -48,9 +49,10 @@ public class buytterServlet extends HttpServlet {
 		  request.setAttribute("buyeetList", buyeetList);
 
 		// buytter.jspにフォワードするよ
-//		    RequestDispatcher dispatcher =
+		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
-		            ("/WEB-INF/jsp/buytter.jsp").forward(request, response);
+		            ("/WEB-INF/jsp/buytter.jsp");
+			    dispatcher.forward(request, response);
 		  }
 
 
@@ -62,13 +64,13 @@ public class buytterServlet extends HttpServlet {
 		 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/Ifrit/LoginServlet");
-				return;
-			}
 
+//		// もしもログインしていなかったらloginServlet.javaにリダイレクトする
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("userid") == null) {
+//			response.sendRedirect("/Ifrit/loginServlet");
+//			return;
+//		}
 
 		//セッションスコープにあるuseridを取得
 		String user_id = (String)session.getAttribute("userid");
@@ -77,21 +79,39 @@ public class buytterServlet extends HttpServlet {
 
 
 
-		// バイートボタン押された時の処理
+	// 投稿(バイート)ボタン押された時の処理
 
-			// ??????????????????????
-
+		if (request.getParameter("postSubmit").equals("バイートする")) {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String postComment = request.getParameter("postComment");
-		String postPic = request.getParameter("postPic");
+		String b_comment = request.getParameter("postComment");
+		String b_pic = request.getParameter("postPic");
+
+		// 登録処理を行う
+			buytterDAO objDao = new buytterDAO();
+
+			buytterDao.insert(new buytter(user_id, b_comment, b_pic));
+			request.setAttribute("result",new Result);
 
 
 
-		// 最後は検索ボタン押された時の処理
+//			// 投稿成功
+//			if (buytterDao.insert(new buytter(b_comment, b_pic))) {
+//				request.setAttribute("result",
+//				new Result("投稿成功！", "buyeetを投稿しました。", "/Ifrit/resultServlet"));
+//			}
+//			// 投稿失敗
+//			else {
+//				request.setAttribute("result",
+//				new Result("投稿失敗！", "buyeetを投稿できませんでした。", "/Ifrit/resultServlet"));
+//			}
+//		}
 
-		if (request.getParameter("searchSubmit").equals("バイートする")) {
+
+	// 最後は検索ボタン押された時の処理
+
+		if (request.getParameter("searchSubmit").equals("検索ボタン")) {
 
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
@@ -105,7 +125,7 @@ public class buytterServlet extends HttpServlet {
 			request.setAttribute("buytterList", buytterList);
 		}
 
-		// 処理が終わったらTL画面にフォワードする
+	// 処理が終わったらTL画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/buytter.jsp");
 		dispatcher.forward(request, response);
 	}
