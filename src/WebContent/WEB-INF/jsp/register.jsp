@@ -18,7 +18,7 @@
 </head>
 <body>
 <h2><img src=""></h2>
-<form method="POST" action="/ifrit/registerServlet">
+<form method="POST" action="/Ifrit/registerServlet">
 <table>
 <tr>
 <th>new ID</th>
