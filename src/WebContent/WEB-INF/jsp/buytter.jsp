@@ -36,85 +36,85 @@
 <!-- メインここから -->
 <main>
 <!-- ↓３,４,５(TLと投稿と検索のボタン)↓ -->
-<table>
-	<tr>
-		<td><input type="button" onclick="window.location.reload();" value="TL"></td>
-		<td><input type="button" onclick="(buyeetboxだけを表示)???????????" value="投稿"></td>
-		<td><input type="button" onclick="(searchboxだけを表示)???????????" value="検索"></td>
-	</tr>
-</table>
+  <div class="wrapper">
+  <ul class="tab">
+    <li><a href="#tlbox">TL</a></li>
+    <li><a href="#buyeetbox">投稿</a></li>
+    <li><a href="#searchbox">検索</a></li>
+  </ul>
 <!-- ↑３,４,５(TLと投稿と検索のボタン)おわ↑ -->
 
 <!-- ６～２０はここから -->
 
 <!-- ６～１３(TL画面)はここから -->
-<div class="tlbox">
+<div id="tlbox" class="area">
 
-<!-- ↓６(リロードボタン)↓ -->
-<input type="button" onclick="window.location.reload();" value="リロード" name="tlReload">
-<!-- ↑６(リロードボタン)おわ↑ -->
+	<!-- ↓６(リロードボタン)↓ -->
+	<input type="button" onclick="window.location.reload();" value="リロード" name="tlReload">
+	<!-- ↑６(リロードボタン)おわ↑ -->
 
-<!-- 投稿が無かった時の処理 -->
-<c:if test="${empty buyeetList}" >
-	<p>一致するデータはありません。</p>
-</c:if>
+	<!-- 投稿が無かった時の処理 -->
+	<c:if test="${empty buyeetList}" >
+		<p>一致するデータはありません。</p>
+	</c:if>
 
-<!-- ↓７～１２(投稿の繰り返し構文)↓ -->
-<c:forEach var="e" items="${buyeetList}" >
-	<form method="POST" action="/Ifrit/buytterServlet">
+	<!-- ↓７～１２(投稿の繰り返し構文)↓ -->
+	<c:forEach var="e" items="${buyeetList}" >
+		<form method="POST" action="/Ifrit/buytterServlet">
 
-	<table>
-		<tr><td><label><c:out value="${e.user_id}" /></label></td><td><label><c:out value="${e.created_at}" /></label></td></tr>
-		<tr><td><label><c:out value="${e.b_comment}" /></label></td></tr>
-		<tr><td><label><c:out value="${e.b_pic}" /></label></td></tr>
-		<!-- <tr><td><label><img src="./upload/${e.b_pic}"></label></td></tr> -->
-		<tr><td><input type="checkbox" name="tlStump" value="nice buy!!"></td>
-			<td><c:out value="${tlStumpNumber}" /></td></tr>
+		<table>
+			<tr><td><label><c:out value="${e.user_id}" /></label></td><td><label><c:out value="${e.created_at}" /></label></td></tr>
+			<tr><td><label><c:out value="${e.b_comment}" /></label></td></tr>
+			<tr><td><label><c:out value="${e.b_pic}" /></label></td></tr>
+			<!-- <tr><td><label><img src="./upload/${e.b_pic}"></label></td></tr> -->
+			<tr><td><input type="checkbox" name="tlStump" value="nice buy!!"></td>
+				<td><c:out value="${tlStumpNumber}" /></td></tr>
 
-		<!-- nice buyのカウント数表示ってjavascriptですか？？？？？ -->
+			<!-- nice buyのカウント数表示ってjavascriptですか？？？？？ -->
 
-	</table>
+		</table>
 
-	</form>
-</c:forEach>
-<!-- ↑７～１２(投稿の繰り返し構文)おわ↑ -->
-
-</div>
+		</form>
+	</c:forEach>
+	<!-- ↑７～１２(投稿の繰り返し構文)おわ↑ -->
+<!-- tlbox --></div>
 
 <!-- ↓１４～１７(投稿画面)↓ -->
-<div class="buyeetbox">
-	<form method="POST" action="/Ifrit/buytterServlet">
+<div id="buyeetbox" class="area">
+		<form method="POST" action="/Ifrit/buytterServlet">
 
-<table>
-	<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
-	<tr><td>投稿コメント</td></tr>
-	<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
-	<tr><td>投稿画像</td></tr>
-	<tr><td><input type="file" name="postPic" accept=".png" alt="画像なし"></td></tr>
-	<tr><td><input type="submit" value="バイートする" name="postSubmit"></td></tr>
-</table>
+	<table>
+		<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
+		<tr><td>投稿コメント</td></tr>
+		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
+		<tr><td>投稿画像</td></tr>
+		<tr><td><input type="file" name="postPic" accept=".png" alt="画像なし"></td></tr>
+		<tr><td><input type="submit" value="バイートする" name="postSubmit"></td></tr>
+	</table>
 
-	</form>
-</div>
+		</form>
+<!-- buyeetbox --></div>
 <!-- ↑１４～１７(投稿画面)おわ↑ -->
 
 <!-- ↓１４，１８～２０(検索画面)↓ -->
-<div class="searchbox">
-	<form method="POST" action="/Ifrit/buytterServlet">
+<div id="searchbox" class="area">
+		<form method="POST" action="/Ifrit/buytterServlet">
 
-<table>
-	<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
-	<tr><td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
-		<td><input type ="submit" name="searchSubmit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>
-	<tr><td><label>最近の検索</label></td></tr>
-	<tr><td><c:forEach var="e" items="${searchHistory}" >
-				<c:out value="${searchHistory}" />
-			</c:forEach></td></tr>
-</table>
+	<table>
+		<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
+		<tr><td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
+			<td><input type ="submit" name="searchSubmit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>
+		<tr><td><label>最近の検索</label></td></tr>
+		<tr><td><c:forEach var="e" items="${searchHistory}" >
+					<c:out value="${searchHistory}" />
+				</c:forEach></td></tr>
+	</table>
 
-	</form>
-</div>
+		</form>
+<!-- searchbox --></div>
 <!-- ↑１４，１８～２０(検索画面)おわ↑ -->
+
+<!--wrapper--></div>
 
 <!-- ６～２０ここまで -->
 </main>
@@ -124,5 +124,10 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 ここまで -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="./js/buytter.js"></script>
 </body>
 </html>
