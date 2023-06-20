@@ -122,41 +122,41 @@ public class roomServlet extends HttpServlet {
 			break;
 		}
 		//コメントを取り出す
-		Random rand = new Randam();
+		Random rand = new Random();
 		int num = rand.nextInt(10) + 100;
 
 		String comment;
 
 		switch (num) {
 			case 0: 
-			String = "今日も一日頑張ろうね！";
+			comment = "今日も一日頑張ろうね！";
 			break;
 			case 1:
-			String = "上手くお金管理できてて偉い！";
+			comment = "上手くお金管理できてて偉い！";
 			break;
 			case 2:
-			String = "たまには休憩も必要だね！";
+			comment = "たまには休憩も必要だね！";
 			break;
 			case 3:
-			String = "ご褒美もたまには必要！";
+			comment = "ご褒美もたまには必要！";
 			break;
 			case 4: 
-			String = "頑張りすぎないようにね！";
+			comment = "頑張りすぎないようにね！";
 			break;
 			case 5:
-			String = "たくさんお金を貯めて欲しいものを買おう！";
+			comment = "たくさんお金を貯めて欲しいものを買おう！";
 			break;
 			case 6:
-			String = "毎日ログインすれば、ポイントも貯まる！";
+			comment = "毎日ログインすれば、ポイントも貯まる！";
 			break;
 			case 7:
-			String = "節約した分だけ得した気分になれると思うよ！";
+			comment = "節約した分だけ得した気分になれると思うよ！";
 			break;
 			case 8: 
-			String = "健康第一！";
+			comment = "健康第一！";
 			break;
 			case 9:
-			String = "喋る前に飲む。";
+			comment = "喋る前に飲む。";
 			break;
 
 		}
