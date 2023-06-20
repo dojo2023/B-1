@@ -11,32 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buyttersDAO;
-import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.itemsDAO;
-import dao.banksDAO;
 import model.Idpws;
-import model.Payments;
-import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
-import model.DressUp;
 /**
  * Servlet implementation class loginServlet
  */
@@ -74,8 +49,8 @@ public class loginServlet extends HttpServlet {
 
 				// セッションスコープにuseridを格納する
 				HttpSession session = request.getSession();
-				session.setAttribute("userid",new LoginUser(userid));
-
+//				session.setAttribute("userid",new LoginUser(userid));
+				session.setAttribute("userid",userid);
 
 					// カレンダーサーブレットにリダイレクトする
 					response.sendRedirect("/Ifrit/calendarServlet");
