@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import dao.idpwsDAO;
 import dao.paymentsDAO;
 import dao.buyttersDAO;
@@ -128,34 +129,34 @@ public class roomServlet extends HttpServlet {
 
 		switch (num) {
 			case 0: 
-			num = "今日も一日頑張ろうね！";
+			String = "今日も一日頑張ろうね！";
 			break;
 			case 1:
-			num = "上手くお金管理できてて偉い！";
+			String = "上手くお金管理できてて偉い！";
 			break;
 			case 2:
-			num = "たまには休憩も必要だね！";
+			String = "たまには休憩も必要だね！";
 			break;
 			case 3:
-			num = "ご褒美もたまには必要！";
+			String = "ご褒美もたまには必要！";
 			break;
 			case 4: 
-			num = "頑張りすぎないようにね！";
+			String = "頑張りすぎないようにね！";
 			break;
 			case 5:
-			num = "たくさんお金を貯めて欲しいものを買おう！";
+			String = "たくさんお金を貯めて欲しいものを買おう！";
 			break;
 			case 6:
-			num = "毎日ログインすれば、ポイントも貯まる！";
+			String = "毎日ログインすれば、ポイントも貯まる！";
 			break;
 			case 7:
-			num = "節約した分だけ得した気分になれると思うよ！";
+			String = "節約した分だけ得した気分になれると思うよ！";
 			break;
 			case 8: 
-			num = "健康第一！";
+			String = "健康第一！";
 			break;
 			case 9:
-			num = "喋る前に飲む。";
+			String = "喋る前に飲む。";
 			break;
 
 		}
