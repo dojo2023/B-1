@@ -83,7 +83,7 @@
 
 <!-- ↓１４～１７(投稿画面)↓ -->
 <div class="buyeetbox">
-	<form method="POST" action="/buytterServlet">
+	<form method="POST" action="/Ifrit/buytterServlet">
 
 <table>
 	<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
@@ -100,12 +100,12 @@
 
 <!-- ↓１４，１８～２０(検索画面)↓ -->
 <div class="searchbox">
-	<form method="POST" action="/buytterServlet">
+	<form method="POST" action="/Ifrit/buytterServlet">
 
 <table>
 	<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
 	<tr><td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
-		<td><input type ="image" name="searchSubmit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>
+		<td><input type ="submit" name="searchSubmit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>
 	<tr><td><label>最近の検索</label></td></tr>
 	<tr><td><c:forEach var="e" items="${searchHistory}" >
 				<c:out value="${searchHistory}" />

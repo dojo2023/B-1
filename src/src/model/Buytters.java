@@ -20,11 +20,15 @@ public class Buytters implements Serializable{
 		this.created_at = created_at;
 	}
 
-//	// 引数のないコンストラクタも生成
-//	public Buytters() {
-//		super();
-//		this.b_pic = "";
-//	}
+	// 引数のないコンストラクタも生成
+	public Buytters(String b_comment) {
+		super();
+		this.id = "";
+		this.user_id = "";
+		this.b_comment = b_comment;
+		this.b_pic = "";
+		this.created_at = "";
+	}
 
 
 	public String getId() {
