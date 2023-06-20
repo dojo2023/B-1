@@ -75,7 +75,7 @@ public class roomServlet extends HttpServlet {
 		int ggoal = gd.getggoal(userid);
 		int bbank = bd.getbbank(userid);
 
-		int gratio = bbank / ggoal 
+		int gratio = bbank / ggoal;
 
 
 
@@ -94,7 +94,7 @@ public class roomServlet extends HttpServlet {
 		// Date型へ変換
   		Date date2 = new Date(timestamp.getTime());
 
-		Date meet = date2 - updateat
+		Date meet = date2 - updateat;
 
 
 
