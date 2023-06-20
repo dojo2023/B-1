@@ -60,49 +60,59 @@ public class buytterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// もしもログインしていなかったらloginServlet.javaにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("userid") == null) {
-			response.sendRedirect("/Ifrit/loginServlet");
-			return;
-		}
-
+//		// もしもログインしていなかったらloginServlet.javaにリダイレクトする
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("userid") == null) {
+//			response.sendRedirect("/Ifrit/loginServlet");
+//			return;
+//		}
 		// requestでもらった値をUTF-8に変換してるよ
-		request.setCharacterEncoding("UTF-8");
-
-//		//セッションスコープにあるuseridを取得
-//		String user_id = (String)session.getAttribute("userid");
-//
-
-
+			request.setCharacterEncoding("UTF-8");
 
 	// 投稿(バイート)ボタン押された時の処理
 
-		if (request.getParameter("postSubmit").equals("バイートする")) {
+			if (request.getParameter("Submit").equals("バイートする")) {
 
-			// リクエストパラメータを取得する
-			String b_comment = request.getParameter("postComment");
-			String b_pic = request.getParameter("postPic");
+				// リクエストパラメータを取得する
+				String b_comment = request.getParameter("postComment");
+				String b_pic = request.getParameter("postPic");
 
-			//セッションスコープにあるuseridを取得
-			String user_id = (String)session.getAttribute("userid");
+				//セッションスコープにあるuseridを取得
+				HttpSession session = request.getSession();
+				String user_id=(String)session.getAttribute("userid");
+
+				// 今まで書いてたやつ
+//				String user_id = session.getAttribute("userid").toString();
+
+				// 今までの書き方で取得する書き方
+//				LoginUser user_id_login = (LoginUser) session.getAttribute("userid");
+//				String user_id=user_id_login.getId();
 
 			// 登録処理を行う
 			// buytterDAOのオブジェクト宣言
 			buytterDAO objDao = new buytterDAO();
-			List<Buytters> buyeetList = objDao.insert(new Buytters(user_id, b_comment, b_pic));
+			if(objDao.insert(new Buytters(user_id, b_comment, b_pic))) {
+				System.out.println("成功");
+			}
+			else {
+				System.out.println("失敗");
+			}
 
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("buyeetList", buyeetList);
+			// TL画面と同じ処理
+			// buytterDAOのオブジェクト宣言
+			  objDao = new buytterDAO();
 
-//			// スコープのuser_idをSQL文でInsertしたいけどできない！！
-//			objDao.insert(new Buytters(user_id, b_comment, b_pic));
-//			request.setAttribute("Buytters",new Buytters);
+			  List<Buytters> buyeetList= objDao.select();
 
-		}
+			  // 並び変えた投稿をリクエストスコープに格納する
+			  request.setAttribute("buyeetList", buyeetList);
+			}
 
-	// 最後は検索ボタン押された時の処理
-		if (request.getParameter("searchSubmit").equals("検索ボタン")) {
+	// 検索ボタン押された時の処理
+
+			// requestでもらった値をUTF-8に変換してるよ
+			request.setCharacterEncoding("UTF-8");
+			if (request.getParameter("Submit").equals("検索ボタン")) {
 
 			// リクエストパラメータを取得する
 			String b_comment = request.getParameter("searchBox");
@@ -115,7 +125,9 @@ public class buytterServlet extends HttpServlet {
 			request.setAttribute("buyeetList", buyeetList);
 		}
 
-		// まずはnice buyボタン押された時の処理
+		// nice buyボタン押された時の処理
+
+
 
 		// 処理が終わったらTL画面にフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/buytter.jsp");
