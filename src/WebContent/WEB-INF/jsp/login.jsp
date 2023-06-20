@@ -40,7 +40,7 @@ ID<br>
 
 <p>チュートリアル動画</p>
 <!-- 動画 -->
-<video controls src="video/ifrit.mp4"></video>
+<video controls src="image/video/dog.MOV"></video>
 
 <!-- 共通部分 ここから -->
 <footer>
