@@ -60,10 +60,35 @@ public class resultGoalsServlet extends HttpServlet {
 		String userid = (String)session.getAttribute("userid");
 
 			//目標達成、失敗　テキストを取り出す
-			
-			//目標達成、失敗　キャラ画像を取り出す
-			
+			banksDao bd = new banksDao ();
 
+			int ggoal = gd.getggoal(userid);
+			int bbank = bd.getbbank(userid);
+
+			int gratio = bbank / ggoal 
+
+			String result;
+
+			if(gratio = 100){
+				String result ="目標達成"
+			}
+			else{
+				String result ="目標失敗"
+			}
+			//目標達成、失敗　キャラ画像を取り出す
+			banksDao bd = new banksDao ();
+
+			int ggoal = gd.getggoal(userid);
+			int bbank = bd.getbbank(userid);
+
+			int gratio = bbank / ggoal 
+
+			if(gratio = 100){
+				=""
+			}
+			else{
+				=""
+			}
 
 
 		    // フォワード
