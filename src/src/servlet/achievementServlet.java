@@ -9,12 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import dao.banksDAO;
-import dao.goalsDAO;
-import dao.paymentsDAO;
-import dao.pointsDAO;
-import model.Achievement;
 /**
  * Servlet implementation class achievementServlet
  */
@@ -35,6 +29,8 @@ public class achievementServlet extends HttpServlet {
 				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
+
+			/*
 
 			String userid = (String)session.getAttribute("userid");
 
@@ -60,7 +56,7 @@ public class achievementServlet extends HttpServlet {
 
 			request.setAttribute("acv",
 			new Achievement(banks,goals,paymoney, points ));
-
+*/
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
