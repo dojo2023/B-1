@@ -27,8 +27,8 @@
 </nav>
 </header>
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
-
-<div class="wrapper">
+  <div class="area">
+<div class="wrapper" >
     <!-- xxxx年xx月を表示 -->
     <h1 id="header"></h1>
 
@@ -36,12 +36,13 @@
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">◀</button>
         <button id="next" onclick="next()">▶</button>
-    </div>
+    </div><!-- next-prev-button -->
 
     <!-- カレンダー -->
     <div id="calendar"></div>
-</div>
 
+
+<div id="under"> <!-- カレンダー下のテーブル -->
 <table>
 <tr>
  	<td>目標:欲しいもの</td><td>残り日数</td>
@@ -58,7 +59,9 @@
  	<td>現在の貯金額</td><td>目標金額</td>
  </tr>
 </table>
-
+</div><!-- under -->
+</div><!-- wrapper -->
+</div><!-- area -->
 
 <!-- 背景の真ん中にキャラクターを表示する -->
 

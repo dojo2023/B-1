@@ -82,3 +82,22 @@ td:hover{
     float: right;
 }
 
+/* カレンダー下部分 */
+
+#under {
+	max-width: 600px; /* カレンダーに合わせているだけ */
+	margin: auto; /* 中央寄せ */
+    text-align:center;
+}
+
+#under td,th {
+	 color: #000; /* テキスト色 */
+}
+
+.area {
+  max-width: 900px;
+  background: #fff;
+  padding:50px 20px;
+  	margin: auto; /* 中央寄せ */
+    text-align:center;
+}
