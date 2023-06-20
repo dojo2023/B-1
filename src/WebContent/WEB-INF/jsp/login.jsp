@@ -40,7 +40,8 @@ ID<br>
 
 <p>チュートリアル動画</p>
 <!-- 動画 -->
-<video controls src="image/video/dog.MOV"></video>
+<video controls>
+<source src="/img/video/dog.mp4" type="video/mp4"></video>
 
 <!-- 共通部分 ここから -->
 <footer>
