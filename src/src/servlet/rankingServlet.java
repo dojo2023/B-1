@@ -11,33 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buyttersDAO;
-import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.itemsDAO;
-import dao.banksDAO;
-import model.Idpws;
-import model.Payments;
-import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
 import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
-import model.DressUp;
 
 /**
  * Servlet implementation class rankingServlet
@@ -49,44 +23,45 @@ public class rankingServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	  protected void doGet(HttpServletRequest request,
-		      HttpServletResponse response)
-		      throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response)
+			throws ServletException, IOException {
 
-		  //ログインせずに直接来たら、ログイン画面に戻す処理
-		  //↓HttpSessionはここで使ったら37行目のとこでは使わないでね！
-		  HttpSession session = request.getSession();
-			if (session.getAttribute("userid") == null) {
-				response.sendRedirect("/Ifrit/loginServlet");
-				return;
-			}
-			//セッションスコープにあるuseridを取得
-			String userid = (String)session.getAttribute("userid");
+		//ログインせずに直接来たら、ログイン画面に戻す処理
+		//↓HttpSessionはここで使ったら37行目のとこでは使わないでね！
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/Ifrit/loginServlet");
+			return;
+		}
+		//セッションスコープにあるuseridを取得
+		String userid = (String) session.getAttribute("userid");
 
-		  //ユーザ名取り出す
-		  idpwsDao ipd = new idpwsDao();
-		  //ポイントを取り出す。
-		  pointsDao pd = new pointsDao();
-		  //画像を取り出すためのきゃらIDの取得
-		  charactersDao crd = new charactersDao();
-		  //画像を取り出す。
-		  charpicsDao cd = new charpicsDao();
-		  //rankListに格納するために、ポイントをSUMして降順でuseridをTOP５まで取り出して
-		  //そのuseridをもとに、ユーザ名、キャラID取得してキャラ画像を取得。リストに格納。
-		  List<Ranking> rankList = pd.rankList();
+		//ポイント上位の５人のuseridとポイントをとりだす。
+		pointsDao pd = new pointsDao();
+		List<Ranking> rankList = pd.rankList();
+		//while分で（next）がtrueのときに降順で取り出したuseridをもとに下記の項目を取り出す。
+		//ユーザ名取り出す
+		idpwsDao ipd = new idpwsDao();
+		//ポイントを取り出す。
+		pointsDao pd = new pointsDao();
+		//画像を取り出す。
+		charpicsDao cd = new charpicsDao();
+		//rankListに格納するために、ポイントをSUMして降順でuseridをTOP５まで取り出して
+		//そのuseridをもとに、ユーザ名、キャラID取得してキャラ画像を取得。リストに格納。
 
-		  request.setAttribute("rankList",rankList);
-		    // フォワード
-		    RequestDispatcher dispatcher =
-		        request.getRequestDispatcher
-		            ("/WEB-INF/jsp/ranking.jsp");
-		    dispatcher.forward(request, response);
-		  }
+
+		request.setAttribute("rankList", rankList);
+		// フォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ranking.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
