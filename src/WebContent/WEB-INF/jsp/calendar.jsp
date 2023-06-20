@@ -42,17 +42,7 @@
     <div id="calendar"></div>
 </div>
 
-<table>
-<tr>
- 	<td>目標:<c:out value="${gwant}" /> <c:out value="${g_limit }" /></td>
- </tr>
-</table>
-			<!--欲しいもの↑-->			<!--残り日数(g_limit - 今日)↑-->
-<table>
-<tr>
- 	<td><c:out value="${gwant}" /><!--<img src="/${}">-->
- </tr>
-</table>
+
 
 
 
