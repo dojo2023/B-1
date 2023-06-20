@@ -34,7 +34,18 @@ public class paymentServlet extends HttpServlet {
 				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
+			System.out.print("37");
+			//セッションスコープにあるuseridを取得
+			String userid = (String)session.getAttribute("userid");
+			System.out.print(userid);
+			//取得したリンクから、年月日を取得し、それをもとにDBから探す。
 
+			//検索処理
+			paymentsDAO payDAO = new paymentsDAO();
+			List<Payments> paymentsList = payDAO.search(userid);
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("paymentsList", paymentsList);
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
@@ -52,13 +63,9 @@ public class paymentServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("userid") == null) {
-			response.sendRedirect("/Ifrit/loginServlet");
-			return;
-		}
-
+		//セッションスコープにあるuseridを取得
+		String userid = (String)session.getAttribute("userid");
 
 
 		// リクエストパラメータを取得する
@@ -71,10 +78,13 @@ public class paymentServlet extends HttpServlet {
 
 		// 検索処理を行う
 		paymentsDAO payDAO = new paymentsDAO();
-		List<Payments> paymentsList = payDAO.select(new Payments(category, payMoney));
+		boolean check = payDAO.insert(new Payments(category, payMoney),userid);
 
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("paymentsList", paymentsList);
+		if(check) {
+			System.out.println("成功");
+		}else {
+			System.out.println("失敗");
+		}
 
 		// フォワード
 	    RequestDispatcher dispatcher =
