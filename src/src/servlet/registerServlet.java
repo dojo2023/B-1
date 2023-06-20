@@ -10,32 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buyttersDAO;
-import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.itemsDAO;
-import dao.banksDAO;
 import model.Idpws;
-import model.Payments;
 import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
-import model.DressUp;
 
 /**
  * Servlet implementation class registerServlet
@@ -67,21 +43,24 @@ public class registerServlet extends HttpServlet {
 				String userid = request.getParameter("userid");
 				String userpw = request.getParameter("userpw");
 				String username = request.getParameter("username");
-
+				System.out.println("げっとぱらめーた");
 				idpwsDAO iDao = new idpwsDAO();
 
 				if (iDao.register(new Idpws(userid,userpw,username))) {	// 登録成功
 					request.setAttribute("result",
-					new Result("登録成功！", "/simpleBC/LoginServlet"));
+					new Result("登録成功！", "/Ifrit/loginServlet"));
+					System.out.println("登録成功");
 				}
 				else{												// 登録失敗
 					request.setAttribute("result",
-					new Result("登録失敗！", "/simpleBC/LoginServlet"));
-
+					new Result("登録失敗！", "/Ifrit/loginServlet"));
+					System.out.println("登録失敗");
+				}
 				// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 				dispatcher.forward(request, response);
-			}
+				System.out.println("ふぉわーど");
+
 	}
 
 }
