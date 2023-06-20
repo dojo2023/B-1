@@ -80,93 +80,80 @@ public class buytterDAO {
 	}
 
 
-//// 次は投稿の処理！
+// 次は投稿の処理！
 		// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-		public List<Buytters> insert(Buytters param) {
+		public boolean insert(Buytters param) {
 			Connection conn = null;
+	System.out.println("dao87さん");
 
-			// 配列宣言
-			List<Buytters> buyeetList = new ArrayList<Buytters>();
+//			// 変数「result」の宣言、falseの代入
+			boolean result = false;
 
-		try {
-			// JDBCドライバを読み込む
-			Class.forName("org.h2.Driver");
+	System.out.println("dao92さん");
 
-			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1","sa","");
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
 
-			// SQL文を準備する
-			String sql = "insert into Buytters (user_id, b_comment, b_pic) VALUES (?, ?, ?)";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1","sa","");
 
-			// SQL文を完成させる
-			if (param.getUser_id() != null && !param.getUser_id().equals("")) {
-				pStmt.setString(1, param.getUser_id());
-			}
-			else {
-				pStmt.setString(1, null);
-			}
-			if (param.getB_comment() != null && !param.getB_comment().equals("")) {
-				pStmt.setString(2, param.getB_comment());
-			}
-			else {
-				pStmt.setString(2, "");
-			}
-			if (param.getB_pic() != null && !param.getB_pic().equals("")) {
-				pStmt.setString(3, param.getB_pic());
-			}
-			else {
-				pStmt.setString(3, "");
-			}
-//
-//			// SQL文を実行する
-			pStmt.executeQuery();
-//
-			// ↑TL画面表示のコピペ
-			String sql2 = "select id, user_id, b_comment, b_pic, created_at from buytters order by id desc";
-			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+				// SQL文を準備する
+				String sql = "insert into buytters (user_id, b_comment, b_pic) VALUES (?, ?, ?); ";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+	System.out.println("dao104さん");
 
-		// SQL文を実行し、結果表を取得する
-			ResultSet rs = pStmt2.executeQuery();
-
-		// 結果表をコレクションにコピーする
-			// コレクションは可変長配列のやつの事だよ。
-			while (rs.next()) {
-				Buytters card = new Buytters(
-				rs.getString("id"),
-				rs.getString("user_id"),
-				rs.getString("b_comment"),
-				rs.getString("b_pic"),
-				rs.getString("created_at")
-				);
-				buyeetList.add(card);
-			}
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-			buyeetList = null;
-		}
-		catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			buyeetList = null;
-		}
-		finally {
-
-		// データベースを切断
-			if (conn != null) {
-				try {
-					conn.close();
+				// SQL文を完成させる
+				if (param.getUser_id() != null && !param.getUser_id().equals("")) {
+					pStmt.setString(1, param.getUser_id());
 				}
-				catch (SQLException e) {
-					e.printStackTrace();
-					buyeetList = null;
+				else {
+					pStmt.setString(1, null);
+				}
+				if (param.getB_comment() != null && !param.getB_comment().equals("")) {
+					pStmt.setString(2, param.getB_comment());
+				}
+				else {
+					pStmt.setString(2, "");
+				}
+				if (param.getB_pic() != null && !param.getB_pic().equals("")) {
+					pStmt.setString(3, param.getB_pic());
+				}
+				else {
+					pStmt.setString(3, "");
+				}
+	System.out.println("dao125さん");
+
+				// SQL文を実行し、結果表を取得する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+	System.out.println("dao131さん");
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
+			finally {
+
+			// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
 				}
 			}
-		}
 
 		// 結果を返す
 			// 結果とはさっき作った可変長配列の結果表の事だよ。
-			return buyeetList;
+			return result;
 	}
 
 
