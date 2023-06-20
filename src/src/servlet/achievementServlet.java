@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.banksDAO;
-import dao.pointsDAO;
-import model.Payments;
 /**
  * Servlet implementation class achievementServlet
  */
@@ -42,8 +39,8 @@ public class achievementServlet extends HttpServlet {
 			int banks = bnkDAO.select(userid);
 
 			// 検索処理を行う
-			pointsDAO pDAO = new pointsDAO();
-			List<Payments> paymentsList = payDAO.list(new Payments(category, payMoney));
+//			pointsDAO pDAO = new pointsDAO();
+	//		List<Payments> paymentsList = payDAO.list(new Payments(category, payMoney));
 
 
 		    // フォワード
