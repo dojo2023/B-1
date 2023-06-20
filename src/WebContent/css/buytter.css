@@ -73,21 +73,27 @@ a{
   border-bottom: 1px solid #ddd;
 }
 
+#tlbox {
+	height: 300px;
+	overflow: auto;
+}
+
+
 .TL {
 	border: 2px solid #000;
 	width: 750px;                /* 横幅指定 */
-	height: 300px;               /* 横幅指定 */
-	overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+	height: 250px;               /* 横幅指定 */
+
 }
 
 .buyeet {
 	border: 2px solid #000;
 	width: 750px;                /* 横幅指定 */
-	height: 300px;               /* 横幅指定 */
+	height: 250px;               /* 横幅指定 */
 }
 
 .search {
 	border: 2px solid #000;
 	width: 750px;                /* 横幅指定 */
-	height: 300px;               /* 横幅指定 */
+	height: 250px;               /* 横幅指定 */
 }
