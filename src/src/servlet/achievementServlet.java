@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.banksDAO;
+import dao.goalsDAO;
+import dao.paymentsDAO;
+import dao.pointsDAO;
 /**
  * Servlet implementation class achievementServlet
  */
@@ -38,9 +41,17 @@ public class achievementServlet extends HttpServlet {
 			banksDAO bnkDAO = new banksDAO();
 			int banks = bnkDAO.select(userid);
 
-			// 検索処理を行う
-//			pointsDAO pDAO = new pointsDAO();
-	//		List<Payments> paymentsList = payDAO.list(new Payments(category, payMoney));
+			// 目標貯金額を出す
+			goalsDAO gDAO = new goalsDAO();
+			int goals = gDAO.select(userid);
+
+			// 支出合計を出す
+			paymentsDAO payDAO = new paymentsDAO();
+			int paymoney = payDAO.select(userid);
+
+			// ポイント数を出す
+			pointsDAO pDAO = new pointsDAO();
+			int points = pDAO.select(userid);
 
 
 		    // フォワード

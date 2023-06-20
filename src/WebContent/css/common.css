@@ -1,1 +1,16 @@
 @charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+html {
+	font-family: 'DotGothic16', sans-serif;
+}
+
+body {
+	/* 全体を真ん中に寄せる */
+    width: 100%;
+    max-width: 1280px;
+    text-align: center;
+
+    background-color: #FFDBED;
+}
