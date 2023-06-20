@@ -49,6 +49,23 @@ public class resultGoalsServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
+// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/Ifrit/loginServlet");
+			return;
+		}
+
+		//セッションスコープにあるuseridを取得
+		String userid = (String)session.getAttribute("userid");
+
+			//目標達成、失敗　テキストを取り出す
+			
+			//目標達成、失敗　キャラ画像を取り出す
+			
+
+
+
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
