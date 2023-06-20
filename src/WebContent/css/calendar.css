@@ -19,7 +19,7 @@
     width: 100%;
 }
 table {
-    outline: 2px solid #ddd;
+    outline: 2px solid #000;
     border-collapse: collapse;
     width: 100%;
 }
@@ -27,10 +27,12 @@ th {
     color: #000;
 }
 th, td {
-    outline: 1px solid #ddd;
+    outline: 1px solid #000;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
+    /* ポインター合わせるだけで反応はなし */
+    cursor: pointer;
 }
 /*日曜日*/
 td:first-child {
@@ -50,23 +52,28 @@ td.today {
     color: #fff;
 }
 
+td:hover{
+    background-color: #FFDBED;
+    border-color: #000;
+}
+
 /*ボタン*/
 #next-prev-button {
     position: relative;
 }
 #next-prev-button button{
     cursor: pointer;
-    background: #B78D4A;
-    color: #fff;
-    border: 1px solid #B78D4A;
-    border-radius: 4px;
+    color: #000;
+	background-color:transparent;
+		 border: 2px solid #000;
+    border-radius: 10px;
     font-size: 1rem;
     padding: 0.5rem 2rem;
     margin: 1rem 0;
 }
 #next-prev-button button:hover{
-    background-color: #D4BB92;
-    border-color: #D4BB92;
+    background-color: #FFDBED;
+    border-color: #000;
 }
 #prev {
     float: left;

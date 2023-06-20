@@ -34,8 +34,8 @@
 
     <!-- ボタンクリックで月移動 -->
     <div id="next-prev-button">
-        <button id="prev" onclick="prev()"></button>
-        <button id="next" onclick="next()"></button>
+        <button id="prev" onclick="prev()">◀</button>
+        <button id="next" onclick="next()">▶</button>
     </div>
 
     <!-- カレンダー -->

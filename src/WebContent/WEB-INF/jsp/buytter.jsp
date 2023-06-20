@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>投稿画面|かけいぼっち</title>
-
+<link rel="stylesheet" href="/Ifrit/css/common.css">
 <link rel="stylesheet" href="/Ifrit/css/buytter.css">
 
 <!--  <style>* { outline: 1px solid #FF0000; }</style>  -->
