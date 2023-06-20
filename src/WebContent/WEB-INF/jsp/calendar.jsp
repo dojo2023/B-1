@@ -42,10 +42,19 @@
     <div id="calendar"></div>
 </div>
 
-<p>目標：<input type="text" name="gwant"></p>
-						<!--欲しいもの↑-->
+<table>
+<tr>
+ 	<td>目標:<c:out value="${gwant}" /> <c:out value="${g_limit }" /></td>
+ </tr>
+</table>
+			<!--欲しいもの↑-->			<!--残り日数(g_limit - 今日)↑-->
+<table>
+<tr>
+ 	<td><c:out value="${gwant}" /><!--<img src="/${}">-->
+ </tr>
+</table>
 
-<p><input type="text" name="glimit から今日を引いた日数"><p/>
+
 
 
 <!-- 背景の真ん中にキャラクターを表示する -->
