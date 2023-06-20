@@ -62,7 +62,7 @@
 	<c:forEach var="e" items="${buyeetList}" >
 		<form method="POST" action="/Ifrit/buytterServlet">
 
-		<table>
+		<table class="TL">
 			<tr><td><label><c:out value="${e.user_id}" /></label></td><td><label><c:out value="${e.created_at}" /></label></td></tr>
 			<tr><td><label><c:out value="${e.b_comment}" /></label></td></tr>
 			<tr><td><label><c:out value="${e.b_pic}" /></label></td></tr>
@@ -83,7 +83,7 @@
 <div id="buyeetbox" class="area">
 		<form method="POST" action="/Ifrit/buytterServlet">
 
-	<table>
+	<table class="buyeet">
 		<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
 		<tr><td>投稿コメント</td></tr>
 		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
@@ -100,7 +100,7 @@
 <div id="searchbox" class="area">
 		<form method="POST" action="/Ifrit/buytterServlet">
 
-	<table>
+	<table class="search">
 		<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
 		<tr><td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
 			<td><input type ="submit" name="Submit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>

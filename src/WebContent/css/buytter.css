@@ -8,13 +8,13 @@
 }
 .tab li a{
   display: block;
-  background:#ddd;
+  background:#FFF5FA;
   margin:0 2px;
   padding:10px 20px;
 }
 /*liにactiveクラスがついた時の形状*/
 .tab li.active a{
-  background:#fff;
+  background:#FFDBED;
 }
 
 
@@ -47,10 +47,6 @@
 
 /*========= レイアウトのためのCSS ===============*/
 
-body{
-  background:#eee;
-}
-
 ul{
   list-style:none;
 }
@@ -72,7 +68,7 @@ a{
   margin:0 0 20px 10px;
 }
 
-.area li{
+.area li{ /* タブメニューの範囲内の背景 */
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
