@@ -76,6 +76,11 @@ public class roomServlet extends HttpServlet {
 
 		int gratio = bbank / ggoal 
 
+
+
+
+
+
 		//出会って何日目を取り出す
 
 		Timestamp updateat = gd.getupdateat(userid);
@@ -89,6 +94,10 @@ public class roomServlet extends HttpServlet {
   		Date date2 = new Date(timestamp.getTime());
 
 		Date meet = date2 - updateat
+
+
+
+
 
 		//状態を取り出す
 		healthsDao hd = new healthsDao ();
