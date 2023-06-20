@@ -14,6 +14,7 @@ import dao.banksDAO;
 import dao.goalsDAO;
 import dao.paymentsDAO;
 import dao.pointsDAO;
+import model.Achievement;
 /**
  * Servlet implementation class achievementServlet
  */
@@ -41,29 +42,24 @@ public class achievementServlet extends HttpServlet {
 			banksDAO bnkDAO = new banksDAO();
 			int banks = bnkDAO.select(userid);
 
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("banks", banks);
 
 			// 目標貯金額を出す
 			goalsDAO gDAO = new goalsDAO();
 			int goals = gDAO.select(userid);
 
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("goals", goals);
 
 			// 支出合計を出す
 			paymentsDAO payDAO = new paymentsDAO();
 			int paymoney = payDAO.select(userid);
 
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("paymoney", paymoney);
 
 			// ポイント数を出す
 			pointsDAO pDAO = new pointsDAO();
 			int points = pDAO.select(userid);
 
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("points", points);
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("result",
+			new Achievement(banks,goals,paymoney, points ));
 
 
 		    // フォワード
