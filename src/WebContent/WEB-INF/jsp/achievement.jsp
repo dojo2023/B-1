@@ -40,7 +40,7 @@
     <th>現在の貯金額</th> <th>目標貯金額</th>
  </tr>
  <tr>
- 	<td><c:out value="${bBank}" />円</td> <td><c:out value="${gGoal}" />円</td>
+ 	<td><c:out value="${banks}" />円</td> <td><c:out value="${goals}" />円</td>
  </tr>
 </table>
 
@@ -49,7 +49,7 @@
     <th>支出合計</th>
  </tr>
  <tr>
- 	<td><c:out value="${payMoney}" />円</td>
+ 	<td><c:out value="${paymoney}" />円</td>
  </tr>
 </table>
 
@@ -58,7 +58,7 @@
     <th>現在のポイント数</th>
  </tr>
  <tr>
- 	<td><c:out value="${pointPm}" />pt</td>
+ 	<td><c:out value="${points}" />pt</td>
  </tr>
 </table>
 
