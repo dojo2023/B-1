@@ -53,7 +53,7 @@ public class setGoalsServlet extends HttpServlet {
 
 		    // もしもログインしていなかったらログインサーブレットにリダイレクトする
 		    HttpSession session = request.getSession();
-		    if (session.getAttribute("id") == null) {
+		    if (session.getAttribute("userid") == null) {
 			    response.sendRedirect("/Ifrit/loginServlet");
 				return;
 		    }
@@ -75,7 +75,6 @@ public class setGoalsServlet extends HttpServlet {
 	}
 
 	// リクエストパラメータを取得する
-	request.setCharacterEncoding("UTF-8")
 	String goal = request.getParameter("ggoal");
 	int ggoal = Integer.parsenInt(goal);
 
