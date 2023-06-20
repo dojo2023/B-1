@@ -12,16 +12,6 @@
 <body>
 <header>
 <h1>かけいぼっち</h1>
-<nav class="menu">
-<ul>
-	<li>カレンダー</li>
-	<li>達成状況</li>
-	<li>投稿</li>
-	<li>お部屋</li>
-	<li>ランキング</li>
-	<li>ログアウト</li>
-</ul>
-</nav>
 </header>
 <!--↓登録成功か失敗かの変数  -->
 <h1>${result.title}</h1>
