@@ -57,8 +57,8 @@ public class achievementServlet extends HttpServlet {
 			pointsDAO pDAO = new pointsDAO();
 			int points = pDAO.select(userid);
 
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("result",
+
+			request.setAttribute("acv",
 			new Achievement(banks,goals,paymoney, points ));
 
 
