@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.banksDAO;
+import dao.goalsDAO;
+import dao.paymentsDAO;
+import dao.pointsDAO;
+import model.Achievement;
 /**
  * Servlet implementation class achievementServlet
  */

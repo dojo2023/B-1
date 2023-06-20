@@ -9,6 +9,7 @@
 <title>達成状況|かけいぼっち</title>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/achievement.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 </head>
 <body>
 <!-- ヘッダー ここから -->
@@ -62,9 +63,7 @@
  </tr>
 </table>
 
-
-
-
+<canvas id=“Chart”></canvas>
 
 
 <!-- ↓共通部分 ここから -->
@@ -72,6 +71,7 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 ここまで -->
+<script src="./js/achievement.js"></script>
 </body>
 
 </html>
