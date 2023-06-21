@@ -26,9 +26,11 @@ public class goalsDAO {
 
 			// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 			pStmt.setString(1, userid);
+			System.out.println("dao29");
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
+			System.out.println("dao33");
 
 			// 結果表をコレクションにコピーする
 			gchokin = rs.getInt("g_goal");
@@ -38,6 +40,7 @@ public class goalsDAO {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			gchokin = 0;
+			System.out.println("dao43");
 		} finally {
 			// データベースを切断
 			if (conn != null) {
@@ -49,7 +52,7 @@ public class goalsDAO {
 				}
 			}
 		}
-
+		System.out.println("dao55");
 		// 結果を返す
 		return gchokin;
 	}
