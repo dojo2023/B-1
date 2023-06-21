@@ -50,24 +50,23 @@
 </table>
 <table>
  <tr>
- 	<td>背景＜キャラ画＞画像</td>
+ 	<td>背景＜キャラ画＞画像</td>  <!-- 背景の真ん中にキャラクターを表示する -->
  </tr>
 </table>
 
 <table>
  <tr>
- 	<td>現在の貯金額</td><td>目標金額</td>
- </tr>
+ 	<td>現在の貯金額</td><td>目標金額</td> <!-- 背景画像の下に現在の貯金額<input type="text" name="bbank">を表示させる -->
+ </tr>                                     <!-- 現在の貯金額の右に目標金額<input type="text" name="ggoal">を表示させる -->
 </table>
-</div><!-- under -->
-</div><!-- wrapper -->
-</div><!-- area -->
+</div>
 
-<!-- 背景の真ん中にキャラクターを表示する -->
 
-<!-- 背景画像の下に現在の貯金額<input type="text" name="bbank">を表示させる -->
 
-<!-- 現在の貯金額の右に目標金額<input type="text" name="ggoal">を表示させる -->
+
+
+
+
 <!-- ↓共通部分 -->
 <footer>
 <p>&copy;Ifrit.B</p>
