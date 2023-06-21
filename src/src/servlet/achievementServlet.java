@@ -36,7 +36,7 @@ public class achievementServlet extends HttpServlet {
 				return;
 			}
 
-			/*
+
 
 			String userid = (String)session.getAttribute("userid");
 
@@ -62,7 +62,7 @@ public class achievementServlet extends HttpServlet {
 
 			request.setAttribute("acv",
 			new Achievement(banks,goals,paymoney, points ));
-*/
+
 
 		    // フォワード
 		    RequestDispatcher dispatcher =

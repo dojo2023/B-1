@@ -45,21 +45,25 @@ public class paymentServlet extends HttpServlet {
 			//取得したリンクから、年月日を取得し、それをもとにDBから探す。
 			//String date =request.getParameter("submit");
 			//いったん例として日時指定してやる。
-			date = "2023-06-20";
+			date = "2023-06-21";
+//			 リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			daypm = request.getParameter("Submit2");
+			System.out.println("送られてきた値"+daypm);
 //			SimpleDateFormat kata = new SimpleDateFormat("yyyy-MM-dd");
 //			Date nowday = kata.parse(date);
 //			//日時計算用に変更
-//			daykata = new SimpleDateFormat"yyyy/MM/dd");
+//			SimpleDateFormat daykata = new SimpleDateFormat("yyyy/MM/dd");
 //			//目標日を取得
 //			goalsDAO gd = new goalsDAO();
 //			Date day = daykata.parse(gd.ggoal(userid));
 //			//ふたつを計算
-//			long ndate = date.getTime();
+//			long ndate = nowday.getTime();
 //			long gdate = day.getTime();
 //			long oneday = 1000*60*60*24;
 //			long daysa = (ndate - gdate)/oneday;
-
-			//フォーマット指定
+//
+//			//フォーマット指定
 //			String date = new SimpleDateFormat("yyyy-MM-dd");
 //				Date date = sdformat.parse(pushTime);
 //			} catch (ParseException e) {
@@ -67,7 +71,7 @@ public class paymentServlet extends HttpServlet {
 //				e.printStackTrace();
 //			}
 			//今日の日付表示用
-			request.setAttribute("today", date);
+			request.setAttribute("today", daypm);
 
 
 			//検索処理

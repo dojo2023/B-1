@@ -64,7 +64,7 @@ function createProcess(year, month) {
                 if(year == today.getFullYear()
                   && month == (today.getMonth())
                   && count == today.getDate()){
-                    calendar += "<form method='GET' action = '/Ifrit/paymentServlet'><td class='today'><input type='hidden' value = 'year , month , count' name = 'Submit2'><input type='submit' value='" + count + "'name='Submit'></td></form>";
+                    calendar += "<td class='today'><input type='hidden' value = '"+year+"-"+(month+1)+"-"+count+"' name = 'Submit2'><input type='submit' value='" + count + "'name='Submit'></td>";
                 } else {
                     calendar += "<td>" + count + "</td>";
                 }

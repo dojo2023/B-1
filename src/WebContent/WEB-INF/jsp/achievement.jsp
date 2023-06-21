@@ -34,17 +34,18 @@
 
 
 <!-- グラフの埋め込み -->
+<div class="chart-container" style="position:relative;width:400px;height:400px;margin: auto;text-align:center;">
 <canvas id="Chart"></canvas>
+</div>
 
 
-<hr>
 
 <table>
  <tr>
     <th>現在の貯金額</th> <th>目標貯金額</th>
  </tr>
  <tr>
- 	<td><!--<c:out value="${acv.bbank}" />-->円</td> <td><!--<c:out value="${acv.ggoal}" />-->円</td>
+ 	<td><c:out value="${bbank}" />円</td> <td><c:out value="${ggoal}" />円</td>
  </tr>
 </table>
 
@@ -53,7 +54,7 @@
     <th>支出合計</th>
  </tr>
  <tr>
- 	<td><!--<c:out value="${acv.paymoney}" />-->円</td>
+ 	<td><c:out value="${paymoney}" />円</td>
  </tr>
 </table>
 
@@ -62,7 +63,7 @@
     <th>現在のポイント数</th>
  </tr>
  <tr>
- 	<td><!--<c:out value="${acv.pointpm}" />-->pt</td>
+ 	<td><c:out value="${pointpm}" />pt</td>
  </tr>
 </table>
 
