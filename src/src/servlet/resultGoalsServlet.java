@@ -82,7 +82,7 @@ public class resultGoalsServlet extends HttpServlet {
 			int ggoal = gd.getggoal(userid);
 			int bbank = bd.getbbank(userid);
 
-			int gratio = bbank / ggoal 
+			int gratio = bbank / ggoal; 
 
 			if(gratio = 100){
 				=""
