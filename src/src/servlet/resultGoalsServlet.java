@@ -9,12 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-//import dao.itemspicsDAO;
-//import dao.itemsDAO;
-import dao.banksDAO;
-import dao.goalsDAO;
-import dao.resultGoalsDAO;
 /**
  * Servlet implementation class resultGoalsServlet
  */
@@ -36,28 +30,28 @@ public class resultGoalsServlet extends HttpServlet {
 			return;
 		}
 
-		//セッションスコープにあるuseridを取得
-		String userid = (String)session.getAttribute("userid");
-
-			//目標達成、失敗　テキストと画像を取り出す
-			banksDAO bd = new banksDAO ();
-			goalsDAO gd = new goalsDAO ();
-			resultGoalsDAO rgd = new resultGoalsDAO ();
-
-			int ggoal = gd.getggoal(userid);
-			int bbank = bd.getbbank(userid);
-			img charpic = rgd.getcharpic(userid);
-
-			int gratio = bbank / ggoal;
-
-			String result;
-
-			if(gratio == 100){
-				 result ="目標達成";
-			}
-			else{
-				 result ="目標失敗";
-			}
+//		//セッションスコープにあるuseridを取得
+//		String userid = (String)session.getAttribute("userid");
+//
+//			//目標達成、失敗　テキストと画像を取り出す
+//			banksDAO bd = new banksDAO ();
+//			goalsDAO gd = new goalsDAO ();
+//			resultGoalsDAO rgd = new resultGoalsDAO ();
+//
+//			int ggoal = gd.getggoal(userid);
+//			int bbank = bd.getbbank(userid);
+//			img charpic = rgd.getcharpic(userid);
+//
+//			int gratio = bbank / ggoal;
+//
+//			String result;
+//
+//			if(gratio == 100){
+//				 result ="目標達成";
+//			}
+//			else{
+//				 result ="目標失敗";
+//			}
 
 
 

@@ -18,6 +18,7 @@
 </header>
 
 <h2><c:out value="${cname}" />の部屋</h2>
+<div id='exam1'>
 <table>
 	<tr>
 		<td><a href="/Ifrit/calendarServelet"><img src="カレンダー画像" alt="カレンダーへ"></a></td>
@@ -32,12 +33,15 @@
 		<td><a href="/Ifrit/buytterServelet"><img src="Buytter画像" alt="Butterへ"></a></td>
 	</tr>
 </table>
+</div>
 
+<div id='exam2'>
 <!--↓　状態にあったキャラ画像表示　-->
 <img src="./img/characters/${c_name}">
-
+</div>
 
 <!--↓　キャラステータス　-->
+<div id='exam3'>
 <table>
     <tr>
         <td>目標達成度：<c:out value="${gratio}" />%</td>
@@ -60,7 +64,7 @@
 
 	<!--↓　累計獲得ポイント表示　-->
 	<tr>
-		<td id="point_pm">現在の<c:out value="${point_pm}" />PT</td>
+		<td>現在の<c:out value="${point_pm}" />PT</td>
 	</tr>
 
 	<!--↓　ランキング表示　-->
@@ -68,7 +72,7 @@
 		<td id="ranking">ランキング<a href="/Ifrit/rankingServlet"><img src="ランキング画像" alt="ランキングへ"></a></td>
 	</tr>
 </table>
-
+</div>
 
 <footer>
     <p>&copy;Ifrit.B</p>

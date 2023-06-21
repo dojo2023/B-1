@@ -30,11 +30,15 @@
 </header>
 
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
+<div class="area">
 
-<p>今日の日付表示：<c:out value="${today}"/></p>
+<h2 class="date"><c:out value="${today}"/></h2>
 
-<p>今日使えるお金：<c:out value="${gavailable}"/>円</p>
-
+<table>
+	<tr>
+	<td>今日使えるお金：<c:out value="${gavailable}"/>円</td>
+</tr>
+<tr><td>
 <form method="POST" action="/Ifrit/paymentServlet">
 <select name="paymentCategory">
 	<option value="">カテゴリー選択</option>
@@ -48,24 +52,28 @@
 	<option value="ペット費用">ペット費用</option>
 	<option value="娯楽費">娯楽費</option>
 </select>
-
-<label>支出の入力</label>
-<p><input type="text" name="paymoney">円</p>
-
-<input type="submit" value="登録">
+</td>
+<td><input type="text" name="paymoney">円
+<input type="submit" value="登録"></td>
 </form>
 
-<table>
-<c:forEach var="e" items="${paymentsList}">
-<tr>
-<td><c:out value="${e.paycategory}"/>:
-	<c:out value="${e.paymoney}"/><br></td>
 </tr>
+</table>
+<div id="paylist">
+<table>
+	<c:forEach var="e" items="${paymentsList}">
+	<tr>
+	<td><c:out value="${e.paycategory}"/>:
+		<c:out value="${e.paymoney}"/><br></td>
+	</tr>
 </c:forEach>
 
 </table>
+</div><!-- paylist -->
+
 
 <p>支出の合計<c:out value="${paymoney}"/>円</p>
+</div>
 
 <!-- ↓共通部分 -->
 <footer>
