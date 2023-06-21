@@ -1,1 +1,18 @@
 @charset "UTF-8";
+
+.area {
+  max-width: 900px;
+  background: #fff;
+  padding:50px 20px;
+  	margin: auto; /* 中央寄せ */
+    text-align:center;
+}
+
+#paylist {
+	margin: auto;
+    text-align:center;
+	border: 2px solid #000;
+	width: 500px;                /* 横幅指定 */
+	height: 150px;               /* 横幅指定 */
+	overflow: auto;
+}

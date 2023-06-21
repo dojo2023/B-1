@@ -50,7 +50,9 @@
 <div id="tlbox" class="area">
 
 	<!-- ↓６(リロードボタン)↓ -->
-	<input type="button" onclick="window.location.reload();" value="リロード" name="tlReload">
+	<div class="reload">
+	<input type="button" onclick="window.location.reload();" value="&#x21BA" name="tlReload">
+	</div>
 	<!-- ↑６(リロードボタン)おわ↑ -->
 
 	<!-- 投稿が無かった時の処理 -->
@@ -63,9 +65,16 @@
 		<form method="POST" action="/Ifrit/buytterServlet">
 
 		<table class="TL">
-			<tr><td><label><c:out value="${e.user_id}" /></label></td><td><label><c:out value="${e.created_at}" /></label></td></tr>
-			<tr><td><label><c:out value="${e.b_comment}" /></label></td></tr>
-			<tr><td><label><c:out value="${e.b_pic}" /></label></td></tr>
+			<tr>
+			<td><label>ID:<c:out value="${e.user_id}" /></label></td>
+			<td><label><c:out value="${e.created_at}" /></label></td>
+			</tr>
+			<tr>
+			<td><label><c:out value="${e.b_comment}" /></label></td>
+			</tr>
+			<tr>
+			<td><label><c:out value="${e.b_pic}" /></label></td>
+			</tr>
 			<!-- <tr><td><label><img src="./upload/${e.b_pic}"></label></td></tr> -->
 			<tr><td><input type="checkbox" name="tlStump" value="nice buy!!"></td>
 				<td><c:out value="${tlStumpNumber}" /></td></tr>
@@ -84,7 +93,7 @@
 		<form method="POST" action="/Ifrit/buytterServlet">
 
 	<table class="buyeet">
-		<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
+		<tr><td><input type="button" onclick="window.location.reload();" value="戻る" name="cansell"></td></tr>
 		<tr><td>投稿コメント</td></tr>
 		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
 		<tr><td>投稿画像</td></tr>
@@ -101,13 +110,21 @@
 		<form method="POST" action="/Ifrit/buytterServlet">
 
 	<table class="search">
-		<tr><td><input type="button" onclick="window.location.reload();" value="キャンセル" name="cansell"></td></tr>
-		<tr><td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
-			<td><input type ="submit" name="Submit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td></tr>
-		<tr><td><label>最近の検索</label></td></tr>
-		<tr><td><c:forEach var="e" items="${searchHistory}" >
-					<c:out value="${searchHistory}" />
-				</c:forEach></td></tr>
+		<tr>
+		<td><input type="button" onclick="window.location.reload();" value="戻る" name="cansell"></td>
+		</tr>
+		<tr>
+		<td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
+		<td><input type ="submit" name="Submit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td>
+		</tr>
+		<tr>
+		<td><label>最近の検索</label></td>
+		</tr>
+		<tr>
+		<td><c:forEach var="e" items="${searchHistory}" >
+				<c:out value="${searchHistory}" />
+				</c:forEach></td>
+		</tr>
 	</table>
 
 		</form>
