@@ -24,12 +24,12 @@ public List<Payments> search(String userid,String date) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 		// SQL文を準備する
-		String sql = "select * from payments where user_id=? and created_at like ?";
+		String sql = "select * from payments where user_id=? and pay_date like ?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
-
+		System.out.println("dao送られてきた値"+date);
 		// SQL文を完成させる
 		pStmt.setString(1, userid);
-		pStmt.setString(2,"%"+date+"%");
+		pStmt.setString(2,date);
 		System.out.println("dao33");
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
@@ -71,7 +71,7 @@ public List<Payments> search(String userid,String date) {
 }
 
 //paymentServletでのカテゴリと支出の格納
-public boolean insert(Payments Payments,String userid) {
+public boolean insert(Payments Payments,String userid,String paydate) {
 	Connection conn = null;
 	boolean check = false;
 
@@ -84,7 +84,7 @@ public boolean insert(Payments Payments,String userid) {
 
 
 		// SQL文を準備する
-		String sql = "insert into payments(pay_category,pay_money,user_id) values (?,?,?)";
+		String sql = "insert into payments(pay_category,pay_money,user_id,pay_date) values (?,?,?,?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 		System.out.println("dao88");
 
@@ -101,6 +101,7 @@ public boolean insert(Payments Payments,String userid) {
 
 		pStmt.setString(3, userid);
 		System.out.println("dao102");
+		pStmt.setString(4, paydate);
 		// SQL文を実行する
 		if(pStmt.executeUpdate() == 1) {
 			check = true;
@@ -197,12 +198,12 @@ public int sum(String userid,String date) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 		// SQL文を準備する
-		String sql = "select sum(pay_money) from payments where user_id=? and created_at like ?";
+		String sql = "select sum(pay_money) from payments where user_id=? and pay_date like ?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 		pStmt.setString(1, userid);
-		pStmt.setString(2,"%"+date+"%");
+		pStmt.setString(2,date);
 		System.out.println("dao206");
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
