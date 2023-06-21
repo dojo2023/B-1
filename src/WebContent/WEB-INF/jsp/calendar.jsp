@@ -39,7 +39,7 @@
     </div><!-- next-prev-button -->
 
     <!-- カレンダー -->
-    <div id="calendar"></div>
+    <form method="GET" action = "/Ifrit/paymentServlet"><div id="calendar"></div></form>
 
 
 <div id="under"> <!-- カレンダー下のテーブル -->
