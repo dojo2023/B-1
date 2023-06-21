@@ -31,7 +31,7 @@ public class goalsDAO {
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			gchokin = rs.getInt("g_gaol");
+			gchokin = rs.getInt("g_goal");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			gchokin = 0;
