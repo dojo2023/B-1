@@ -11,8 +11,8 @@ import java.util.List;
 import model.Payments;
 
 public class paymentsDAO {
-
-public List<Payments> search(String userid) {
+//paymentsの日による支出の表示
+public List<Payments> search(String userid,String date) {
 	Connection conn = null;
 	List<Payments> paymentsList = new ArrayList<Payments>();
 
@@ -24,22 +24,25 @@ public List<Payments> search(String userid) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 		// SQL文を準備する
-		String sql = "select * from payments where user_id = ?";
+		String sql = "select * from payments where user_id=? and created_at like ?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 		pStmt.setString(1, userid);
-
+		pStmt.setString(2,"%"+date+"%");
+		System.out.println("dao33");
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
-
+		System.out.println("dao36");
 		// 結果表をコレクションにコピーする
 		while (rs.next()) {
 			Payments paycard = new Payments(
-			rs.getString("paycategory"),
-			rs.getInt("paymoney")
+			rs.getString("pay_category"),
+			rs.getInt("pay_money")
 			);
 			paymentsList.add(paycard);
+			System.out.println(rs.getString("pay_category"));
+			System.out.println(rs.getInt("pay_money"));
 		}
 	}
 	catch (SQLException e) {
@@ -62,7 +65,7 @@ public List<Payments> search(String userid) {
 			}
 		}
 	}
-
+	System.out.print("dao67");
 	// 結果を返す
 	return paymentsList;
 }
@@ -83,22 +86,27 @@ public boolean insert(Payments Payments,String userid) {
 		// SQL文を準備する
 		String sql = "insert into payments(pay_category,pay_money,user_id) values (?,?,?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
+		System.out.println("dao88");
 
 
 		// SQL文を完成させる
-		if (Payments.getPaycategory() != null && !Payments.getPaycategory() .equals("")) {
-			pStmt.setString(1, Payments.getPaycategory());
-		}else{
-			pStmt.setString(1, "");
-		}
+//		if (Payments.getPaycategory() != null && !Payments.getPaycategory() .equals("")) {
+		pStmt.setString(1, Payments.getPaycategory());
+		System.out.println("dao94");
+//		}else{
+//			pStmt.setString(1, "");
+//		}
 		pStmt.setInt(2, Payments.getPaymoney());
+		System.out.println("dao99");
 
 		pStmt.setString(3, userid);
-
+		System.out.println("dao102");
 		// SQL文を実行する
 		if(pStmt.executeUpdate() == 1) {
 			check = true;
+			System.out.println("da106");
 		}
+		System.out.println("dao108");
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
@@ -176,4 +184,57 @@ public int select(String userid) {
 // 結果を返す
 return sisyutsu;
 }
+
+
+public int sum(String userid,String date) {
+	Connection conn = null;
+	int wa = 0;
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+		// SQL文を準備する
+		String sql = "select sum(pay_money) from payments where user_id=? and created_at like ?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる
+		pStmt.setString(1, userid);
+		pStmt.setString(2,"%"+date+"%");
+		System.out.println("dao206");
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+		// 結果を格納
+		rs.next();
+		wa = rs.getInt("sum(pay_money)");
+		System.out.println(wa);
+		System.out.println("dao2");
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		wa = 0;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		wa = 0;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				wa = 0;
+			}
+		}
+	}
+	System.out.print("dao67");
+	// 結果を返す
+	return wa;
+}
+
 }
