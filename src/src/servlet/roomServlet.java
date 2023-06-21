@@ -1,10 +1,9 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
@@ -14,33 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buyttersDAO;
-import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.itemsDAO;
+
 import dao.banksDAO;
-import model.Idpws;
-import model.Payments;
-import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
-import model.DressUp;
+import dao.goalsDAO;
+import dao.healthsDAO;
 /**
  * Servlet implementation class roomServlet
  */
@@ -65,12 +41,12 @@ public class roomServlet extends HttpServlet {
 		String userid = (String)session.getAttribute("userid");
 
 		//キャラクター名を取り出す
-		goalsDao gd = new goalsDao ();
-		
+		goalsDAO gd = new goalsDAO ();
+
 		String cname = gd.getcname(userid);
 
 		//目標達成度を取り出す
-		banksDao bd = new banksDao ();
+		banksDAO bd = new banksDAO ();
 
 		int ggoal = gd.getggoal(userid);
 		int bbank = bd.getbbank(userid);
@@ -101,14 +77,14 @@ public class roomServlet extends HttpServlet {
 
 
 		//状態を取り出す
-		healthsDao hd = new healthsDao ();
+		healthsDAO hd = new healthsDAO ();
 
 		int healthpm = hd.gethealthpm(userid);
 
-		String health; 
-		
+		String health;
+
 		switch (healthpm) {
-			case 0: 
+			case 0:
 			health = "健康";
 			break;
 			case 1:
@@ -128,7 +104,7 @@ public class roomServlet extends HttpServlet {
 		String comment;
 
 		switch (num) {
-			case 0: 
+			case 0:
 			comment = "今日も一日頑張ろうね！";
 			break;
 			case 1:
@@ -140,7 +116,7 @@ public class roomServlet extends HttpServlet {
 			case 3:
 			comment = "ご褒美もたまには必要！";
 			break;
-			case 4: 
+			case 4:
 			comment = "頑張りすぎないようにね！";
 			break;
 			case 5:
@@ -152,7 +128,7 @@ public class roomServlet extends HttpServlet {
 			case 7:
 			comment = "節約した分だけ得した気分になれると思うよ！";
 			break;
-			case 8: 
+			case 8:
 			comment = "健康第一！";
 			break;
 			case 9:
@@ -163,7 +139,7 @@ public class roomServlet extends HttpServlet {
 
 
 
-		
+
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
