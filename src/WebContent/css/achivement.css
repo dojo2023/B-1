@@ -2,3 +2,11 @@
 
 
 /* グラフのサイズと中央寄せはachievement.jspのグラフ<div>に記述 */
+
+.area {
+  max-width: 900px;
+  background: #fff;
+  padding:50px 20px;
+  	margin: auto; /* 中央寄せ */
+    text-align:center;
+}

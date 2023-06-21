@@ -32,7 +32,7 @@
 
 <!-- メイン ここから -->
 
-
+<div class="area">
 <!-- グラフの埋め込み -->
 <div class="chart-container" style="position:relative;width:400px;height:400px;margin: auto;text-align:center;">
 <canvas id="Chart"></canvas>
@@ -67,7 +67,7 @@
  </tr>
 </table>
 
-
+</div><!-- area -->
 
 
 <!-- ↓共通部分 ここから -->
