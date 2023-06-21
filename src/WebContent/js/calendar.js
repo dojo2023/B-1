@@ -64,7 +64,7 @@ function createProcess(year, month) {
                 if(year == today.getFullYear()
                   && month == (today.getMonth())
                   && count == today.getDate()){
-                    calendar += "<td class='today'>" + count + "</td>";
+                    calendar += "<td class='today'><input type='submit' value='" + count + "'name='Submit'></td>";
                 } else {
                     calendar += "<td>" + count + "</td>";
                 }
