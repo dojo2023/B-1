@@ -39,7 +39,7 @@ public class resultGoalsDAO {
 		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 		pStmt2.setString(1, userid);
 
-		pStmt2.setInt(2,health); 0を代入
+		pStmt2.setInt(2,0);
 
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs2 = pStmt.executeQuery();
