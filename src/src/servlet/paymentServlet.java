@@ -46,6 +46,10 @@ public class paymentServlet extends HttpServlet {
 			//String date =request.getParameter("submit");
 			//いったん例として日時指定してやる。
 			date = "2023-06-20";
+			// リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			daypm = request.getParameter("Submit2");
+			System.out.println("送られてきた値"+daypm);
 //			SimpleDateFormat kata = new SimpleDateFormat("yyyy-MM-dd");
 //			Date nowday = kata.parse(date);
 //			//日時計算用に変更
@@ -67,7 +71,7 @@ public class paymentServlet extends HttpServlet {
 //				e.printStackTrace();
 //			}
 			//今日の日付表示用
-			request.setAttribute("today", date);
+			request.setAttribute("today", daypm);
 
 
 			//検索処理
