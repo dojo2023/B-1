@@ -58,7 +58,7 @@ public class achievementServlet extends HttpServlet {
 			// ポイント数を出す
 			pointsDAO pDAO = new pointsDAO();
 			int points = pDAO.select(userid);
-
+			System.out.print(points);
 
 			request.setAttribute("acv",
 			new Achievement(banks,goals,paymoney, points ));
