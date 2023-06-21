@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -47,18 +46,18 @@ public class paymentServlet extends HttpServlet {
 			//String date =request.getParameter("submit");
 			//いったん例として日時指定してやる。
 			date = "2023-06-20";
-			SimpleDateFormat kata = new SimpleDateFormat("yyyy-MM-dd");
-			Date nowday = kata.parse(date);
-			//日時計算用に変更
-			daykata = new SimpleDateFormat"yyyy/MM/dd");
-			//目標日を取得
-			goalsDAO gd = new goalsDAO();
-			Date day = daykata.parse(gd.ggoal(userid));
-			//ふたつを計算
-			long ndate = date.getTime();
-			long gdate = day.getTime();
-			long oneday = 1000*60*60*24;
-			long daysa = (ndate - gdate)/oneday;
+//			SimpleDateFormat kata = new SimpleDateFormat("yyyy-MM-dd");
+//			Date nowday = kata.parse(date);
+//			//日時計算用に変更
+//			daykata = new SimpleDateFormat"yyyy/MM/dd");
+//			//目標日を取得
+//			goalsDAO gd = new goalsDAO();
+//			Date day = daykata.parse(gd.ggoal(userid));
+//			//ふたつを計算
+//			long ndate = date.getTime();
+//			long gdate = day.getTime();
+//			long oneday = 1000*60*60*24;
+//			long daysa = (ndate - gdate)/oneday;
 
 			//フォーマット指定
 //			String date = new SimpleDateFormat("yyyy-MM-dd");
