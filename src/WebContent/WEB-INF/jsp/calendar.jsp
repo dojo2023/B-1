@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,8 +46,8 @@
 <div id="under"> <!-- カレンダー下のテーブル -->
 <table>
 <tr>
- 	<td>目標:欲しいもの</td><td>残り日数</td>
- </tr>
+ 	<td>目標:<c:out value="${g_want}" /></td><td>残り日数<c:out value="${g_limit}" /></td>
+ </tr>											<!-- 達成日までの残り日数はg_limit - 今日 -->
 </table>
 <table>
  <tr>
@@ -56,9 +57,9 @@
 
 <table>
  <tr>
- 	<td>現在の貯金額</td><td>目標金額</td> <!-- 背景画像の下に現在の貯金額<input type="text" name="bbank">を表示させる -->
- </tr>                                     <!-- 現在の貯金額の右に目標金額<input type="text" name="ggoal">を表示させる -->
-</table>
+ 	<td>現在の貯金額<c:out value="${b_bank}" /></td><td>目標金額<c:out value="${g_goal}" /></td>
+ </tr>  <!-- 背景画像の下に現在の貯金額<input type="text" name="bbank">を表示させる -->
+</table><!-- 現在の貯金額の右に目標金額<input type="text" name="ggoal">を表示させる -->
 </div>
 
 
