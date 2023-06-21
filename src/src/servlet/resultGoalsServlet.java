@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import dao.idpwsDAO;
 import dao.paymentsDAO;
-import dao.buyttersDAO;
+import dao.buytterDAO;
 import dao.goalsDAO;
 import dao.charactersDAO;
 import dao.charpicsDAO;
@@ -60,37 +60,22 @@ public class resultGoalsServlet extends HttpServlet {
 		//セッションスコープにあるuseridを取得
 		String userid = (String)session.getAttribute("userid");
 
-			//目標達成、失敗　テキストを取り出す
-			banksDao bd = new banksDao ();
+			//目標達成、失敗　テキストと画像を取り出す
+			banksDAO bd = new banksDAO ();
 
 			int ggoal = gd.getggoal(userid);
 			int bbank = bd.getbbank(userid);
 
-			int gratio = bbank / ggoal 
+			int gratio = bbank / ggoal;
 
 			String result;
 
-			if(gratio = 100){
+			if(gratio == 100){
 				String result ="目標達成"
 			}
 			else{
 				String result ="目標失敗"
 			}
-			//目標達成、失敗　キャラ画像を取り出す
-			banksDao bd = new banksDao ();
-
-			int ggoal = gd.getggoal(userid);
-			int bbank = bd.getbbank(userid);
-
-			int gratio = bbank / ggoal; 
-
-			if(gratio = 100){
-				=""
-			}
-			else{
-				=""
-			}
-
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
