@@ -30,6 +30,9 @@ public class calendarServlet extends HttpServlet {
 				return;
 		}
 
+
+
+
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		    	request.getRequestDispatcher
