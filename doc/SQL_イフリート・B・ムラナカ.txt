@@ -35,16 +35,22 @@ pay_category varchar(20) NOT NULL,
 pay_money int NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-user_id varchar(20) NOT NULL 
+user_id varchar(20) NOT NULL ,
+pay_date date NOT NULL
 );
 
 drop table payments
 「サンプルデータ」
-INSERT INTO payments (pay_category,pay_money,user_id) VALUES('食費','300','aa');
-INSERT INTO payments (pay_category,pay_money,user_id) VALUES('交通費','2100','aa');
-INSERT INTO payments (pay_category,pay_money,user_id) VALUES('食費','3300','ooguro');
-INSERT INTO payments (pay_category,pay_money,user_id) VALUES('ペット費用','3050','ooguro');
-
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','300','aa','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','2100','aa','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','3300','ooguro','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('ペット費用','1150','ooguro','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','30220','aa','2023-06-20');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','212200','aa','2023-06-11');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','30220','aa','2023-06-10');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','112100','aa','2023-06-19');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','99300','aa','2023-06-20');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','992100','aa','2023-06-20');
 
 
 <投稿テーブル>
