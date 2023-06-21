@@ -36,9 +36,15 @@ public class achievementServlet extends HttpServlet {
 				return;
 			}
 
-
-
+			// スコープのuserid
 			String userid = (String)session.getAttribute("userid");
+
+		// グラフの数値表示に関して↓
+
+
+
+		// 各金額の表示に関して↓
+
 
 			// 貯金額を出す
 			banksDAO bnkDAO = new banksDAO();
@@ -60,11 +66,12 @@ public class achievementServlet extends HttpServlet {
 			int points = pDAO.select(userid);
 			System.out.println(points);
 
+			// 格納する
 			request.setAttribute("acv",
 			new Achievement(banks,goals,paymoney, points ));
 
 
-		    // フォワード
+		    // achievement.jspに画面遷移（フォワード）
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
 		            ("/WEB-INF/jsp/achievement.jsp");

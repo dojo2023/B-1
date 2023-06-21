@@ -149,17 +149,20 @@ public int select(String userid) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 		// SQL文を準備する
-		String sql = "select sum (pay_money) from payments where user_id=?";
+		String sql = "select sum(pay_money) from payments where user_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 		pStmt.setString(1, userid);
+		System.out.println("dao157");
 
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
+		System.out.println("dao161");
 
 		// 結果表をコレクションにコピーする
-		sisyutsu = rs.getInt("pay_money");
+		rs.next();
+		sisyutsu = rs.getInt("sum(pay_money)");
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
@@ -181,7 +184,7 @@ public int select(String userid) {
 			}
 		}
 	}
-
+	System.out.println("dao186");
 // 結果を返す
 return sisyutsu;
 }

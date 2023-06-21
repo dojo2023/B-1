@@ -33,6 +33,7 @@ public class goalsDAO {
 			System.out.println("dao33");
 
 			// 結果表をコレクションにコピーする
+			rs.next();
 			gchokin = rs.getInt("g_goal");
 		} catch (SQLException e) {
 			e.printStackTrace();
