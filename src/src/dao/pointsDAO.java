@@ -26,12 +26,16 @@ public class pointsDAO {
 
 		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 		pStmt.setString(1, userid);
+		System.out.println("dao29");
 
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
+		System.out.println("dao33");
 
 		// 結果表をコレクションにコピーする
-		points = rs.getInt("point_pm");
+		rs.next();
+		points = rs.getInt("sum(point_pm)");
+		System.out.println("dao38");
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
@@ -53,7 +57,7 @@ public class pointsDAO {
 			}
 		}
 	}
-
+	System.out.println("dao60");
 	// 結果を返す
 	return points;
 }

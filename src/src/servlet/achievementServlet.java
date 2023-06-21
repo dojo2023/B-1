@@ -43,22 +43,22 @@ public class achievementServlet extends HttpServlet {
 			// 貯金額を出す
 			banksDAO bnkDAO = new banksDAO();
 			int banks = bnkDAO.select(userid);
-
+			System.out.print(banks);
 
 			// 目標貯金額を出す
 			goalsDAO gDAO = new goalsDAO();
 			int goals = gDAO.select(userid);
-
+			System.out.print(goals);
 
 			// 支出合計を出す
 			paymentsDAO payDAO = new paymentsDAO();
 			int paymoney = payDAO.select(userid);
-
+			System.out.print(paymoney);
 
 			// ポイント数を出す
 			pointsDAO pDAO = new pointsDAO();
 			int points = pDAO.select(userid);
-
+			System.out.print(points);
 
 			request.setAttribute("acv",
 			new Achievement(banks,goals,paymoney, points ));
