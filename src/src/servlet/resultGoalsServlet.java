@@ -9,33 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buytterDAO;
-import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.itemsDAO;
+
+//import dao.itemspicsDAO;
+//import dao.itemsDAO;
 import dao.banksDAO;
-import model.Idpws;
-import model.Payments;
-import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
-import model.DressUp;
+import dao.goalsDAO;
+import dao.resultGoalsDAO;
 /**
  * Servlet implementation class resultGoalsServlet
  */
@@ -62,20 +41,35 @@ public class resultGoalsServlet extends HttpServlet {
 
 			//目標達成、失敗　テキストと画像を取り出す
 			banksDAO bd = new banksDAO ();
+			goalsDAO gd = new goalsDAO ();
+			resultGoalsDAO rgd = new resultGoalsDAO ();
 
 			int ggoal = gd.getggoal(userid);
 			int bbank = bd.getbbank(userid);
+			img charpic = rgd.getcharpic(userid);
 
 			int gratio = bbank / ggoal;
 
 			String result;
 
 			if(gratio == 100){
-				String result ="目標達成"
+				 result ="目標達成";
 			}
 			else{
-				String result ="目標失敗"
+				 result ="目標失敗";
 			}
+
+
+
+
+
+
+
+
+
+
+
+
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
