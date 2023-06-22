@@ -81,6 +81,12 @@ public class buytterServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				String user_id=(String)session.getAttribute("userid");
 
+				// buyte_idを入れる（とても強引）
+				int countsan = 6;
+
+				String buyte_id = String.valueOf(countsan);
+				System.out.println(buyte_id);
+
 				// 今まで書いてたやつ
 //				String user_id = session.getAttribute("userid").toString();
 
@@ -91,11 +97,15 @@ public class buytterServlet extends HttpServlet {
 			// 登録処理を行う
 			// buytterDAOのオブジェクト宣言
 			buytterDAO objDao = new buytterDAO();
-			if(objDao.insert(new Buytters(user_id, b_comment, b_pic))) {
+			if(objDao.insert(new Buytters(user_id, b_comment, b_pic, buyte_id))) {
 				System.out.println("成功");
+				System.out.println(buyte_id);
+				countsan ++;
+				System.out.println(countsan);
 			}
 			else {
 				System.out.println("失敗");
+				System.out.println(countsan);
 			}
 
 			// TL画面と同じ処理

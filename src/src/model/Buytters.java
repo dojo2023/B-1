@@ -9,25 +9,30 @@ public class Buytters implements Serializable{
 	private String b_comment;
 	private String b_pic;
 	private String created_at;//もしかしたら、Date型かもわからん
+	private String buyte_id;
+	private String buyte_sum;
 
 	// コンストラクタを生成
-	public Buytters(String id, String user_id, String b_comment, String b_pic, String created_at) {
+	public Buytters(String id, String user_id, String b_comment, String b_pic, String created_at, String buyte_sum) {
 		super();
 		this.id = id;
 		this.user_id = user_id;
 		this.b_comment = b_comment;
 		this.b_pic = b_pic;
 		this.created_at = created_at;
+		this.buyte_sum = buyte_sum;
 	}
 
 	// 投稿用のコンストラクタも生成
-	public Buytters(String user_id, String b_comment, String b_pic) {
+	public Buytters(String user_id, String b_comment, String b_pic, String buyte_id) {
 		super();
 		this.id = "";
 		this.user_id = user_id;
 		this.b_comment = b_comment;
 		this.b_pic = b_pic;
 		this.created_at = "";
+		this.buyte_id = buyte_id;
+		this.buyte_sum = "";
 	}
 
 	// 検索用のコンストラクタも生成
@@ -38,6 +43,7 @@ public class Buytters implements Serializable{
 		this.b_comment = b_comment;
 		this.b_pic = "";
 		this.created_at = "";
+		this.buyte_sum = "";
 	}
 
 
@@ -79,6 +85,22 @@ public class Buytters implements Serializable{
 
 	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
+	}
+
+	public String getBuyte_id() {
+		return buyte_id;
+	}
+
+	public void setBuyte_id(String buyte_id) {
+		this.buyte_id = buyte_id;
+	}
+
+	public String getBuyte_sum() {
+		return buyte_sum;
+	}
+
+	public void setBuyte_sum(String buyte_sum) {
+		this.buyte_sum = buyte_sum;
 	}
 
 }

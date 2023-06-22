@@ -33,7 +33,8 @@ public class buytterDAO {
 			// ？には↓記述の「setString」が入るよ。
 			// ↓この文の最後に「order by id desc」って書いてて、
 			// これが「idの降順」って意味だよ。
-			String sql = "select id, user_id, b_comment, b_pic, created_at from buytters order by id desc";
+//			String sql = "select id, user_id, b_comment, b_pic, created_at from buytters order by id desc";
+			String sql = "select buytters.id, user_id, b_comment, b_pic, buytters.created_at, buyte_sum from buytters, (select buyte_id, sum(buyte_count) as buyte_sum from nicebuycounts group by buyte_id)nicebuycounts where id = buyte_id order by id desc;";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を実行し、結果表を取得する
@@ -47,7 +48,8 @@ public class buytterDAO {
 				rs.getString("user_id"),
 				rs.getString("b_comment"),
 				rs.getString("b_pic"),
-				rs.getString("created_at")
+				rs.getString("created_at"),
+				rs.getString("buyte_sum")
 				);
 				buyeetList.add(card);
 			}
@@ -100,7 +102,9 @@ public class buytterDAO {
 
 				// SQL文を準備する
 				String sql = "insert into buytters (user_id, b_comment, b_pic) VALUES (?, ?, ?); ";
+				String sql2 = "insert into nicebuycounts (buyte_id, buyte_count) VALUES (?, 0);";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
+				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 	System.out.println("dao104さん");
 
 				// SQL文を完成させる
@@ -124,8 +128,12 @@ public class buytterDAO {
 				}
 	System.out.println("dao125さん");
 
+					pStmt2.setString(1, param.getBuyte_id());
+
+	System.out.println("dao136さん");
+
 				// SQL文を実行し、結果表を取得する
-				if (pStmt.executeUpdate() == 1) {
+				if (pStmt.executeUpdate() == 1 && pStmt2.executeUpdate() == 1) {
 					result = true;
 				}
 	System.out.println("dao131さん");
@@ -175,7 +183,8 @@ public class buytterDAO {
 			// ？には↓記述の「setString」が入るよ。
 			// ↓この文の最後に「order by id desc」って書いてて、
 			// これが「id順(降順)」って意味だよ。
-			String sql = "select id, user_id, b_comment, b_pic, created_at from buytters where b_comment like ? order by id desc";
+//			String sql = "select buytters.id as b_id, user_id, b_comment, b_pic, buytters.created_at as b_created from buytters where b_comment like ? order by id desc";
+			String sql = "select buytters.id, user_id, b_comment, b_pic, buytters.created_at, buyte_sum from (select buytters.id, user_id, b_comment, b_pic, buytters.created_at from buytters where b_comment like ?)buytters, (select buyte_id, sum(buyte_count) as buyte_sum from nicebuycounts group by buyte_id)nicebuycounts where id = buyte_id order by id desc";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 		// SQL文を完成させる
 			// 検索欄の番号になんか打ち込まれてた時の検索処理
@@ -198,7 +207,8 @@ public class buytterDAO {
 				rs.getString("user_id"),
 				rs.getString("b_comment"),
 				rs.getString("b_pic"),
-				rs.getString("created_at")
+				rs.getString("created_at"),
+				rs.getString("buyte_sum")
 				);
 				buyeetList.add(card);
 			}
