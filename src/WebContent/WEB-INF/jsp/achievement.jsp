@@ -32,6 +32,22 @@
 
 <!-- メイン ここから -->
 
+<!-- 支出グラフのデータ取得 -->
+	<c:forEach var="e" items="${paydetailList}" varStatus="status">
+		<form method="POST" action="Ifrit/achievementServlet.java">
+			食費<input 		id="${status.index}foods" type="text" name="foods" value="${e.foods}"><br>
+			外食費<input	id="${status.index}restaurant" type="text" name="restaurant" value="${e.restaurant}"><br>
+			交通費<input	id="${status.index}transport" type="text" name="transport" value="${e.transport}"><br>
+			日用品<input	id="${status.index}dailyitems" type="text" name="dailyitems" value="${e.dailyitems}"><br>
+			衣服<input		id="${status.index}clothes" type="text" name="clothes" value="${e.clothes}"><br>
+			医療費<input	id="${status.index}medical" type="text" name="medical" value="${e.medical}"><br>
+			美容費<input	id="${status.index}beauty" type="text" name="beauty" value="${e.beauty}"><br>
+			ペット費<input	id="${status.index}pets" type="text" name="pets" value="${e.pets}"><br>
+			娯楽費<input	id="${status.index}entertainment" type="text" name="entertainment" value="${e.entertainment}">
+		</form>
+		<hr>
+	</c:forEach>
+
 <div class="area">
 <!-- グラフの埋め込み -->
 <div class="chart-container" style="position:relative;width:400px;height:400px;margin: auto;text-align:center;">
