@@ -69,9 +69,10 @@ public class rankingServlet extends HttpServlet {
 				System.out.println("pointt"+pointt);
 			}
 			System.out.println("57");
-			rank.setPic(cd.pic(username));
-			String a = cd.pic(username);
-			System.out.println("pic:"+a);
+			int b =cd.health(username);
+			String c = cd.pic(b, username);
+			rank.setPic(c);
+			System.out.println("pic:"+c);
 			System.out.println("59");
 			rankList.set(i, rank);
 			System.out.println("61");
