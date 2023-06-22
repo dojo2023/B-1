@@ -77,12 +77,16 @@ public class goalsDAO {
 
 			// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 			pStmt.setString(1, userid);
-
+			System.out.println("だお80");
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
+			System.out.println("だお8３");
 
 			// 結果表をコレクションにコピーする
+			rs.next();
 			glimit = rs.getString("g_limit");
+			System.out.println("だお8７");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			glimit = null;
@@ -100,8 +104,59 @@ public class goalsDAO {
 				}
 			}
 		}
+		System.out.println("だお１０６");
 
 		// 結果を返す
 		return glimit;
 	}
+public String getavailable(String userid) {
+	Connection conn = null;
+
+	String gavailable;
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+		// SQL文を準備する
+		String sql = "select g_available from goals where user_id=?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+		pStmt.setString(1, userid);
+		System.out.println("だお80");
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+		System.out.println("だお8３");
+
+		// 結果表をコレクションにコピーする
+		rs.next();
+		gavailable = rs.getString("g_available");
+		System.out.println("だお8７");
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+		gavailable = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		gavailable = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				gavailable = null;
+			}
+		}
+	}
+	System.out.println("だお１０６");
+
+	// 結果を返す
+	return gavailable;
+}
 }
