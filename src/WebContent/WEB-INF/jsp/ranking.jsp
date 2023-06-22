@@ -39,22 +39,16 @@
 <td><c:out value="${rank}" /></td>
 <td><c:out value="${e.username}" /></td>
 <td><c:out value="${e.point}" /></td>
-<td><img src="./upload/${e.pic}"></td>
+<td><img src="./img/characters/${e.pic}"></td>
 </tr>
 <c:set value="${rank + 1}" var="rank"></c:set>>
 </c:forEach>
-<!--↓あなたのrank  -->
-<p>あなたは<c:out value="${rank.you}"/>位</p>
-<!-- 累計ポイント出力  -->
-<p><c:out value="${rank.point}" />ptです</p>
-<footer>
-<p>&copy;Ifrit.B</p>
-</footer>
 </table>
 
-
-
-
+<!--↓あなたのrank  -->
+<p>あなたは<c:out value="${you}"/>位</p>
+<!-- 累計ポイント出力  -->
+<p><c:out value="${point}" />ptです</p>
 
 <!-- ↓共通部分 -->
 <footer>
