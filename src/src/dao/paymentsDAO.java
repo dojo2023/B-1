@@ -241,4 +241,69 @@ public int sum(String userid,String date) {
 	return wa;
 }
 
+
+
+//achievementの支出グラフ
+public List<Payments> list(String userid) {
+	Connection conn = null;
+	List<Payments> paydetailList = new ArrayList<Payments>();
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+		// SQL文を準備する
+		String sql = "select pay_category,sum(pay_money) from payments where  user_id=? group by pay_category";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		System.out.println("dao1");
+
+		// SQL文を完成させる
+		pStmt.setString(1, userid);
+		System.out.println("dao2");
+
+
+
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+		System.out.println("dao3");
+
+		// 結果表をコレクションにコピーする
+		while(rs.next()){
+			Payments paydetail = new Payments(
+					rs.getString("pay_category"),
+					rs.getInt("sum(pay_money)")
+					);
+
+			paydetailList.add(paydetail);
+		}
+
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		paydetailList= null;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		paydetailList = null;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				paydetailList = null;
+			}
+		}
+	}
+	return paydetailList;
+	}
+
 }
+
+
