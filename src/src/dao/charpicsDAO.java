@@ -109,5 +109,55 @@ public class charpicsDAO {
 		// 結果を返す
 		return picture;
 	}
+	// 背景画像とキャラクター画像(calendar)
+		public String charpic(String userid) {
+			Connection conn = null;
 
+			String charpic;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+				// SQL文を準備する
+				String sql = "select char_pic from charpics where user_id=?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+				pStmt.setString(1, userid);
+				System.out.println("だお93");
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+				System.out.println("だお96");
+
+				// 結果表をコレクションにコピーする
+				rs.next();
+				charpic = rs.getString("char_pic");
+				System.out.println("だお１０１");
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				charpic = null;
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				charpic = null;
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						charpic = null;
+					}
+				}
+			}
+			System.out.println("だお１２０");
+
+			// 結果を返す
+			return charpic;
+		}
 }
