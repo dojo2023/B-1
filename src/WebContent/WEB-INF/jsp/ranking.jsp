@@ -39,7 +39,7 @@
 <td><c:out value="${rank}" /></td>
 <td><c:out value="${e.username}" /></td>
 <td><c:out value="${e.point}" /></td>
-<td><img src="./img/characters/${e.pic}"></td>
+<td><img src="./img/characters/${e.pic}"style = "max-width:250px;"></td>
 </tr>
 <c:set value="${rank + 1}" var="rank"></c:set>>
 </c:forEach>
