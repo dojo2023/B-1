@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class resultGoalsDAO {
 	//キャラ画像
-	public String pic(String userid) {
+	public String getcharpic(String userid) {
 		Connection conn = null;
 		int health;
 		String picture;
