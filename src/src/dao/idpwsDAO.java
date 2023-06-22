@@ -139,4 +139,55 @@ public class idpwsDAO {
 		return hanbetu;
 	}
 
+	//usernameを取り出す
+	public String getName(String userid) {
+		Connection conn = null;
+
+		String username;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select user_name from idpws where user_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+			pStmt.setString(1, userid);
+			System.out.println("dao29");
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+			System.out.println("dao33");
+
+			// 結果表をコレクションにコピーする
+			rs.next();
+			username = rs.getString("user_name");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			username = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			username = null;
+			System.out.println("dao43");
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					username = null;
+				}
+			}
+		}
+		System.out.println("dao55");
+		// 結果を返す
+		return username;
+	}
+
 }
