@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class goalsDAO {
 
@@ -109,6 +110,7 @@ public class goalsDAO {
 		// 結果を返す
 		return glimit;
 	}
+
 public String getavailable(String userid) {
 	Connection conn = null;
 
@@ -155,8 +157,112 @@ public String getavailable(String userid) {
 		}
 	}
 	System.out.println("だお１０６");
-
 	// 結果を返す
 	return gavailable;
+}
+
+
+
+//キャラ名
+public String getcname(String userid) {
+	Connection conn = null;
+
+	String cname ;
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+		// SQL文を準備する
+		String sql = "select c_name from goals where user_id=?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+		pStmt.setString(1, userid);
+		System.out.println("だお80");
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+		System.out.println("だお8３");
+
+		// 結果表をコレクションにコピーする
+		rs.next();
+		cname = rs.getString("c_name");
+		System.out.println("だお8７");
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+		cname = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		cname = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				cname = null;
+			}
+		}
+	}
+	System.out.println("だお１０６");
+
+	// 結果を返す
+	return cname;
+}
+//出会って何日
+public Timestamp getupdateat(String userid) {
+	Connection conn = null;
+
+	Timestamp time ;
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+		// SQL文を準備する
+		String sql = "select c_name from goals where user_id=?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+		pStmt.setString(1, userid);
+		System.out.println("だお80");
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+		System.out.println("だお8３");
+
+		// 結果表をコレクションにコピーする
+		rs.next();
+		time = rs.getTimestamp("update_at");
+		System.out.println("だお8７");
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+		time = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		time = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				time = null;
+			}
+		}
+	}
+	System.out.println("だお１０６");
+
+	// 結果を返す
+	return time;
 }
 }
