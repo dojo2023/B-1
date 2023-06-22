@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.charpicsDAO;
+import dao.pointsDAO;
 import model.Ranking;
 
 /**
@@ -36,22 +38,57 @@ public class rankingServlet extends HttpServlet {
 		}
 		//セッションスコープにあるuseridを取得
 		String userid = (String) session.getAttribute("userid");
-
+		int yout=0;
+		int pointt = 0;
+		int rankt = 1;
 		//ポイント上位の５人のuseridとポイントをとりだす。
-		pointsDao pd = new pointsDao();
+		pointsDAO pd = new pointsDAO();
+		System.out.println("43");
 		List<Ranking> rankList = pd.rankList();
+		System.out.println("45");
 		//while分で（next）がtrueのときに降順で取り出したuseridをもとに下記の項目を取り出す。
 		//ユーザ名取り出す
-		idpwsDao ipd = new idpwsDao();
 		//ポイントを取り出す。
-		pointsDao pd = new pointsDao();
 		//画像を取り出す。
-		charpicsDao cd = new charpicsDao();
+		System.out.println(rankList.get(0));
+		System.out.println(rankList.get(1));
+		charpicsDAO cd = new charpicsDAO();
+		System.out.println("51");
+		for(int i = 0;rankList.size()>i;i++) {
+			System.out.println("53");
+			Ranking rank = rankList.get(i);
+			System.out.println("55");
+			String username = rank.getUsername();
+			System.out.println("username"+username);
+			System.out.println("userid:"+userid);
+
+			if(username.equals(userid)) {
+				yout = i+1;
+				System.out.println("namae"+yout);
+				pointt=pd.select(userid);
+				System.out.println("pointt"+pointt);
+			}
+			System.out.println("57");
+			rank.setPic(cd.pic(username));
+			String a = cd.pic(username);
+			System.out.println("pic:"+a);
+			System.out.println("59");
+			rankList.set(i, rank);
+			System.out.println("61");
+		}
+
 		//rankListに格納するために、ポイントをSUMして降順でuseridをTOP５まで取り出して
 		//そのuseridをもとに、ユーザ名、キャラID取得してキャラ画像を取得。リストに格納。
 
-
+		Integer you = new Integer(yout);
+		Integer point = new Integer(pointt);
+		Integer rankk = new Integer(rankt);
 		request.setAttribute("rankList", rankList);
+		request.setAttribute("you", you);
+		request.setAttribute("point", point);
+		request.setAttribute("rank", rankk);
+
+
 		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ranking.jsp");
 		dispatcher.forward(request, response);
