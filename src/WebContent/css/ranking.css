@@ -15,3 +15,7 @@
 	    margin: auto;
     text-align:center;
 }
+
+.rank td,tr {
+	border:1.5px dotted #ddd;
+}

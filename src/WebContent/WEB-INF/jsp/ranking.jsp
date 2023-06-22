@@ -36,9 +36,9 @@
 <!--↓ランキング一覧をクラス型に格納して、それを受けわたして、すべての値をループ  -->
 <c:forEach var="e" items="${rankList}">
 <tr>
-<td><c:out value="${rank}" /></td>
-<td><c:out value="${e.username}" /></td>
-<td><c:out value="${e.point}" /></td>
+<td><c:out value="${rank}" />位</td>
+<td>ID:<c:out value="${e.username}" /></td>
+<td><c:out value="${e.point}" />pt</td>
 <td><img src="./img/characters/${e.pic}"style = "max-width:250px;"></td>
 </tr>
 <c:set value="${rank + 1}" var="rank"></c:set>>

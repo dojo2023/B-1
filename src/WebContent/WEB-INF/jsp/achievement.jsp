@@ -67,6 +67,7 @@
  </tr>
 </table>
 </div><!-- paytb -->
+
 </div><!-- area -->
 
 

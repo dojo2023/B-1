@@ -77,6 +77,9 @@
 <p>支出の合計<c:out value="${paymoney}"/>円</p>
 </div>
 
+<input type="button" onclick="window.location.reload();" value="戻る" name="cansell">
+
+
 <!-- ↓共通部分 -->
 <footer>
 <p>&copy;Ifrit.B</p>
