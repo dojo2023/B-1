@@ -7,11 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class charpicsDAO {
-	//キャラ画像
-	public String pic(String userid) {
+	//ヘルス取得
+	public int health(String userid) {
 		Connection conn = null;
 		int health;
-		String picture;
 
 	try {
 		// JDBCドライバを読み込む
@@ -30,8 +29,46 @@ public class charpicsDAO {
 		ResultSet rs = pStmt.executeQuery();
 
 		// 結果表をコレクションにコピーする
-		health = rs.getInt("health_pm");
+		rs.next();
+		health = rs.getInt("sum(health_pm)");
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		health = 0;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		health = 0;
 
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				health = 0;
+
+			}
+		}
+	}
+
+	// 結果を返す
+	return health;
+	}
+//healthをもとに画像取得
+	public String pic(int health,String userid) {
+		Connection conn = null;
+		String picture;
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 		// SQL文を準備する
 		String sql2 = "select char_pic, c_health from characters as c  join charpics as p on c.char_id = p.char_id where c.user_id = ? and c_health = ?";
 		PreparedStatement pStmt2 = conn.prepareStatement(sql2);
@@ -42,9 +79,10 @@ public class charpicsDAO {
 		pStmt2.setInt(2,health);
 
 		// SQL文を実行し、結果表を取得する
-		ResultSet rs2 = pStmt.executeQuery();
+		ResultSet rs2 = pStmt2.executeQuery();
 
 		// 結果表をコレクションにコピーする
+		rs2.next();
 		picture= rs2.getString("char_pic");
 	}
 	catch (SQLException e) {
@@ -71,6 +109,7 @@ public class charpicsDAO {
 	// 結果を返す
 	return picture;
 	}
+
 	// 背景画像とキャラクター画像(calendar)
 	public String charpic(String userid) {
 		Connection conn = null;
