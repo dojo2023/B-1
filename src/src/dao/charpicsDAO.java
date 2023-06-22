@@ -8,58 +8,74 @@ import java.sql.SQLException;
 
 public class charpicsDAO {
 	//キャラ画像
-	public int health(String userid) {
+	public String pic(String userid) {
 		Connection conn = null;
 		int health;
+		String picture;
 
-		try {
-			// JDBCドライバを読み込む
-			Class.forName("org.h2.Driver");
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
 
-			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
-			String sql = "select sum(health_pm) from healths where user_id =?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
+		String sql = "select sum(health_pm) from healths where user_id =?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる(servletから取得したuserid(String userid)をSQLに入れる)
-			pStmt.setString(1, userid);
+		// SQL文を完成させる(servletから取得したuserid(String userid)をSQLに入れる)
+		pStmt.setString(1, userid);
 
-			// SQL文を実行し、結果表を取得する
-			ResultSet rs = pStmt.executeQuery();
-			System.out.println("dao31");
-			// 結果表をコレクションにコピーする
-			rs.next();
-			health = rs.getInt("sum(health_pm)");
-			System.out.println("dao34");
-			System.out.println(health);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			health = 0;
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			health = 0;
-		} finally {
-			// データベースを切断
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-					health = 0;
-				}
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		// 結果表をコレクションにコピーする
+		health = rs.getInt("health_pm");
+
+		// SQL文を準備する
+		String sql2 = "select char_pic, c_health from characters as c  join charpics as p on c.char_id = p.char_id where c.user_id = ? and c_health = ?";
+		PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+
+		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+		pStmt2.setString(1, userid);
+
+		pStmt2.setInt(2,health);
+
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs2 = pStmt.executeQuery();
+
+		// 結果表をコレクションにコピーする
+		picture= rs2.getString("char_pic");
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		picture = null;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		picture = null;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				picture = null;
 			}
 		}
-
-		// 結果を返す
-		return health;
 	}
-//上のメソッドとUSERIDいれたら写真が出るよ
 
-	public String pic(int health,String userid) {
-
+	// 結果を返す
+	return picture;
+	}
+	// 背景画像とキャラクター画像(calendar)
+	public String charpic(String userid) {
 		Connection conn = null;
-		String picture = null;
+
+		String charpic;
 
 		try {
 			// JDBCドライバを読み込む
@@ -69,31 +85,27 @@ public class charpicsDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 			// SQL文を準備する
-			String sql= "select char_pic from characters as c  join charpics as p on c.char_id = p.char_id where c.user_id = ? and c_health = ?";
+			String sql = "select char_pic from charpics where user_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 			pStmt.setString(1, userid);
-
-			pStmt.setInt(2, health);
-			System.out.println("dao45");
-
+			System.out.println("だお93");
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
-			System.out.println("dao49");
+			System.out.println("だお96");
 
 			// 結果表をコレクションにコピーする
 			rs.next();
-			picture = rs.getString("char_pic");
-			System.out.println("dao53");
-			System.out.println(picture);
+			charpic = rs.getString("char_pic");
+			System.out.println("だお１０１");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			picture = null;
+			charpic = null;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			picture = null;
+			charpic = null;
 		} finally {
 			// データベースを切断
 			if (conn != null) {
@@ -101,63 +113,13 @@ public class charpicsDAO {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					picture = null;
+					charpic = null;
 				}
 			}
 		}
+		System.out.println("だお１２０");
 
 		// 結果を返す
-		return picture;
+		return charpic;
 	}
-	// 背景画像とキャラクター画像(calendar)
-		public String charpic(String userid) {
-			Connection conn = null;
-
-			String charpic;
-
-			try {
-				// JDBCドライバを読み込む
-				Class.forName("org.h2.Driver");
-
-				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
-
-				// SQL文を準備する
-				String sql = "select char_pic from charpics where user_id=?";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
-
-				// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
-				pStmt.setString(1, userid);
-				System.out.println("だお93");
-				// SQL文を実行し、結果表を取得する
-				ResultSet rs = pStmt.executeQuery();
-				System.out.println("だお96");
-
-				// 結果表をコレクションにコピーする
-				rs.next();
-				charpic = rs.getString("char_pic");
-				System.out.println("だお１０１");
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-				charpic = null;
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-				charpic = null;
-			} finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-						charpic = null;
-					}
-				}
-			}
-			System.out.println("だお１２０");
-
-			// 結果を返す
-			return charpic;
-		}
 }
