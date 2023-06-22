@@ -4,9 +4,15 @@
 /* グラフのサイズと中央寄せはachievement.jspのグラフ<div>に記述 */
 
 .area {
-  max-width: 900px;
-  background: #fff;
+  max-width: 960px;
   padding:50px 20px;
   	margin: auto; /* 中央寄せ */
     text-align:center;
+}
+
+.paytb {
+		width: 500px;                /* 横幅指定 */
+	height: 250px;               /* 横幅指定 */
+	background:#fff;
+	box-shadow:0 0 5px #ddd;
 }

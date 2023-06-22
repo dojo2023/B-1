@@ -14,19 +14,19 @@
 <h1>かけいぼっち</h1>
 <nav class="menu">
 <ul>
-	<li>カレンダー</li>
-	<li>達成状況</li>
-	<li>投稿</li>
-	<li>お部屋</li>
-	<li>ランキング</li>
-	<li>ログアウト</li>
+	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
+	<li><a href="/Ifrit/achievementServlet">達成状況</a></li>
+	<li><a href="/Ifrit/buytterServlet">投稿</a></li>
+	<li><a href="/Ifrit/roomServlet">お部屋</a></li>
+	<li><a href="/Ifrit/rankingServlet">ランキング</a></li>
+	<li><a href="/Ifrit/loginServlet">ログアウト</a></li>
 </ul>
 </nav>
 </header>
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
 <p>現在のランキング一覧</p>
 
-<table>
+<table class="rank">
 <tr>
 <th>順位</th>
 <th>ユーザ名</th>
@@ -45,10 +45,12 @@
 </c:forEach>
 </table>
 
+<div class="score">
 <!--↓あなたのrank  -->
 <p>あなたは<c:out value="${you}"/>位</p>
 <!-- 累計ポイント出力  -->
 <p><c:out value="${point}" />ptです</p>
+</div>
 
 <!-- ↓共通部分 -->
 <footer>

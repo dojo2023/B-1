@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
+@charset "UTF-8";
+
 .area {
-  max-width: 900px;
-  background: #fff;
+  max-width: 960px;
   padding:50px 20px;
   	margin: auto; /* 中央寄せ */
     text-align:center;
@@ -11,8 +12,9 @@
 #paylist {
 	margin: auto;
     text-align:center;
-	border: 2px solid #000;
+	overflow: auto;
 	width: 500px;                /* 横幅指定 */
 	height: 150px;               /* 横幅指定 */
-	overflow: auto;
+	background:#fff;
+	box-shadow:0 0 5px #ddd;
 }

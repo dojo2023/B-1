@@ -39,7 +39,7 @@
 </div>
 
 
-
+<div class="paytb">
 <table>
  <tr>
     <th>現在の貯金額</th> <th>目標貯金額</th>
@@ -66,7 +66,7 @@
  	<td><c:out value="${acv.pointpm}" />pt</td>
  </tr>
 </table>
-
+</div><!-- paytb -->
 </div><!-- area -->
 
 

@@ -1,1 +1,29 @@
 @charset "UTF-8";
+@charset "UTF-8";
+
+#n1 {
+	top:130px;
+	text-align: left;
+	position:fixed;
+	width: 15%;
+	padding: 10px;
+}
+
+#n2 {
+	top:130px;
+	left: 1080px;
+	text-align: left;
+	position:fixed;
+	width: 15%;
+}
+
+li {
+	text-align:initial;
+}
+
+#main-area {
+  max-width: 960px;
+  background: #fff;
+  padding:50px 20px;
+  	margin: auto; /* 中央寄せ */
+}
