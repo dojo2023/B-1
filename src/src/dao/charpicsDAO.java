@@ -28,12 +28,12 @@ public class charpicsDAO {
 
 		// SQL文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
-
+		System.out.println("dao31");
 		// 結果表をコレクションにコピーする
 		health = rs.getInt("health_pm");
-
+		System.out.println("dao34");
 		// SQL文を準備する
-		String sql2 = "select char_pic, c_health from characters as c  join charpics as p on c.char_id = p.char_id where c.user_id = ? and c_health = ?";
+		String sql2 = "select char_pic from characters as c  join charpics as p on c.char_id = p.char_id where c.user_id = ? and c_health = ?";
 		PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
 		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
