@@ -24,14 +24,14 @@ public class Buytters implements Serializable{
 	}
 
 	// 投稿用のコンストラクタも生成
-	public Buytters(String user_id, String b_comment, String b_pic, String buyte_id) {
+	public Buytters(String user_id, String b_comment, String b_pic) {
 		super();
 		this.id = "";
 		this.user_id = user_id;
 		this.b_comment = b_comment;
 		this.b_pic = b_pic;
 		this.created_at = "";
-		this.buyte_id = buyte_id;
+		this.buyte_id = "";
 		this.buyte_sum = "";
 	}
 

@@ -101,10 +101,10 @@ public class buytterDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1","sa","");
 
 				// SQL文を準備する
-				String sql = "insert into buytters (user_id, b_comment, b_pic) VALUES (?, ?, ?); ";
-				String sql2 = "insert into nicebuycounts (buyte_id, buyte_count) VALUES (?, 0);";
+				String sql = "insert into buytters (user_id, b_comment, b_pic) VALUES (?, ?, ?); "
+						+ "insert into nicebuycounts(buyte_id, created_at, buyte_count) select buytters.id, buytters.created_at, 0 from buytters order by id desc fetch next 1 rows only;";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+//				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 	System.out.println("dao104さん");
 
 				// SQL文を完成させる
@@ -128,12 +128,10 @@ public class buytterDAO {
 				}
 	System.out.println("dao125さん");
 
-					pStmt2.setString(1, param.getBuyte_id());
-
 	System.out.println("dao136さん");
 
 				// SQL文を実行し、結果表を取得する
-				if (pStmt.executeUpdate() == 1 && pStmt2.executeUpdate() == 1) {
+				if (pStmt.executeUpdate() == 1) {
 					result = true;
 				}
 	System.out.println("dao131さん");
