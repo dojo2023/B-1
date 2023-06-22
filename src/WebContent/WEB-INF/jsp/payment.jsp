@@ -54,8 +54,10 @@
 </select>
 </td>
 <td><input type="text" name="paymoney">円
-<input type="submit" value="登録"></td>
+<input type="submit" value="登録">
+<input type="button" onclick="window.location.reload();" value="送信" name="tlReload"></td>
 </form>
+
 
 </tr>
 </table>
