@@ -14,6 +14,11 @@ public class Ranking implements Serializable{
 		this.point = point;
 		this.pic = pic;
 	}
+	public Ranking(String username, int point) {
+		super();
+		this.username = username;
+		this.point = point;
+	}
 
 	public String getUsername() {
 		return username;
