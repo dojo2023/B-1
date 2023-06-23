@@ -53,13 +53,13 @@ function createProcess(year, month) {
         for (var j = 0; j < week.length; j++) {
             if (i == 0 && j < startDayOfWeek) {
                 // 1行目で1日まで先月の日付を設定
-                calendar += "<td class='disabled'><input type='hidden' value = '"+year+"-"+(month+1)+"-"+count+"' name = 'Submit2'><input type='submit' value='" + (lastMonthEndDate - startDayOfWeek + j + 1) + "'name='Submit'></td>";
-                month -= 1;
+                calendar += "<td class='disabled'>input type='hidden' value = '"+year+"-"+(month+1)+"-"+count+"' name = 'Submit2'><input type='submit' value='" + (lastMonthEndDate - startDayOfWeek + j + 1) + "'name='Submit'></td>";
+                //month -= 1;
             } else if (count >= endDate) {
                 // 最終行で最終日以降、翌月の日付を設定
                 count++;
                 calendar += "<td class='disabled'><input type='hidden' value = '"+year+"-"+(month+1)+"-"+count+"' name = 'Submit2'><input type='submit' value='" + (count - endDate) + "'name='Submit'></td>";
-                month -= 1;
+                //month -= 1;
             } else {
                 // 当月の日付を曜日に照らし合わせて設定
                 count++;
@@ -67,10 +67,10 @@ function createProcess(year, month) {
                   && month == (today.getMonth())
                   && count == today.getDate()){
                     calendar += "<td class='today'><input type='hidden' value = '"+year+"-"+(month+1)+"-"+count+"' name = 'Submit2'><input type='submit' value='" + count + "'name='Submit'></td>";
-                    month -= 1;
+                    //month -= 1;
                 } else {
                     calendar += "<td><input type='hidden' value = '"+year+"-"+(month+1)+"-"+count+"' name = 'Submit2'><input type='submit' value='" + count + "'name='Submit'></td>";
-                    month -= 1;
+                    //month -= 1;
                 }
             }
         }
