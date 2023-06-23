@@ -60,9 +60,10 @@
 		<p>一致するデータはありません。</p>
 	</c:if>
 
-	<!-- ↓７～１２(投稿の繰り返し構文)↓ -->
+	<!-- ↓７～１２(TLの繰り返し構文)↓ -->
+	<form method="POST" action="/Ifrit/buytterServlet">
 	<c:forEach var="e" items="${buyeetList}" >
-		<form method="POST" action="/Ifrit/buytterServlet">
+		<!-- <form:form method="POST2" action="/e" Buytters="listForm"> -->
 
 		<table class="TL">
 			<tr>
@@ -79,16 +80,21 @@
 				<td><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ"></label></td>
 			</tr>
 			<tr>
-				<td><input type="submit" name="tlStump" value="nice buy!!"></td>
+				<td><input type="hidden" name="postId" value="${e.id}" ><input type="submit" name="Submit" value="nice buy!!"></td>
 				<td><c:out value="${e.buyte_sum}" /></td>
+			</tr>
+			<tr>
+				<td><label>buyeetID:<c:out value="${e.id}" /></label></td>
 			</tr>
 
 			<!-- nice buyのカウント数表示ってjavascriptですか？？？？？ -->
 
 		</table>
 
-		</form>
+
+		<!-- </form:form> -->
 	</c:forEach>
+	</form>
 	<!-- ↑７～１２(投稿の繰り返し構文)おわ↑ -->
 <!-- tlbox --></div>
 
@@ -101,7 +107,7 @@
 		<tr><td>投稿コメント</td></tr>
 		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
 		<tr><td>投稿画像</td></tr>
-		<tr><td><input type="file" name="postPic" accept=".png" alt="画像なし"></td></tr>
+		<tr><td><input type="file" name="postPic" accept=".png"></td></tr>
 		<tr><td><input type="submit" value="バイートする" name="Submit"></td></tr>
 	</table>
 

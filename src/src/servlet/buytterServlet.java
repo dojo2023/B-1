@@ -52,7 +52,6 @@ public class buytterServlet extends HttpServlet {
 
 
 // 次はPOSTリクエストの処理
-// nice buyボタン押された時、バイートボタン押された時、検索ボタン押された時
 
 	  	/**
 		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -122,8 +121,6 @@ public class buytterServlet extends HttpServlet {
 
 	// 検索ボタン押された時の処理
 
-			// requestでもらった値をUTF-8に変換してるよ
-			request.setCharacterEncoding("UTF-8");
 			if (request.getParameter("Submit").equals("検索ボタン")) {
 
 			// リクエストパラメータを取得する
@@ -137,8 +134,21 @@ public class buytterServlet extends HttpServlet {
 			request.setAttribute("buyeetList", buyeetList);
 		}
 
-		// nice buyボタン押された時の処理
+	// nice buyボタン押された時の処理
+			if (request.getParameter("Submit").equals("nice buy!!")) {
+		System.out.println("139さん");
 
+				// リクエストパラメータを取得する
+				String buyte_id = request.getParameter("id");
+		System.out.println("idは" + buyte_id);
+
+				// buytterDAOのオブジェクト宣言
+				buytterDAO objDao = new buytterDAO();
+				List<Buytters> buyeetList = objDao.search(new Buytters(buyte_id));
+
+				// 検索結果をリクエストスコープに格納する
+				request.setAttribute("buyeetList", buyeetList);
+			}
 
 
 		// 処理が終わったらTL画面にフォワードする
