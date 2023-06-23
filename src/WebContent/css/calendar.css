@@ -96,7 +96,7 @@ td:hover{
 
 .area {
   max-width: 960px;
-  background: #fff;
+  /* background: #fff; */
   padding:50px 20px;
   	margin: auto; /* 中央寄せ */
     text-align:center;

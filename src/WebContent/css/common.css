@@ -35,6 +35,7 @@ li {
         outline: none;
     margin: auto;
     border: 2px solid #fff;
+      border-radius:10px;
 }
 
 table {
