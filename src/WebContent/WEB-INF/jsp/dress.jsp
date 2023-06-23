@@ -21,7 +21,7 @@
 
 <h3>着せ替えショップ</h3>
 
-<p><c:out value="${pointPm}" />pt</p>
+<p><c:out value="${dress.itempoint}" />pt</p>
 
 <table>
 <c:forEach var="" items="${itemList}">
