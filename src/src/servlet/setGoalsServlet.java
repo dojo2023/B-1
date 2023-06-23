@@ -12,15 +12,14 @@ import javax.servlet.http.HttpSession;
 
 import dao.idpwsDAO;
 import dao.paymentsDAO;
-import dao.buyttersDAO;
+import dao.buytterDAO;
 import dao.goalsDAO;
 import dao.charactersDAO;
 import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
+import dao.nicebuyDAO;
 import dao.pointsDAO;
 import dao.historysDAO;
 import dao.itemspicsDAO;
-import dao.itemsDAO;
 import dao.banksDAO;
 import model.Idpws;
 import model.Payments;
@@ -74,6 +73,7 @@ public class setGoalsServlet extends HttpServlet {
 		doPost(request, response);
 	}
 
+	request.setCharacterEncoding("UTF-8");
 	// リクエストパラメータを取得する
 	String goal = request.getParameter("ggoal");
 	int ggoal = Integer.parsenInt(goal);
