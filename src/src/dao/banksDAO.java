@@ -27,6 +27,7 @@ public class banksDAO {
 			// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
 			pStmt.setString(1, userid);
 			System.out.println("dao29");
+			
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
