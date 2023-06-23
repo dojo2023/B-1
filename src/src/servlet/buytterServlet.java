@@ -1,21 +1,30 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import dao.buytterDAO;
+import dao.idpwsDAO;
 import dao.nicebuyDAO;
 import model.Buytters;
 import model.Nicebuy;
 @WebServlet("/buytterServlet")
+@MultipartConfig(
+		maxFileSize = 1000000,
+		maxRequestSize = 1000000,
+	    location ="org/"
+	)
 public class buytterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -58,8 +67,7 @@ public class buytterServlet extends HttpServlet {
 	  	/**
 		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 		 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 //		// もしもログインしていなかったらloginServlet.javaにリダイレクトする
 //		HttpSession session = request.getSession();
@@ -76,9 +84,10 @@ public class buytterServlet extends HttpServlet {
 
 			if (request.getParameter("Submit").equals("バイートする")) {
 
+				System.out.println("バイート起動");
 				// リクエストパラメータを取得する
+				request.setCharacterEncoding("UTF-8");
 				String b_comment = request.getParameter("postComment");
-				String b_pic = request.getParameter("postPic");
 
 				//セッションスコープにあるuseridを取得
 				HttpSession session = request.getSession();
@@ -89,11 +98,38 @@ public class buytterServlet extends HttpServlet {
 //					// 今までの書き方で取得する書き方
 //					LoginUser user_id_login = (LoginUser) session.getAttribute("userid");
 //					String user_id=user_id_login.getId();
+				//username取得
+				idpwsDAO idao = new idpwsDAO();
+				String user_name = idao.getName(user_id);
+				System.out.println("103");
+				String photo = null;
+				//画像処理
+				//photoを送信したファイルをパートオブジェクトで取得
+					System.out.println("110");
 
-			// 登録処理を行う
+
+					//photoを送信したファイルをパートオブジェクトで取得
+					Part part = request.getPart("postPic");
+					System.out.println("113");
+					//送信されたファイル名を取得
+					 photo  = part.getSubmittedFileName();
+
+					//送信されたファイルを格納するフォルダを指定している。
+					//ServletContext オブジェクト()
+					//realpath()仮想パスをファイルシステム上の絶対パスに変換するためのメソッド
+					String path = getServletContext().getRealPath("/upload");
+					System.out.println("画像パス"+path);
+					System.out.println("画像パス２photo；"+photo);
+
+
+						part.write(path+File.separator+photo);
+
+					System.out.println("画像パス２photo；"+photo);
+
+
 			// buytterDAOのオブジェクト宣言
 			buytterDAO objDao = new buytterDAO();
-			if(objDao.insert(new Buytters(user_id, b_comment, b_pic))) {
+			if(objDao.insert(new Buytters(user_name, b_comment, photo))) {
 				System.out.println("成功");
 
 			}

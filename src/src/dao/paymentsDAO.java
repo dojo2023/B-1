@@ -274,7 +274,7 @@ public List<Payments> list(String userid) {
 					rs.getString("pay_category"),
 					rs.getInt("sum(pay_money)")
 					);
-
+			System.out.println("wahile");
 			paydetailList.add(paydetail);
 		}
 

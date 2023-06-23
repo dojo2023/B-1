@@ -74,7 +74,7 @@
 				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.b_comment}" /></label></form></td>
 			</tr>
 			<tr>
-				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ"></label></form></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ"style = "max-width:250px;"></label></form></td>
 			</tr>
 			<tr>
 				<td><form method="POST" action="/Ifrit/buytterServlet"><input type="hidden" name="Submit2" value="${e.id}"><input type="submit" name="Submit" value="nice buy!!"></form></td>
@@ -91,14 +91,14 @@
 
 <!-- ↓１４～１７(投稿画面)↓ -->
 <div id="buyeetbox" class="area">
-		<form method="POST" action="/Ifrit/buytterServlet">
+		<form method="POST" action="/Ifrit/buytterServlet"enctype="multipart/form-data">
 
 	<table class="buyeet">
 		<tr><td><input type="button" onclick="window.location.reload();" value="戻る" name="cansell"></td></tr>
 		<tr><td>投稿コメント</td></tr>
 		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
 		<tr><td>投稿画像</td></tr>
-		<tr><td><input type="file" name="postPic" accept=".png"></td></tr>
+		<tr><td><input type="file" name="postPic" accept="image/*"required></td></tr>
 		<tr><td><input type="submit" value="バイートする" name="Submit"></td></tr>
 	</table>
 
