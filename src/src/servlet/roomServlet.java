@@ -40,21 +40,28 @@ public class roomServlet extends HttpServlet {
 		//セッションスコープにあるuseridを取得
 		String userid = (String)session.getAttribute("userid");
 
+	System.out.println("43");
 		//キャラクター名を取り出す
 		goalsDAO gd = new goalsDAO ();
 
 		String cname = gd.getcname(userid);
+	System.out.println("cnameさんは" + cname);
+
+		// リクエストスコープに格納するよ
+		request.setAttribute("cname",cname);
 
 		//目標達成度を取り出す
 		banksDAO bankDAO = new banksDAO ();
 
 		int goals = gd.select(userid);
+	System.out.println(goals);
 		int banks = bankDAO.select(userid);
 		System.out.println("banks");
 
 		int gratio = banks / goals * 100;
 
-
+		// リクエストスコープに格納するよ
+		request.setAttribute("gratio",gratio);
 
 
 
@@ -73,7 +80,10 @@ public class roomServlet extends HttpServlet {
 		System.out.println("72");
 		long oneday = 1000 * 60 * 60 * 24;
 		System.out.println("74");
-		long daysa = (gdate - ndate) / oneday;
+		System.out.println("gdateさんは" +gdate);
+		System.out.println("ndateさんは" +ndate);
+
+		long daysa = (ndate - gdate) / oneday;
 		System.out.println("76");
 		int myInt = Math.toIntExact(daysa);
 		System.out.println("78");

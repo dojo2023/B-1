@@ -17,7 +17,9 @@
     <h1>かけいぼっち</h1>
 </header>
 <div id="container">
+<form method="POST" action="/Ifrit/roomServlet">
 <h2><c:out value="${cname}" />の部屋</h2>
+</form>
 <div id='exam1'>
 <nav id="n1">
 	<ul id="g-navi1">
@@ -51,6 +53,7 @@
 
 <!--↓　キャラステータス　-->
 <div id='exam3'>
+
 <table>
     <tr>
         <td>目標達成度：<c:out value="${gratio}" />%</td>
