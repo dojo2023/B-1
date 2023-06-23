@@ -8,13 +8,13 @@
 }
 .tab li a{
   display: block;
-  background:#FFF5FA;
+
   margin:0 2px;
   padding:10px 20px;
 }
 /*liにactiveクラスがついた時の形状*/
 .tab li.active a{
-  background:#FFDBED;
+  background:#fff;
 }
 
 
@@ -80,22 +80,25 @@ a{
 .TL {
 	width: 500px;                /* 横幅指定 */
 	height: 250px;               /* 横幅指定 */
-	 background:#fff;
+	/* background:#fff;*/
 	box-shadow:0 0 5px #ddd;
+	    border: 2px solid #fff;
 	margin-top: 10px;
 }
 
 .buyeet {
 	width: 500px;                /* 横幅指定 */
 	height: 250px;               /* 横幅指定 */
-	background:#fff;
+	/* background:#fff;*/
 	box-shadow:0 0 5px #ddd;
+	    border: 2px solid #fff;
 }
 
 .search {
 	width: 500px;                /* 横幅指定 */
 	height: 250px;               /* 横幅指定 */
-	background:#fff;
+	/* background:#fff;*/
 	box-shadow:0 0 5px #ddd;
+	    border: 2px solid #fff;
 }
 

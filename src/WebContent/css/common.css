@@ -4,7 +4,13 @@
 
 html {
 	font-family: 'DotGothic16', sans-serif;
+	color: #F0F0F0;
 }
+
+a:link,a:visited,a:hover,a:active {
+	color:#F0F0F0;
+}
+
 
 body {
 	/* 全体を真ん中に寄せる */
@@ -12,7 +18,7 @@ body {
     max-width: 1280px;
     text-align: center;
 
-    background-color: #FFF5FA;
+    background-color: #000;
 }
 
 ul {
@@ -28,6 +34,7 @@ li {
     text-decoration: none;
         outline: none;
     margin: auto;
+    border: 2px solid #fff;
 }
 
 table {
@@ -35,3 +42,4 @@ table {
     margin: auto;
     text-align:center;
 }
+
