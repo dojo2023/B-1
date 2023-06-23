@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +16,8 @@ import dao.goalsDAO;
 import dao.paymentsDAO;
 import dao.pointsDAO;
 import model.Achievement;
+import model.Payments;
+
 /**
  * Servlet implementation class achievementServlet
  */
@@ -41,6 +44,12 @@ public class achievementServlet extends HttpServlet {
 
 		// グラフの数値表示に関して↓
 
+			// 検索処理を行う
+			paymentsDAO pmtDAO = new paymentsDAO();
+			List<Payments> paydetailList = pmtDAO.list(userid);
+
+			// 格納する
+			request.setAttribute("paydetailList",paydetailList);
 
 
 		// 各金額の表示に関して↓

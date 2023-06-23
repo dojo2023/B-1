@@ -34,6 +34,13 @@
 
 <div class="area">
 <!-- グラフの埋め込み -->
+
+<!--  今回はvarStatusを用いてループの回数を先頭に付けたindexを設定している-->
+
+	<c:forEach var="e" items="${paydetailList}"  varStatus="status">
+	<input 	type="hidden"	id="${status.index}data"  name="foods" value="${e.paymoney}"><br>
+	</c:forEach>
+
 <div class="chart-container" style="position:relative;width:400px;height:400px;margin: auto;text-align:center;">
 <canvas id="Chart"></canvas>
 </div>
