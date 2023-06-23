@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Buytters;
 import model.Nicebuy;
 
 public class nicebuyDAO {
@@ -16,7 +15,7 @@ public class nicebuyDAO {
 	//まずは画面遷移された時の処理！
 		// 最新投稿順でデータ持ってくるメソッド
 		// 戻り値としてArrayList<buytters>型の変数を利用
-		public List<Buytters> select() {
+		public List<Nicebuy> select() {
 			// 変数宣言
 			Connection conn = null;
 
@@ -33,7 +32,7 @@ public class nicebuyDAO {
 			// SQL文を準備する
 				// シンプルにINSERTのSQL文記述してるだけ。
 				// ？には↓記述の「setString」が入るよ。
-				String sql = "select buytters.id, user_id, b_comment, b_pic, buytters.created_at, buyte_sum from buytters, (select buyte_id, sum(buyte_count) as buyte_sum from nicebuycounts group by buyte_id)nicebuycounts where id = buyte_id order by id desc;";
+				String sql = "insert into nicebuycounts (user_id, b_comment, b_pic) VALUES (?, ?, ?); ";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を実行し、結果表を取得する
@@ -44,7 +43,7 @@ public class nicebuyDAO {
 				while (rs.next()) {
 					Nicebuy card = new Nicebuy(
 					rs.getString("buyte_id"),
-					rs.getString("nicebuy_count")
+					rs.getString("buyte_count")
 					);
 					nicebuyList.add(card);
 				}
