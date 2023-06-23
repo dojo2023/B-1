@@ -37,9 +37,9 @@
 
 <!--  今回はvarStatusを用いてループの回数を先頭に付けたindexを設定している-->
 
-	<c:forEach var="e" items="${paydetailList}"  varStatus="status">
-	<input 	type="hidden"	id="${status.index}data"  name="foods" value="${e.paymoney}"><br>
-	</c:forEach>
+
+<input 	type="hidden"	id="data"  value="${j}"><br>
+
 
 <div class="chart-container" style="position:relative;width:400px;height:400px;margin: auto;text-align:center;">
 <canvas id="Chart"></canvas>
@@ -83,6 +83,20 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 ここまで -->
+<!-- ↓収支グラフのデータ取得 ここから -->
+<script>
+labelsData = [
+	<c:forEach var="e" items="${paydetailList}" >
+	'${e.paycategory}',
+	</c:forEach>
+	];
+datasValue = [
+	<c:forEach var="e" items="${paydetailList}" >
+	'${e.paymoney}',
+	</c:forEach>
+];
+</script>
+<!-- ↑収支グラフのデータ取得 ここまで -->
 <script src="js/achievement.js"></script>
 </body>
 

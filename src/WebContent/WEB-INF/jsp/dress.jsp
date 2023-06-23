@@ -12,7 +12,7 @@
 <body>
 <!-- ヘッダー ここから -->
 <header>
-<h2><c:out value="${cName}" />の部屋</h2>
+<h2><c:out value="${names}" />の部屋</h2>
 </header>
 <!-- ヘッダー ここまで -->
 <!-- 共通部分 ここまで -->
@@ -24,14 +24,14 @@
 <p><c:out value="${dress.itempoint}" />pt</p>
 
 <table>
-<c:forEach var="" items="${itemList}">
+<!-- <c:forEach var="e" items="${itemList}"> -->
  <tr>
  	<!-- 装飾品の画像 -->
  	<td>装飾品の画像<img src="./upload/${itemBuy}"><br>
  	<!-- ラジオボタンと必要なポイント数の表示 -->
  	ラジオボタンと必要なポイント数の表示<input type="radio" name="" value=""> <c:out value="${itemId}" />pt </td>
  </tr>
-</c:forEach>
+<!-- </c:forEach> -->
 </table>
 
 <form method="post" action="/ifrit/dressServlet" class="" >

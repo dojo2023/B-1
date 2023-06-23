@@ -44,6 +44,13 @@ public class achievementServlet extends HttpServlet {
 
 		// グラフの数値表示に関して↓
 
+			int i = 0;
+
+			Integer j = new Integer(i);
+
+			request.setAttribute("j",j);
+
+
 			// 検索処理を行う
 			paymentsDAO pmtDAO = new paymentsDAO();
 			List<Payments> paydetailList = pmtDAO.list(userid);

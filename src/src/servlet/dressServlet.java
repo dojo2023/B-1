@@ -10,32 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buyttersDAO;
 import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
 import dao.itemspicsDAO;
-import dao.itemsDAO;
-import dao.banksDAO;
-import model.Idpws;
-import model.Payments;
-import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
+import dao.pointsDAO;
 import model.DressUp;
 
 /**
@@ -109,24 +86,24 @@ public class dressServlet extends HttpServlet {
 
 		// 着替えるボタン押下
 		// リクエストパラメータを取得する （入力された値を受け取り、変数に格納する）
-		request.setCharacterEncoding("UTF-8");
-		String dressup = request.getParameter("dressup");
+		//request.setCharacterEncoding("UTF-8");
+		//String dressup = request.getParameter("dressup");
 
 		// 処理を行う （SQLを動作させるDAO）
 		// 訂正必要！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-		itemspicsDao ipicDao= new itemspicsDao(); //インスタンス化したもの
-		if (ipicDao.isOK(new ipic(userid, userpw))) {	//
+		//itemspicsDao ipicDao= new itemspicsDao(); //インスタンス化したもの
+		//if (ipicDao.isOK(new ipic(userid, userpw))) {	//
 
 
 		// 購入ボタン押下
 		// リクエストパラメータを取得する （入力された値を受け取り、変数に格納する）
-		request.setCharacterEncoding("UTF-8");
-		String buy = request.getParameter("buy");
+		//request.setCharacterEncoding("UTF-8");
+		//String buy = request.getParameter("buy");
 
 		// 処理を行う （SQLを動作させるDAO）
 		// 訂正必要！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-		itemspicsDao ipicDao= new itemspicsDao(); //インスタンス化したもの
-		if (ipicDao.isOK(new ipic(userid, userpw))) {	//
+		//itemspicsDao ipicDao= new itemspicsDao(); //インスタンス化したもの
+		//if (ipicDao.isOK(new ipic(userid, userpw))) {	//
 
 
 
@@ -140,4 +117,4 @@ public class dressServlet extends HttpServlet {
 	  }
 	}
 
-}
+
