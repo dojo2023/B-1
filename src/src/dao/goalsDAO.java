@@ -228,7 +228,7 @@ public Timestamp getupdateat(String userid) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 		// SQL文を準備する
-		String sql = "select c_name from goals where user_id=?";
+		String sql = "select created_at from goals where user_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
@@ -240,7 +240,7 @@ public Timestamp getupdateat(String userid) {
 
 		// 結果表をコレクションにコピーする
 		rs.next();
-		time = rs.getTimestamp("update_at");
+		time = rs.getTimestamp("created_at");
 		System.out.println("だお8７");
 
 	} catch (SQLException e) {
