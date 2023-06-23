@@ -29,19 +29,19 @@
 </header>
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
   <div class="area">
-<div class="wrapper" >
-    <!-- xxxx年xx月を表示 -->
-    <h1 id="header"></h1>
+	<div class="wrapper" >
+	    <!-- xxxx年xx月を表示 -->
+	    <h1 id="header"></h1>
 
-    <!-- ボタンクリックで月移動 -->
-    <div id="next-prev-button">
-        <button id="prev" onclick="prev()">◀</button>
-        <button id="next" onclick="next()">▶</button>
-    </div><!-- next-prev-button -->
+	    	<!-- ボタンクリックで月移動 -->
+		    <div id="next-prev-button">
+		        <button id="prev" onclick="prev()">◀</button>
+		        <button id="next" onclick="next()">▶</button>
+		    </div><!-- next-prev-button -->
 
-    <!-- カレンダー -->
-    <form method="GET" action = "/Ifrit/paymentServlet"><div id="calendar"></div></form>
-    </div>
+	    	<!-- カレンダー -->
+	    	<div id="calendar"></div>
+	    </div>
    </div>
 
 <div id="under"> <!-- カレンダー下のテーブル -->
