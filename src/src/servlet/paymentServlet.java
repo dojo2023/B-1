@@ -56,7 +56,7 @@ public class paymentServlet extends HttpServlet {
 			//			 リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
 			daypm = request.getParameter("Submit2");
-			daypm = "2023-06-21";
+//			daypm = "2023-06-21";
 			sdaypm = daypm.replace("-", "/");
 			System.out.println("送られてきた値" + sdaypm);
 			//			SimpleDateFormat kata = new SimpleDateFormat("yyyy/MM/dd");
