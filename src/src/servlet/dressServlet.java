@@ -58,11 +58,33 @@ public class dressServlet extends HttpServlet {
 				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
+
+			// スコープのuserid
+			String userid = (String)session.getAttribute("userid");
+
+			// キャラクターの名前を持ってくる
+			goalsDAO gDAO = new goalsDAO();
+			String names = gDAO.getcname(userid);
+			System.out.println(names);
+
 			//ユーザの保有ポイントをDAOで持ってくる
+			pointsDAO pDAO = new pointsDAO();
+			int points = pDAO.select(userid);
+			System.out.println(points);
 
 			//装飾品の画像をDAOで持ってくる
+			itemspicsDAO iDAO = new itemspicsDAO();
+			String itempics = iDAO.ipic(userid);
+			System.out.println(itempics);
 
 			//装飾品の値段をDAOで持ってくる
+			itemspicsDAO ipDAO = new itemspicsDAO();
+			int itemprice = ipDAO.iprice(userid);
+			System.out.println(itemprice);
+
+			// 格納する
+			request.setAttribute("dress",
+			new DressUp(itempics,points,itemprice ));
 
 		    // フォワード
 		    RequestDispatcher dispatcher =

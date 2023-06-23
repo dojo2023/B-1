@@ -47,7 +47,7 @@
 <div id="under"> <!-- カレンダー下のテーブル -->
 <table>
 <tr>
- 	<td>目標:<c:out value="${wnt.gwant}" /></td><td>残り日数<c:out value="${wnt.until}" /></td>
+ 	<td>目標:<c:out value="${wnt.gwant}" /></td><td>残り<c:out value="${wnt.until}" />日</td>
  </tr>											<!-- 達成日までの残り日数はglimit - 今日 -->
 </table>
 <table>

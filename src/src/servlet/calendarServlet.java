@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,15 +40,34 @@ public class calendarServlet extends HttpServlet {
 
 			String userid = (String)session.getAttribute("userid");
 	    // 欲しいもの名を出す
+			try {
+
 			goalsDAO gd = new goalsDAO ();
 			String gwant = gd.getwant(userid);
 			System.out.println(gwant);
 
 		// 残り日数(glimit - 今日)
 			goalsDAO gdao = new goalsDAO();
-			int glimit = gdao.calendarlimit(userid);
+			String glimit = gdao.getlimit(userid);
 			System.out.println(glimit);
+			Date date = new Date();
+			Date limitday;
+			glimit = glimit.replace("-", "/");
+			limitday = DateFormat.getDateInstance().parse(glimit);
 
+			long limit = limitday.getTime(); //残り日数を計算する
+			System.out.println("71");
+			long today = date.getTime();
+			System.out.println("73");
+			long oneday = 1000 * 60 * 60 * 24;
+			System.out.println("75");
+			long daysa = (limit - today) / oneday;
+			System.out.println("77");
+			int myInt = Math.toIntExact(daysa);
+			System.out.println("79");
+
+			System.out.println("何日" + daysa);
+			System.out.println("ｍYINT" + myInt);
 		// キャラ背景画像
 			charpicsDAO cdao = new charpicsDAO();
 			String charpic = cdao.charpic(userid);
@@ -63,12 +85,16 @@ public class calendarServlet extends HttpServlet {
 
 			// データを格納する
 						request.setAttribute("wnt",
-						new CalendarDate(gwant,glimit,charpic,banks,goals ));
+						new CalendarDate(gwant,myInt,charpic,banks,goals ));
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		    	request.getRequestDispatcher
 		            ("/WEB-INF/jsp/calendar.jsp");
 		    dispatcher.forward(request, response);
+			} catch (ParseException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		  }
 
 	/**
