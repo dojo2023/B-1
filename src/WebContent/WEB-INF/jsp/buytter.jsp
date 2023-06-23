@@ -61,40 +61,31 @@
 	</c:if>
 
 	<!-- ↓７～１２(TLの繰り返し構文)↓ -->
-	<form method="POST" action="/Ifrit/buytterServlet">
+
 	<c:forEach var="e" items="${buyeetList}" >
-		<!-- <form:form method="POST2" action="/e" Buytters="listForm"> -->
+
 
 		<table class="TL">
 			<tr>
-				<td><label>ID:<c:out value="${e.user_id}" /></label></td>
-				<td><label><c:out value="${e.created_at}" /></label></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label>ID:<c:out value="${e.user_id}" /></label></form></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.created_at}" /></label></form></td>
 			</tr>
 			<tr>
-				<td><label><c:out value="${e.b_comment}" /></label></td>
-			</tr>
-		<!-- <tr>
-				<td><label><c:out value="${e.b_pic}" /></label></td>
-			</tr> -->
-			<tr>
-				<td><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ"></label></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.b_comment}" /></label></form></td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="postId" value="${e.id}" ><input type="submit" name="Submit" value="nice buy!!"></td>
-				<td><c:out value="${e.buyte_sum}" /></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ"></label></form></td>
 			</tr>
 			<tr>
-				<td><label>buyeetID:<c:out value="${e.id}" /></label></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><input type="hidden" name="Submit2" value="${e.id}"><input type="submit" name="Submit" value="nice buy!!"></form></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><c:out value="${e.buyte_sum}" /></form></td>
 			</tr>
-
-			<!-- nice buyのカウント数表示ってjavascriptですか？？？？？ -->
 
 		</table>
 
 
-		<!-- </form:form> -->
 	</c:forEach>
-	</form>
+
 	<!-- ↑７～１２(投稿の繰り返し構文)おわ↑ -->
 <!-- tlbox --></div>
 

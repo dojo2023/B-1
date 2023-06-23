@@ -3,24 +3,20 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import model.Nicebuy;
 
 public class nicebuyDAO {
 
-	//まずは画面遷移された時の処理！
-		// 最新投稿順でデータ持ってくるメソッド
-		// 戻り値としてArrayList<buytters>型の変数を利用
-		public List<Nicebuy> select() {
+	//nice buy押下された時の処理！
+		// 戻り値としてboolean型のtrue or falseを利用
+		public boolean insert(Nicebuy param) {
 			// 変数宣言
 			Connection conn = null;
 
-			// return用オブジェクトの生成
-			List<Nicebuy> nicebuyList = new ArrayList<Nicebuy>();
+			// 変数「result」の宣言、falseの代入
+			boolean result = false;
 
 			try {
 			// JDBCドライバを読み込む
@@ -32,30 +28,31 @@ public class nicebuyDAO {
 			// SQL文を準備する
 				// シンプルにINSERTのSQL文記述してるだけ。
 				// ？には↓記述の「setString」が入るよ。
-				String sql = "insert into nicebuycounts (user_id, b_comment, b_pic) VALUES (?, ?, ?); ";
+				String sql = "insert into nicebuycounts (buyte_id, buyte_count) VALUES (?, +1); ";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を実行し、結果表を取得する
-				ResultSet rs = pStmt.executeQuery();
-
-			// 結果表をコレクションにコピーする
-				// コレクションは可変長配列のやつの事だよ。
-				while (rs.next()) {
-					Nicebuy card = new Nicebuy(
-					rs.getString("buyte_id"),
-					rs.getString("buyte_count")
-					);
-					nicebuyList.add(card);
+				// SQL文を完成させる
+				if (param.getBuyte_id() != null && !param.getBuyte_id().equals("")) {
+					pStmt.setString(1, param.getBuyte_id());
 				}
+				else {
+					pStmt.setString(1, null);
+				}
+
+				// SQL文を実行し、結果表を取得する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+	System.out.println("dao50さん");
+
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
-				nicebuyList = null;
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				nicebuyList = null;
 			}
+
 			finally {
 
 			// データベースを切断
@@ -65,14 +62,13 @@ public class nicebuyDAO {
 					}
 					catch (SQLException e) {
 						e.printStackTrace();
-						nicebuyList = null;
 					}
 				}
 			}
 
-			// 結果を返す
-				// 結果とはさっき作った可変長配列の結果表の事だよ。
-				return nicebuyList;
+		// 結果を返す
+			// 結果とはさっき作った可変長配列の結果表の事だよ。
+			return result;
 		}
 
 

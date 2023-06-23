@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.buytterDAO;
+import dao.nicebuyDAO;
 import model.Buytters;
+import model.Nicebuy;
 @WebServlet("/buytterServlet")
 public class buytterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -81,32 +83,22 @@ public class buytterServlet extends HttpServlet {
 				//セッションスコープにあるuseridを取得
 				HttpSession session = request.getSession();
 				String user_id=(String)session.getAttribute("userid");
-
-				// buyte_idを入れる（とても強引）
-
-
-//				String buyte_id = String.valueOf(countsan);
-//				System.out.println(buyte_id);
-
-				// 今まで書いてたやつ
-//				String user_id = session.getAttribute("userid").toString();
-
-				// 今までの書き方で取得する書き方
-//				LoginUser user_id_login = (LoginUser) session.getAttribute("userid");
-//				String user_id=user_id_login.getId();
+//					// 今まで書いてたやつ
+//					String user_id = session.getAttribute("userid").toString();
+//
+//					// 今までの書き方で取得する書き方
+//					LoginUser user_id_login = (LoginUser) session.getAttribute("userid");
+//					String user_id=user_id_login.getId();
 
 			// 登録処理を行う
 			// buytterDAOのオブジェクト宣言
 			buytterDAO objDao = new buytterDAO();
 			if(objDao.insert(new Buytters(user_id, b_comment, b_pic))) {
 				System.out.println("成功");
-//				System.out.println(buyte_id);
-//				countsan ++;
-//				System.out.println(countsan);
+
 			}
 			else {
 				System.out.println("失敗");
-//				System.out.println(countsan);
 			}
 
 			// TL画面と同じ処理
@@ -119,6 +111,7 @@ public class buytterServlet extends HttpServlet {
 			  request.setAttribute("buyeetList", buyeetList);
 			}
 
+	//
 	// 検索ボタン押された時の処理
 
 			if (request.getParameter("Submit").equals("検索ボタン")) {
@@ -134,20 +127,32 @@ public class buytterServlet extends HttpServlet {
 			request.setAttribute("buyeetList", buyeetList);
 		}
 
+	//
 	// nice buyボタン押された時の処理
 			if (request.getParameter("Submit").equals("nice buy!!")) {
 		System.out.println("139さん");
 
 				// リクエストパラメータを取得する
-				String buyte_id = request.getParameter("id");
+				String buyte_id = request.getParameter("Submit2");
 		System.out.println("idは" + buyte_id);
 
-				// buytterDAOのオブジェクト宣言
-				buytterDAO objDao = new buytterDAO();
-				List<Buytters> buyeetList = objDao.search(new Buytters(buyte_id));
+				// nicebuyDAOのオブジェクト宣言
+				nicebuyDAO objDao = new nicebuyDAO();
+				if(objDao.insert(new Nicebuy(buyte_id))) {
+					System.out.println("成功");
+				}
+				else {
+					System.out.println("失敗");
+				}
 
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("buyeetList", buyeetList);
+				// TL画面と同じ処理
+				// buytterDAOのオブジェクト宣言
+				buytterDAO objDao2 = new buytterDAO();
+
+				  List<Buytters> buyeetList= objDao2.select();
+
+				  // 並び変えた投稿をリクエストスコープに格納する
+				  request.setAttribute("buyeetList", buyeetList);
 			}
 
 

@@ -8,6 +8,12 @@ public class Nicebuy implements Serializable{
 	private String buyte_count;
 
 	// コンストラクタを生成
+	public Nicebuy(String buyte_id, String buyte_count) {
+		super();
+		this.buyte_id = buyte_id;
+		this.buyte_count = buyte_count;
+	}
+
 	public Nicebuy(String buyte_id) {
 		super();
 		this.buyte_id = buyte_id;
