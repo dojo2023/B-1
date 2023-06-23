@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
+import java. util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.banksDAO;
+import dao.goalsDAO;
+import dao.healthsDAO;
+
 /**
  * Servlet implementation class roomServlet
  */
@@ -29,107 +37,113 @@ public class roomServlet extends HttpServlet {
 			response.sendRedirect("/Ifrit/loginServlet");
 			return;
 		}
-//		//セッションスコープにあるuseridを取得
-//		String userid = (String)session.getAttribute("userid");
-//
-//		//キャラクター名を取り出す
-//		goalsDAO gd = new goalsDAO ();
-//
-//		String cname = gd.getcname(userid);
-//
-//		//目標達成度を取り出す
-//		banksDAO bd = new banksDAO ();
-//
-//		int ggoal = gd.getggoal(userid);
-//		int bbank = bd.getbbank(userid);
-//
-//		int gratio = bbank / ggoal;
-//
-//
-//
-//
-//
-//
-//		//出会って何日目を取り出す
-//
-//		Timestamp updateat = gd.getupdateat(userid);
-//		Date date = new Date();
-//		SimpleDateFormat sdf = new SimpleDateFormat("dd");
-//
-//		// 現在日時を取得
-//  		Timestamp timestamp = new Timestamp(updateat);
-//
-//		// Date型へ変換
-//  		Date date2 = new Date(timestamp.getTime());
-//
-//		Date meet = date2 - updateat;
-//
-//
-//
-//
-//
-//		//状態を取り出す
-//		healthsDAO hd = new healthsDAO ();
-//
-//		int healthpm = hd.gethealthpm(userid);
-//
-//		String health;
-//
-//		switch (healthpm) {
-//			case 0:
-//			health = "健康";
-//			break;
-//			case 1:
-//			health = "高熱";
-//			break;
-//			case 2:
-//			health = "重体";
-//			break;
-//			case 3:
-//			health = "絶命寸前";
-//			break;
-//		}
-//		//コメントを取り出す
-//		Random rand = new Random();
-//		int num = rand.nextInt(10) + 100;
-//
-//		String comment;
-//
-//		switch (num) {
-//			case 0:
-//			comment = "今日も一日頑張ろうね！";
-//			break;
-//			case 1:
-//			comment = "上手くお金管理できてて偉い！";
-//			break;
-//			case 2:
-//			comment = "たまには休憩も必要だね！";
-//			break;
-//			case 3:
-//			comment = "ご褒美もたまには必要！";
-//			break;
-//			case 4:
-//			comment = "頑張りすぎないようにね！";
-//			break;
-//			case 5:
-//			comment = "たくさんお金を貯めて欲しいものを買おう！";
-//			break;
-//			case 6:
-//			comment = "毎日ログインすれば、ポイントも貯まる！";
-//			break;
-//			case 7:
-//			comment = "節約した分だけ得した気分になれると思うよ！";
-//			break;
-//			case 8:
-//			comment = "健康第一！";
-//			break;
-//			case 9:
-//			comment = "喋る前に飲む。";
-//			break;
-//
-//		}
-//
+		//セッションスコープにあるuseridを取得
+		String userid = (String)session.getAttribute("userid");
 
+		//キャラクター名を取り出す
+		goalsDAO gd = new goalsDAO ();
+
+		String cname = gd.getcname(userid);
+
+		//目標達成度を取り出す
+		banksDAO bankDAO = new banksDAO ();
+
+		int goals = gd.select(userid);
+		int banks = bnkDAO.select(userid);
+
+		int gratio = banks / goals * 100;
+
+
+
+
+
+
+		//出会って何日目を取り出す
+
+		Timestamp createdat = gd.getupdateat(userid);
+		Date date = new Date();
+
+		// Date型へ変換
+  		Date date2 = new Date(createdat.getTime());
+
+		long ndate =date.getTime();
+		System.out.println("70");
+		long gdate = date2.getTime();
+		System.out.println("72");
+		long oneday = 1000 * 60 * 60 * 24;
+		System.out.println("74");
+		long daysa = (gdate - ndate) / oneday;
+		System.out.println("76");
+		int myInt = Math.toIntExact(daysa);
+		System.out.println("78");
+		System.out.println("myInt");
+		Integer myint = new Integer(myInt);
+		request.setAttribute("meet", myint);
+
+		//状態を取り出す
+		healthsDAO hd = new healthsDAO ();
+
+		int healthpm = hd.gethealthpm(userid);
+
+		String health = null;
+
+		switch (healthpm) {
+			case 0:
+			health = "健康";
+			break;
+			case 1:
+			health = "高熱";
+			break;
+			case 2:
+			health = "重体";
+			break;
+			case 3:
+			health = "絶命寸前";
+			break;
+		}
+		request.setAttribute("health",health);
+
+		//コメントを取り出す
+		Random rand = new Random();
+		int num = rand.nextInt(10);
+
+		String comment = null;
+		System.out.println("南無阿弥陀仏" + num);
+
+		switch (num) {
+			case 0:
+			comment = "今日も一日頑張ろうね！";
+			break;
+			case 1:
+			comment = "上手くお金管理できてて偉い！";
+			break;
+			case 2:
+			comment = "たまには休憩も必要だね！";
+			break;
+			case 3:
+			comment = "ご褒美もたまには必要！";
+			break;
+			case 4:
+			comment = "頑張りすぎないようにね！";
+			break;
+			case 5:
+			comment = "たくさんお金を貯めて欲しいものを買おう！";
+			break;
+			case 6:
+			comment = "毎日ログインすれば、ポイントも貯まる！";
+			break;
+			case 7:
+			comment = "節約した分だけ得した気分になれると思うよ！";
+			break;
+			case 8:
+			comment = "健康第一！";
+			break;
+			case 9:
+			comment = "喋る前に飲む。";
+			break;
+
+		}
+		request.setAttribute("comment", comment);
 
 
 		    // フォワード
