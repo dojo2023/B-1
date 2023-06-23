@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+import model.Goals;
+
 public class goalsDAO {
 
 	public int select(String userid) {
@@ -367,4 +369,84 @@ public Timestamp getupdateat(String userid) {
 			// 結果を返す
 			return glimit;
 }
+
+		//目標設定画面から格納
+		public boolean setGoal(Goals goals) {
+			Connection conn = null;
+			boolean hanbetu = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+
+				// SQL文を準備する
+				String sql = "insert into goals(g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) values (?,?,?,?,?,?,?)";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				System.out.println("77");
+				// SQL文を完成させる
+				if (goals.getGoals() != 0) {
+					pStmt.setInt(1, goals.getGoals());
+					System.out.println("82");
+				}
+
+				else {
+					pStmt.setString(1, "");
+					System.out.println("87");
+				}
+
+				if (idpws.getUserpw() != null && !.getUserpw().equals("")) {
+					pStmt.setString(2, idpws.getUserpw());
+					System.out.println("92");
+				}
+				else {
+					pStmt.setString(2, "");
+					System.out.println("96");
+				}
+				if (idpws.getUsername() != null && !idpws.getUsername().equals("")) {
+					pStmt.setString(3, idpws.getUsername());
+					System.out.println("100");
+				}
+
+				else {
+					pStmt.setString(3, "");
+					System.out.println("105");
+
+				}
+
+				System.out.println("109");
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					hanbetu = true;
+					System.out.println("114");
+
+				}
+				System.out.println("117");
+
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return hanbetu;
+		}
 }

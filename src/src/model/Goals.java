@@ -6,10 +6,10 @@ import java.io.Serializable;
 public class Goals implements Serializable{
 	private int ggoals;
 	private	int gavailable;
-	private int glimit;
+	private String glimit;
 	private String gwant;
 
-	public Goals(int ggoals, int gavailable, int glimit, String gwant) {
+	public Goals(int ggoals, int gavailable, String glimit, String gwant) {
 		super();
 		this.ggoals = ggoals;
 		this.gavailable = gavailable;
@@ -17,11 +17,11 @@ public class Goals implements Serializable{
 		this.gwant = gwant;
 	}
 
-	public int getGgoals() {
+	public int getGoals() {
 		return ggoals;
 	}
 
-	public void setGgoals(int ggoals) {
+	public void setGoals(int ggoals) {
 		this.ggoals = ggoals;
 	}
 
@@ -33,11 +33,11 @@ public class Goals implements Serializable{
 		this.gavailable = gavailable;
 	}
 
-	public int getGlimit() {
+	public String getGlimit() {
 		return glimit;
 	}
 
-	public void setGlimit(int glimit) {
+	public void setGlimit(String glimit) {
 		this.glimit = glimit;
 	}
 

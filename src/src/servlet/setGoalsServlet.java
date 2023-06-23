@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,6 +37,7 @@ import model.Character;
 import model.PictureBook;
 import model.Result;
 import model.DressUp;
+import model.Goals;
 /**
  * Servlet implementation class setGoalsServlet
  */
@@ -70,22 +72,24 @@ public class setGoalsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
-	}
+//		doPost(request, response);
 
 	request.setCharacterEncoding("UTF-8");
 	// リクエストパラメータを取得する
 	String goal = request.getParameter("ggoal");
-	int ggoal = Integer.parsenInt(goal);
+	int ggoal = Integer.parseInt(goal);
 
 	String available = request.getParameter("gavailable");
-	int gavailable  = Integer.parsenInt(available);
+	int gavailable  = Integer.parseInt(available);
 
 	String limit = request.getParameter("glimit");
 
 	String want = request.getParameter("gwant");
 
 	// 登録処理を行う
+	goalsDAO gd =  new goalsDAO();
+	boolean check = gd.setGoal(new Goals(ggoal,gavailable,limit,want));
+
 
 
 
