@@ -24,14 +24,14 @@
 <tr>
 <td>
 	<label>目標貯金額<br>
-	<input type="text" name="ggoal">
+	<input type="text" name="ggoal" placeholder="目標貯金額を入力してね">
 	</label>
 </td>
 </tr>
 <tr>
 <td>
 	<label>使用可能額(家賃・光熱費など固定費は除く)<br>
-	<input type="text" name="gavailable">
+	<input type="text" name="gavailable" placeholder="目標期間中の使用可能額を入力してね">
 	</label>
 </td>
 </tr>
@@ -44,15 +44,15 @@
 </tr>
 <tr>
 <td>
-	<label>ほしいもの・したいこと</label><br>
-	<input type="text" name="gwant">
+	<label>ほしいもの・したいこと<br>
+	<input type="text" name="gwant" placeholder="貯金の目的を書いてね">
 	</label>
 </td>
 </tr>
 <tr>
 <td>
 	<label><br>
-	<input type="file" name="gwantpic" accept=".png">
+	<input type="text" value="ファイル" name="" placeholder="貯金の目的を書いてね"></label></td><td><label><input type="file" name="gwantpic" accept=".png"></label>
 	<!-- acceptでファイルの種類を指定できるかも…？.jpegとか
 
 	画面内に選択した画像が表示される用にするときは以下のコードとJS組み合わせて使用
@@ -61,13 +61,13 @@
 	<img id="preview" src="" style = "max-width:150px;">
 
 	↑↑　　小黒さんからコードもらったやつなので例になります -->
-	</label>
+
 </td>
 </tr>
 <tr>
 <td>
 	<label>キャラクターの名前を決めてね<br>
-	<input type="text" name="cname">
+	<input type="text" name="cname" placeholder="バケモノ">
 	</label>
 </td>
 </tr>
@@ -78,6 +78,11 @@
 </tr>
 </table>
 </form>
+
+<p>チュートリアル動画</p>
+<!-- 動画 -->
+<video controls>
+<source src="videos/dog.mp4"></video>
 
 
 <!-- ↓共通部分 -->
