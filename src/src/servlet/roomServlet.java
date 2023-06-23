@@ -49,7 +49,8 @@ public class roomServlet extends HttpServlet {
 		banksDAO bankDAO = new banksDAO ();
 
 		int goals = gd.select(userid);
-		int banks = bnkDAO.select(userid);
+		int banks = bankDAO.select(userid);
+		System.out.println("banks");
 
 		int gratio = banks / goals * 100;
 
