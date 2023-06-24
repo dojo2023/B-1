@@ -18,42 +18,73 @@
     text-align: center;
     width: 100%;
 }
-table {
-    outline: 2px solid #000;
+#calendar table {
+    outline: 2px solid #ffffff;
     border-collapse: collapse;
     width: 100%;
 }
-th {
-    color: #000;
-}
-th, td {
-    outline: 1px solid #000;
+/* 曜日の列のマス */
+#calendar table tr th {
+	outline: 1px solid #ffffff;
+    background: #c4c4ff;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
+    color: #000000;
+}
+/* 日付のマス */
+#calendar table tr td {
+	outline: 1px solid #ffffff;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+/* 日付けのボタン */
+#calendar table tr td #Submit1,#Submit2,#Submit3,#Submit4 {
+    outline: 0px;
+    margin: 0 0 0 0;
+    border: 0 0 0 0;
+    border: none;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    /* 背景透過 */
+    background: transparent;
+    /* カチカチの四角にするやつ */
+    border-radius: 0%;
     /* ポインター合わせるだけで反応はなし */
     cursor: pointer;
 }
+
 /*日曜日*/
-td:first-child {
-    color: red;
+#calendar table tr td:first-child {
+    background: #e23a3a;
 }
 /*土曜日*/
-td:last-child {
-    color: blue;
+#calendar table tr td:last-child {
+    background: #8886d0;
 }
-/*前後月の日付*/
-td.disabled {
-    color: #ccc;
+/*前月の日付*/
+#calendar table tr td #Submit1 {
+    color: #717171;
+}
+/*後月の日付*/
+#calendar table tr td #Submit2 {
+    color: #717171;
 }
 /*本日*/
-td.today {
+#calendar table tr td #Submit3 {
+	color: #ffffff;
     background-color: #D65E72;
-    color: #fff;
+}
+#calendar table tr td #Submit4 {
+	color: #ffffff;
 }
 
-td:hover{
-    background-color: #FFDBED;
+#calendar table tr td:hover{
+    background-color: #e4bcdf;
     border-color: #000;
 }
 
@@ -64,7 +95,7 @@ td:hover{
 #next-prev-button button{
     cursor: pointer;
     color: #000;
-	background-color:transparent;
+	background-color:#ffffff;
 		 border: 2px solid #000;
     border-radius: 10px;
     font-size: 1rem;
@@ -80,6 +111,24 @@ td:hover{
 }
 #next {
     float: right;
+}
+
+/* カレンダー下のテーブル */
+
+#under table {
+    outline: 2px solid #ffffff;
+    border-collapse: collapse;
+    width: 100%;
+}
+#under table tr td {
+    outline: 1px solid #ffffff;
+    background-color: transparent;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #ffffff;
+    /* ポインター合わせるだけで反応はなし */
+    cursor: pointer;
 }
 
 /* カレンダー下部分 */

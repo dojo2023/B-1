@@ -33,15 +33,15 @@
 	    <!-- xxxx年xx月を表示 -->
 	    <h1 id="header"></h1>
 
-	    	<!-- ボタンクリックで月移動 -->
-		    <div id="next-prev-button">
-		        <button id="prev" onclick="prev()">◀</button>
-		        <button id="next" onclick="next()">▶</button>
-		    </div><!-- next-prev-button -->
+    	<!-- ボタンクリックで月移動 -->
+	    <div id="next-prev-button">
+	        <button id="prev" onclick="prev()">◀</button>
+	        <button id="next" onclick="next()">▶</button>
+	    </div><!-- next-prev-button -->
 
-	    	<!-- カレンダー -->
-	    	<div id="calendar"></div>
-	    </div>
+    	<!-- カレンダー -->
+    	<div id="calendar"></div>
+    </div>
    </div>
 
 <div id="under"> <!-- カレンダー下のテーブル -->
