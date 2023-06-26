@@ -425,7 +425,7 @@ public Timestamp getupdateat(String userid) {
 
 				}
 				if (goals.getUserid() != null) {
-					pStmt.setString(5, goals.getGwant());
+					pStmt.setString(5, goals.getUserid());
 					System.out.println("100");
 				}
 				else {

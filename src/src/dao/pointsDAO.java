@@ -135,7 +135,7 @@ public class pointsDAO {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 		// SQL文を準備する
-		String sql = "insert into payments(user_id,points_pm) values (?,?)";
+		String sql = "insert into points(user_id,point_pm) values (?,?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
