@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.banksDAO;
+import dao.charpicsDAO;
 import dao.goalsDAO;
 import dao.healthsDAO;
 
@@ -47,8 +48,17 @@ public class roomServlet extends HttpServlet {
 		String cname = gd.getcname(userid);
 	System.out.println("cnameさんは" + cname);
 
-		// リクエストスコープに格納するよ
-		request.setAttribute("cname",cname);
+	// リクエストスコープに格納するよ
+	request.setAttribute("cname",cname);
+
+	//キャラ画像の表示
+	charpicsDAO cd = new charpicsDAO ();
+
+	int b =cd.health(userid);
+	String c_name = cd.pic(b, userid);
+
+	// リクエストスコープに格納するよ
+	request.setAttribute("c_name",c_name);
 
 		//目標達成度を取り出す
 		banksDAO bankDAO = new banksDAO ();

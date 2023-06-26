@@ -218,17 +218,26 @@ public int sum(String userid,String date) {
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
+		System.out.println("dao221");
 		wa = 0;
 	}
 	catch (ClassNotFoundException e) {
 		e.printStackTrace();
+		System.out.println("dao226");
+
 		wa = 0;
 	}
 	finally {
+		System.out.println("dao231");
+
 		// データベースを切断
 		if (conn != null) {
 			try {
+				System.out.println("dao236");
+
 				conn.close();
+				System.out.println("dao238");
+
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
@@ -236,7 +245,6 @@ public int sum(String userid,String date) {
 			}
 		}
 	}
-	System.out.print("dao67");
 	// 結果を返す
 	return wa;
 }
@@ -301,6 +309,49 @@ public List<Payments> list(String userid) {
 	}
 	return paydetailList;
 	}
+//目標達成画面で今までの支出をすべて削除。成功したらtrueを返す
+	public boolean delete(String userid) {
+		Connection conn = null;
+		boolean result = false;
 
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/MYBC", "sa", "");
+
+			// SQL文を準備する
+			String sql = "delete from payments where user_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, userid);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
 }
