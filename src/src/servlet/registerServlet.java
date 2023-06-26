@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.idpwsDAO;
 import model.Idpws;
@@ -56,11 +57,13 @@ public class registerServlet extends HttpServlet {
 					new Result("登録失敗！", "/Ifrit/loginServlet"));
 					System.out.println("登録失敗");
 				}
+				HttpSession session = request.getSession();
+				session.setAttribute("userid", userid);
+
 				// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 				dispatcher.forward(request, response);
 				System.out.println("ふぉわーど");
-
 	}
 
 }

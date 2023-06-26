@@ -13,6 +13,7 @@
 
 <p>卵誕生動画</p>
 
+<a href="/Ifrit/calendarServlet">カレンダー</a>
 <footer>
 <p>&copy;Ifrit.B</p>
 </footer>

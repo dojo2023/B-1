@@ -59,6 +59,7 @@ public class setGoalsServlet extends HttpServlet {
 	request.setCharacterEncoding("UTF-8");
 	//useridを取得
 	String userid = (String) session.getAttribute("userid");
+	System.out.println(userid);
 	// リクエストパラメータを取得する
 	String goal = request.getParameter("ggoal");
 	int ggoal = Integer.parseInt(goal);

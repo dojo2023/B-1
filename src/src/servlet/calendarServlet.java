@@ -39,6 +39,7 @@ public class calendarServlet extends HttpServlet {
 		}
 
 			String userid = (String)session.getAttribute("userid");
+			System.out.println("USERID："+userid);
 	    // 欲しいもの名を出す
 			try {
 
