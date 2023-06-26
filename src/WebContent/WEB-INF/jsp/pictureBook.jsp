@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +15,16 @@
 
 <header>
 
-<!-- ユーザが付けたキャラの名前を表示 -->
-<h2><c:out value="${c_name}" />の部屋</h2>
 
-<h3>図鑑</h3>
+<h2>図鑑</h2>
 
 <!-- table使い方把握できてないのでSCCの時に合わせて変えてくださいごめんなさい
 　　　　キャラクターの画像と番号表示 -->
 <table>
-<c:forEach var="e" items="${charList}" >
+<c:forEach var="e" items="${userid}" >
 <tr>
 <td>
-		<img src="./upload/${char_pic}"><br>
-		<c:out value="${char_id}"/>
+		<img src="./img/characters/${e.charpic}"><br>
 </td>
 </tr>
 </c:forEach>
