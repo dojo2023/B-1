@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -56,18 +57,23 @@ public class paymentServlet extends HttpServlet {
 			//			 リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
 			daypm = request.getParameter("Submit2");
-//			daypm = "2023-06-21";
-			sdaypm = daypm.replace("-", "/");
+			System.out.println("daypm:" + daypm);
+			//			daypm = "2023-06-21";
+			//目標設定日を取得
+			goalsDAO gd = new goalsDAO();
+			Timestamp gCreate = gd.getCreate(userid);
+			SimpleDateFormat daykata = new SimpleDateFormat("yyyy/MM/dd");
+			String created = daykata.format(gCreate);
+			//取得した目標設定日をDate型にする。
+			sdaypm = created.replace("-", "/");
 			System.out.println("送られてきた値" + sdaypm);
-			//			SimpleDateFormat kata = new SimpleDateFormat("yyyy/MM/dd");
 			System.out.println("58");
 			Date nowday = DateFormat.getDateInstance().parse(sdaypm);
 			System.out.println(nowday);
 			//日時計算用に変更
-			SimpleDateFormat daykata = new SimpleDateFormat("yyyy/MM/dd");
+
 			System.out.println("63");
 			//目標日を取得
-			goalsDAO gd = new goalsDAO();
 			System.out.println("7070");
 			goalday = gd.getlimit(userid);
 			System.out.println("goalday:" + goalday);
@@ -122,19 +128,19 @@ public class paymentServlet extends HttpServlet {
 			System.out.println("p61");
 			//合計の出力
 			wa = payDAO.sum(userid, daypm);
-			Integer goukei = new Integer(wa);
+			Integer goukei = (Integer)wa;
 			System.out.println("合計:" + goukei);
 
 			//合計をリクエストスコープに格納する
 			request.setAttribute("paymoney", goukei);
 			//今日使える金額を計算し、格納
 			myInt = myInt - wa;
-			Integer myint = new Integer(myInt);
+			Integer myint = (Integer)myInt;
 			request.setAttribute("gavailable", myint);
 			// フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/payment.jsp");
 			dispatcher.forward(request, response);
-			System.out.println("p67");
+			System.out.println("doget終わり！！");
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -149,7 +155,7 @@ public class paymentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+//		doGet(request, response);
 
 		HttpSession session = request.getSession();
 		//セッションスコープにあるuseridを取得
@@ -247,19 +253,23 @@ public class paymentServlet extends HttpServlet {
 
 			System.out.println();
 			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("paymentsList", paymentsList);
-//			System.out.println("p61");
+
+			//			System.out.println("p61");
 			//合計の出力
 			wa = payDAO.sum(userid, daypm);
 			Integer goukei = new Integer(wa);
-//			System.out.println("合計:" + goukei);
+			//			System.out.println("合計:" + goukei);
 
 			//合計をリクエストスコープに格納する
-			request.setAttribute("paymoney", goukei);
+
 			//今日使える金額を計算し、格納
 			myInt = myInt - wa;
 			Integer myint = new Integer(myInt);
+
+			request.setAttribute("paymoney", goukei);
+			request.setAttribute("paymentsList", paymentsList);
 			request.setAttribute("gavailable", myint);
+
 			// フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/payment.jsp");
 			dispatcher.forward(request, response);

@@ -33,12 +33,13 @@
 <div class="area">
 
 <h2 class="date"><c:out value="${today}"/></h2>
+<form method="POST" action="/Ifrit/paymentServlet">
 <table>
 	<tr>
 	<td>今日使えるお金：<c:out value="${gavailable}"/>円</td>
 </tr>
 <tr><td>
-<form method="POST" action="/Ifrit/paymentServlet">
+
 <input type="hidden" name="payment_date" value="${today}">
 <select name="paymentCategory">
 	<option value="">カテゴリー選択</option>
@@ -54,13 +55,13 @@
 </select>
 </td>
 <td><input type="text" name="paymoney">円
-<input type="submit" value="登録">
-<input type="button" onclick="window.location.reload();" value="送信" name="tlReload"></td>
-</form>
+<input type="submit" value="登録"></td>
+
 
 
 </tr>
 </table>
+</form>
 <div id="paylist">
 <table>
 	<c:forEach var="e" items="${paymentsList}">
