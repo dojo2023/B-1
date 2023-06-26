@@ -21,15 +21,15 @@
 
 <h3>着せ替えショップ</h3>
 
-<p><c:out value="${dress.itempoint}" />pt</p>
+<p><c:out value="${points}" />pt</p>
 
 <table>
 <!-- <c:forEach var="e" items="${itemList}"> -->
  <tr>
  	<!-- 装飾品の画像 -->
- 	<td>装飾品の画像<img src="./upload/${itemBuy}"><br>
+ 	<td><img src="./img/items/${e.itempic}"><br>
+
  	<!-- ラジオボタンと必要なポイント数の表示 -->
- 	ラジオボタンと必要なポイント数の表示<input type="radio" name="" value=""> <c:out value="${itemId}" />pt </td>
  </tr>
 <!-- </c:forEach> -->
 </table>
@@ -40,7 +40,8 @@
 <br>
 </form>
 
-<input type="button" onclick="history.back()" value="部屋に戻る">
+<input type="button" onclick="window.location.reload();" value="部屋に戻る" name="cansell">
+
 
 
 

@@ -5,14 +5,14 @@ import java.io.Serializable;
 public class DressUp implements Serializable {
 
 	private String itempic;
-	private int itempoint;
-	private int itembuy;
+ //	private int itempoint;
+ // private int itembuy;
 
-	public DressUp(String itempic, int itempoint, int itembuy) {
+	public DressUp(String itempic) {
 		super();
 		this.itempic = itempic;
-		this.itempoint = itempoint;
-		this.itembuy = itembuy;
+	//	this.itempoint = itempoint;
+	//  this.itembuy = itembuy;
 	}
 
 	public String getItempic() {
@@ -23,6 +23,7 @@ public class DressUp implements Serializable {
 		this.itempic = itempic;
 	}
 
+	/*
 	public int getItempoint() {
 		return itempoint;
 	}
@@ -38,7 +39,7 @@ public class DressUp implements Serializable {
 	public void setItembuy(int itembuy) {
 		this.itembuy = itembuy;
 	}
-
+	 */
 
 
 }

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,24 +45,46 @@ public class dressServlet extends HttpServlet {
 			String names = gDAO.getcname(userid);
 			System.out.println(names);
 
+			// リクエストスコープに格納
+			request.setAttribute("names",names);
+			System.out.println(names);
+
+
 			//ユーザの保有ポイントをDAOで持ってくる
 			pointsDAO pDAO = new pointsDAO();
 			int points = pDAO.select(userid);
 			System.out.println(points);
 
+			// リクエストスコープに格納
+			request.setAttribute("points",points);
+			System.out.println(points);
+
+
 			//装飾品の画像をDAOで持ってくる
 			itemspicsDAO iDAO = new itemspicsDAO();
-			String itempics = iDAO.ipic(userid);
-			System.out.println(itempics);
+			List <DressUp> Dress= iDAO.select(userid);
+			System.out.println(Dress);
 
+			//格納する
+			request.setAttribute("Dress",
+					Dress);
+
+
+/* 一旦保留
 			//装飾品の値段をDAOで持ってくる
 			itemspicsDAO ipDAO = new itemspicsDAO();
 			int itemprice = ipDAO.iprice(userid);
 			System.out.println(itemprice);
 
-			// 格納する
+			//装飾品の購入判断？
+			itemspicsDAO ibDAO = new itemspicsDAO();
+			int itembuy = ibDAO.iprice(userid);
+			System.out.println(itembuy);
+
+			// リクエストスコープに格納する
 			request.setAttribute("dress",
-			new DressUp(itempics,points,itemprice ));
+			new DressUp(itempics,itemprice,itembuy ));
+*/
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
