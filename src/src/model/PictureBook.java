@@ -10,6 +10,10 @@ public class PictureBook implements Serializable{
 		this.charpic = charpic;
 		this.charid = charid;
 	}
+	public PictureBook(String charpic) {
+		super();
+		this.charpic = charpic;
+	}
 	public String getCharpic() {
 		return charpic;
 	}
