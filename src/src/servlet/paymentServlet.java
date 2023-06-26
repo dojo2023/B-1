@@ -179,7 +179,6 @@ public class paymentServlet extends HttpServlet {
 		}
 		System.out.println("userid:" + userid);
 		String date;
-		String daypm;
 		int wa;
 		String sdaypm;
 		String goalday;
@@ -191,9 +190,9 @@ public class paymentServlet extends HttpServlet {
 			//いったん例として日時指定してやる。
 			//		 リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
-			daypm = request.getParameter("Submit2");
-			daypm = "2023-06-21";
-			sdaypm = daypm.replace("-", "/");
+//			daypm = request.getParameter("Submit2");
+
+			sdaypm = daypmm.replace("-", "/");
 			System.out.println("送られてきた値" + sdaypm);
 			//		SimpleDateFormat kata = new SimpleDateFormat("yyyy/MM/dd");
 			System.out.println("58");
@@ -246,17 +245,17 @@ public class paymentServlet extends HttpServlet {
 			//			Date daoDay = last.parse(daypm);
 
 			//今日の日付表示用
-			request.setAttribute("today", daypm);
+			request.setAttribute("today", daypmm);
 
 			//検索処理
-			List<Payments> paymentsList = payDAO.search(userid, daypm);
+			List<Payments> paymentsList = payDAO.search(userid, daypmm);
 
 			System.out.println();
 			// 検索結果をリクエストスコープに格納する
 
 			//			System.out.println("p61");
 			//合計の出力
-			wa = payDAO.sum(userid, daypm);
+			wa = payDAO.sum(userid, daypmm);
 			Integer goukei = new Integer(wa);
 			//			System.out.println("合計:" + goukei);
 
