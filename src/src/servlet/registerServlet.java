@@ -48,7 +48,7 @@ public class registerServlet extends HttpServlet {
 
 				if (iDao.register(new Idpws(userid,userpw,username))) {	// 登録成功
 					request.setAttribute("result",
-					new Result("登録成功！", "/Ifrit/loginServlet"));
+					new Result("登録成功！", "/Ifrit/setGoalsServlet"));
 					System.out.println("登録成功");
 				}
 				else{												// 登録失敗

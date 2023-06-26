@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,33 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buytterDAO;
 import dao.goalsDAO;
-import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuyDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.banksDAO;
-import model.Idpws;
-import model.Payments;
 import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
-import model.PictureBook;
-import model.Result;
-import model.DressUp;
-import model.Goals;
+import model.SetGoals;
 /**
  * Servlet implementation class setGoalsServlet
  */
@@ -73,8 +48,17 @@ public class setGoalsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		doPost(request, response);
+		//sessionスコープnullなら
+	    HttpSession session = request.getSession();
+	    if (session.getAttribute("userid") == null) {
+		    response.sendRedirect("/Ifrit/loginServlet");
+			return;
+	    }
+
 
 	request.setCharacterEncoding("UTF-8");
+	//useridを取得
+	String userid = (String) session.getAttribute("userid");
 	// リクエストパラメータを取得する
 	String goal = request.getParameter("ggoal");
 	int ggoal = Integer.parseInt(goal);
@@ -86,19 +70,35 @@ public class setGoalsServlet extends HttpServlet {
 
 	String want = request.getParameter("gwant");
 
+	String cname = request.getParameter("cname");
+
+
 	// 登録処理を行う
 	goalsDAO gd =  new goalsDAO();
-	boolean check = gd.setGoal(new Goals(ggoal,gavailable,limit,want));
-
+//	boolean check = gd.setGoal(new Goals(ggoal,gavailable,limit,want));
+//
+//	if(check) {
+//		System.out.println("setGoal成功");
+//	}else {
+//		System.out.println("setGoal失敗");
+//	}
 
 	// データを格納
-	request.setAttribute("wnt",
-	new Goals(ggoal,gavailable,limit,want));
+	if (gd.setGoal(new SetGoals(ggoal,limit,want,cname,userid,gavailable))){	// 登録成功
+		request.setAttribute("result",
+		new Result("登録成功！", "/Ifrit/eggServlet"));
+		System.out.println("登録成功");
+	}
+	else{												// 登録失敗
+		request.setAttribute("result",
+		new Result("登録失敗！", "/Ifrit/setGoalsServlet"));
+		System.out.println("登録失敗");
+	}
 
 	// 結果ページにフォワードする
 		RequestDispatcher dispatcher =
 			request.getRequestDispatcher
 				("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
-
+	}
 }

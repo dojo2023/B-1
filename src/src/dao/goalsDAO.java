@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-import model.Goals;
+import model.SetGoals;
 
 public class goalsDAO {
 
@@ -371,7 +371,7 @@ public Timestamp getupdateat(String userid) {
 }
 
 		//目標設定画面から格納
-		public boolean setGoal(Goals goals) {
+		public boolean setGoal(SetGoals goals) {
 			Connection conn = null;
 			boolean hanbetu = false;
 
@@ -384,30 +384,30 @@ public Timestamp getupdateat(String userid) {
 
 
 				// SQL文を準備する
-				String sql = "insert into goals(g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) values (?,?,?,?,?,?,?)";
+				String sql = "insert into goals(g_goal,g_limit,g_want,c_name,user_id,g_available) values (?,?,?,?,?,?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				System.out.println("77");
 				// SQL文を完成させる
-				if (goals.getGoals() != 0) {
-					pStmt.setInt(1, goals.getGoals());
+				if (goals.getGgoals() != 0) {
+					pStmt.setInt(1, goals.getGgoals());
 					System.out.println("82");
 				}
 
 				else {
-					pStmt.setString(1, "");
+					pStmt.setInt(1, 0);
 					System.out.println("87");
 				}
 
-				if (goals.getGavailable() != 0){
-					pStmt.setInt(2, goals.getGavailable());
+				if (goals.getGlimit() != null){
+					pStmt.setString(2, goals.getGlimit());
 					System.out.println("92");
 				}
 				else {
 					pStmt.setString(2, "");
 					System.out.println("96");
 				}
-				if (goals.getGlimit() != null) {
-					pStmt.setString(3, goals.getGlimit());
+				if (goals.getGwant() != null) {
+					pStmt.setString(3, goals.getGwant());
 					System.out.println("100");
 				}
 				else {
@@ -415,12 +415,30 @@ public Timestamp getupdateat(String userid) {
 					System.out.println("105");
 
 				}
-				if (goals.getGwant() != null) {
-					pStmt.setString(4, goals.getGwant());
+				if (goals.getCname() != null) {
+					pStmt.setString(4, goals.getCname());
 					System.out.println("100");
 				}
 				else {
 					pStmt.setString(4, "");
+					System.out.println("105");
+
+				}
+				if (goals.getUserid() != null) {
+					pStmt.setString(5, goals.getGwant());
+					System.out.println("100");
+				}
+				else {
+					pStmt.setString(5, "");
+					System.out.println("105");
+
+				}
+				if (goals.getGavailable() != 0) {
+					pStmt.setInt(6, goals.getGavailable());
+					System.out.println("100");
+				}
+				else {
+					pStmt.setInt(6,0);
 					System.out.println("105");
 
 				}

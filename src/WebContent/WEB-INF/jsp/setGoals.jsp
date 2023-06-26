@@ -49,21 +49,23 @@
 	</label>
 </td>
 </tr>
+<!--
 <tr>
 <td>
 	<label><br>
 	<input type="text" value="ファイル" name="" placeholder="貯金の目的を書いてね"></label></td><td><label><input type="file" name="gwantpic" accept=".png"></label>
-	<!-- acceptでファイルの種類を指定できるかも…？.jpegとか
+ acceptでファイルの種類を指定できるかも…？.jpegとか
 
 	画面内に選択した画像が表示される用にするときは以下のコードとJS組み合わせて使用
 
 	 onchange="previewImage(this);" required>
 	<img id="preview" src="" style = "max-width:150px;">
 
-	↑↑　　小黒さんからコードもらったやつなので例になります -->
+	↑↑　　小黒さんからコードもらったやつなので例になります
 
 </td>
 </tr>
+ -->
 <tr>
 <td>
 	<label>キャラクターの名前を決めてね<br>
