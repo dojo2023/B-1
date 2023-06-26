@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.goalsDAO;
 import dao.idpwsDAO;
+import dao.pointsDAO;
 import model.Idpws;
 
 /**
@@ -49,11 +50,13 @@ public class loginServlet extends HttpServlet {
 
 		// ログイン処理を行う （SQLを動作させるDAO）
 		idpwsDAO iDao = new idpwsDAO(); //インスタンス化したもの
+		//ログインポイント付与用
+		pointsDAO pd =  new pointsDAO();
 		if (iDao.isLoginOK(new Idpws(userid, userpw))) { // ログイン成功
 
 			// セッションスコープにuseridを格納する
 			HttpSession session = request.getSession();
-			//				session.setAttribute("userid",new LoginUser(userid));
+//			session.setAttribute("userid",new LoginUser(userid));
 			session.setAttribute("userid", userid);
 
 			//目標期間をすぎているか否か
@@ -68,12 +71,31 @@ public class loginServlet extends HttpServlet {
 				if (nowday.after(limitday)) {
 					// カレンダーサーブレットにリダイレクトする
 					response.sendRedirect("/Ifrit/resultGoalsServlet");
-
-
 				} else {
 					response.sendRedirect("/Ifrit/calendarServlet");
-
 				}
+			//ログインポイント１５０ポイント
+			if(pd.loginP(userid)) {
+				System.out.println("ログインポイント成功");
+			}else {
+				System.out.println("ログインポイント失敗");
+			}
+
+//			//ログイン履歴
+//			loginsDAO lgd = new loginsDAO();
+//			if(lgd.insert(userid)){
+//				System.out.println("ログインポイント成功");
+//			}else {
+//				System.out.println("ログインポイント失敗");
+//			}
+//			Timestamp gCreate = gd.getCreate(userid);
+//			SimpleDateFormat daykata = new SimpleDateFormat("yyyy-MM-dd");
+//			String goal_created = daykata.format(gCreate);
+//			System.out.println("goal::"+goal_created);
+//			//取得した目標設定日をDate型にする。
+//
+//			lgd.c_login(userid,goal_created);
+
 			} catch (ParseException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();

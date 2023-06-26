@@ -48,6 +48,7 @@ public class resultGoalsServlet extends HttpServlet {
 
 			String result;
 
+			System.out.println("gratio:"+gratio);
 			if(gratio >= 100){
 				 result ="目標達成";
 			}

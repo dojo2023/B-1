@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
     <h2><c:out value="${result}" /></h2>
 
     <!--↓　目標達成か失敗かの画像　-->
-	<img src="./img/characters/${c_name}">
+	<img src="./img/characters/${c_name}"style = "max-width:250px;">
 
 
     <p>次の目標を決めませんか？</p>
