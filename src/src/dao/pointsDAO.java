@@ -121,4 +121,116 @@ public class pointsDAO {
 		return rankList;
 	}
 
+	//ログインポイント付与
+	public boolean loginP(String userid) {
+		Connection conn = null;
+
+		boolean check = false;
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+		// SQL文を準備する
+		String sql = "insert into payments(user_id,points_pm) values (?,?)";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+		pStmt.setString(1, userid);
+		System.out.println("dao29");
+
+		//point１５０にした。
+		pStmt.setInt(2, 150);
+		System.out.println("dao29");
+
+		//できたか。どうか
+		if(pStmt.executeUpdate() == 1) {
+			check = true;
+			System.out.println("da106");
+		}
+		System.out.println("dao33");
+
+		// 結果表をコレクションにコピーする
+		System.out.println("dao38");
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	System.out.println("dao60");
+	// 結果を返す
+	return check;
+}
+	//回復アイテム購入処理-300
+	public boolean healP(String userid) {
+		Connection conn = null;
+
+		boolean check = false;
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
+
+		// SQL文を準備する
+		String sql = "insert into points(user_id,point_pm) values (?,?)";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
+		pStmt.setString(1, userid);
+		System.out.println("dao29");
+
+		//point１５０にした。
+		pStmt.setInt(2, -300);
+		System.out.println("dao29");
+
+		//できたか。どうか
+		if(pStmt.executeUpdate() == 1) {
+			check = true;
+			System.out.println("da106");
+		}
+		System.out.println("dao33");
+
+		// 結果表をコレクションにコピーする
+		System.out.println("dao38");
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	System.out.println("dao60");
+	// 結果を返す
+	return check;
+}
 }

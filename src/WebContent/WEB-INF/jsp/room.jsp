@@ -70,6 +70,7 @@
 		<li>現在の<c:out value="${point_pm}" />PT</li>
 			<!--↓　ランキング表示　-->
 		<li>ランキング<a href="/Ifrit/rankingServlet" id="ranking"><img src="ランキング画像" alt="ランキングへ"></a></li>
+		<li><form method="POST" action="/Ifrit/roomServlet"><input type="submit" value="回復"name="submit"></form></li>
 	</ul>
 </nav>
 

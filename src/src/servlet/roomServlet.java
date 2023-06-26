@@ -17,6 +17,7 @@ import dao.banksDAO;
 import dao.charpicsDAO;
 import dao.goalsDAO;
 import dao.healthsDAO;
+import dao.pointsDAO;
 
 /**
  * Servlet implementation class roomServlet
@@ -40,6 +41,7 @@ public class roomServlet extends HttpServlet {
 		}
 		//セッションスコープにあるuseridを取得
 		String userid = (String)session.getAttribute("userid");
+		request.setCharacterEncoding("UTF-8");
 
 		System.out.println("43");
 		//キャラクター名を取り出す
@@ -108,7 +110,9 @@ public class roomServlet extends HttpServlet {
 		//状態を取り出す
 		healthsDAO hd = new healthsDAO ();
 
-		int healthpm = hd.gethealthpm(userid);
+		int healthpm = hd.he(userid);
+		System.out.println("healthpm]]"+healthpm);
+
 
 		String health = null;
 
@@ -169,6 +173,11 @@ public class roomServlet extends HttpServlet {
 
 		}
 		request.setAttribute("comment", comment);
+		//ポイント表示
+
+		pointsDAO pd = new pointsDAO();
+		int char_point = pd.select(userid);
+		request.setAttribute("point_pm", char_point);
 
 
 		    // フォワード
@@ -183,6 +192,30 @@ public class roomServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+//		doGet(request, response);
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/Ifrit/loginServlet");
+			return;
+		}
+		request.setCharacterEncoding("UTF-8");
+
+		//セッションスコープにあるuseridを取得
+		String userid = (String)session.getAttribute("userid");
+		//pointdao
+		pointsDAO pd = new pointsDAO();
+		//health_pm
+		healthsDAO hd = new healthsDAO();
+		//病気を治すボタンの処理。
+		System.out.println("ボタン押したとき"+request.getParameter("submit"));
+		if (request.getParameter("submit").equals("回復")) {
+			pd.healP(userid);
+			System.out.println("healP::");
+			hd.heal(userid);
+			System.out.println("healHH::");
+
+		}
 		doGet(request, response);
 	}
 

@@ -28,6 +28,12 @@ public class registerServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
+//			goalsDAO gd = new goalsDAO();
+//			Timestamp gCreate = gd.getCreate("aa");
+//			SimpleDateFormat daykata = new SimpleDateFormat("yyyy-MM-dd");
+//			String goal_created = daykata.format(gCreate);
+//			System.out.println("goal::"+goal_created);
+
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
