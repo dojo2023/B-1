@@ -204,10 +204,10 @@ update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 item_buy int NOT NULL
 )
 「サンプル」
-INSERT INTO itempics (item_id,item_pic,item_buy) values('1','boushi.png','0');
-INSERT INTO itempics (item_id,item_pic,item_buy) values('1','boushi.png','1');
-INSERT INTO itempics (item_id,item_pic,item_buy) values('2','ookan.png','0');
-INSERT INTO itempics (item_id,item_pic,item_buy) values('2','ookan.png','1');
+INSERT INTO itempics (item_id,item_pic,item_buy) values('1','boushi1.png','0');
+INSERT INTO itempics (item_id,item_pic,item_buy) values('1','boushi2.png','1');
+INSERT INTO itempics (item_id,item_pic,item_buy) values('2','ookan1.png','0');
+INSERT INTO itempics (item_id,item_pic,item_buy) values('2','ookan2.png','1');
 
 <装飾品ステータステーブル>
 CREATE TABLE items(
