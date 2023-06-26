@@ -91,7 +91,9 @@ public class setGoalsServlet extends HttpServlet {
 	boolean check = gd.setGoal(new Goals(ggoal,gavailable,limit,want));
 
 
-
+	// データを格納
+	request.setAttribute("wnt",
+	new Goals(ggoal,gavailable,limit,want));
 
 	// 結果ページにフォワードする
 		RequestDispatcher dispatcher =
