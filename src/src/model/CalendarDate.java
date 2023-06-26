@@ -7,14 +7,16 @@ public class CalendarDate implements Serializable{
 	private String gwant;
 	private int until;
 	private String charpic;
+	private String backpic;
 	private int bbank;
 	private int ggoals;
 
-	public CalendarDate(String gwant, int until, String charpic, int bbank, int ggoals) {
+	public CalendarDate(String gwant, int until, String charpic, String backpic, int bbank, int ggoals) {
 		super();
 		this.gwant = gwant;
 		this.until = until;
 		this.charpic = charpic;
+		this.backpic = backpic;
 		this.bbank = bbank;
 		this.ggoals = ggoals;
 	}
@@ -29,6 +31,12 @@ public class CalendarDate implements Serializable{
 	}
 	public void setUntil(int until) {
 		this.until = until;
+	}
+	public String getBackpic() {
+		return backpic;
+	}
+	public void setBackpic(String backpic) {
+		this.backpic = backpic;
 	}
 	public String getCharpic() {
 		return charpic;

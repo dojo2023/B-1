@@ -138,9 +138,21 @@
 	margin: auto; /* 中央寄せ */
     text-align:center;
 }
-
 #under td,th {
 	 color: #000; /* テキスト色 */
+}
+#char {
+	width: 960px;
+	position: relative;
+}
+#charpic {
+	top: 0;
+  	left: 0;
+
+}
+#backpic {
+	top: 0;
+  	left: 0;
 }
 
 .area {

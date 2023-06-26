@@ -68,10 +68,23 @@ public class calendarServlet extends HttpServlet {
 
 			System.out.println("何日" + daysa);
 			System.out.println("ｍYINT" + myInt);
-		// キャラ背景画像
-			charpicsDAO cdao = new charpicsDAO();
-			String charpic = cdao.charpic(userid);
-			System.out.println(charpic);
+
+		// ヘルスを取り出す
+			charpicsDAO cdaohealth = new charpicsDAO();
+			int health = cdaohealth.health(userid);
+			System.out.println("ヘルスさん"+health);
+
+		// キャラ画像を取り出す
+			charpicsDAO cdaoCharpic = new charpicsDAO();
+			String charpic = cdaoCharpic.pic(health, userid);
+			System.out.println("キャラ画像さん"+charpic);
+			charpic="aki.png";
+
+		// キャラ背景画像を取り出す
+			charpicsDAO cdaoBackpic = new charpicsDAO();
+			String backpic = cdaoBackpic.pic(health, userid);
+			System.out.println("キャラ背景画像さん"+backpic);
+			backpic="blue.jpg";
 
 		// 貯金額を出す
 			banksDAO bnkDAO = new banksDAO();
@@ -85,7 +98,7 @@ public class calendarServlet extends HttpServlet {
 
 			// データを格納する
 						request.setAttribute("wnt",
-						new CalendarDate(gwant,myInt,charpic,banks,goals ));
+						new CalendarDate(gwant,myInt,charpic,backpic,banks,goals ));
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		    	request.getRequestDispatcher

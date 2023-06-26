@@ -50,17 +50,17 @@
  	<td>目標:<c:out value="${wnt.gwant}" /></td><td>残り<c:out value="${wnt.until}" />日</td>
  </tr>											<!-- 達成日までの残り日数はglimit - 今日 -->
 </table>
-<table>
+<table id="char">
  <tr>
- 	<td></td><c:out value="${wnt.charpic}" />  <!-- 背景の真ん中にキャラクターを表示する -->
+ 	<td><img src="./img/characters/${wnt.charpic}"style = "max-width:250px;" id="charpic">
+ 		<img src="./img/characters/${wnt.backpic}"style = "max-width:250px;" id="backpic"></td>
  </tr>
 </table>
-
 <table>
  <tr>
  	<td>現在の貯金額<c:out value="${wnt.bbank}" /></td><td>目標金額<c:out value="${wnt.ggoals}" /></td>
- </tr>  <!-- 背景画像の下に現在の貯金額<input type="text" name="bbank">を表示させる -->
-</table><!-- 現在の貯金額の右に目標金額<input type="text" name="ggoal">を表示させる -->
+ </tr>
+</table>
 </div>
 
 
