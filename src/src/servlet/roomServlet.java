@@ -32,7 +32,7 @@ public class roomServlet extends HttpServlet {
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
 
-// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/Ifrit/loginServlet");
@@ -41,30 +41,30 @@ public class roomServlet extends HttpServlet {
 		//セッションスコープにあるuseridを取得
 		String userid = (String)session.getAttribute("userid");
 
-	System.out.println("43");
+		System.out.println("43");
 		//キャラクター名を取り出す
 		goalsDAO gd = new goalsDAO ();
 
 		String cname = gd.getcname(userid);
-	System.out.println("cnameさんは" + cname);
+		System.out.println("cnameさんは" + cname);
 
-	// リクエストスコープに格納するよ
-	request.setAttribute("cname",cname);
+		// リクエストスコープに格納するよ
+		request.setAttribute("cname",cname);
 
-	//キャラ画像の表示
-	charpicsDAO cd = new charpicsDAO ();
+		//キャラ画像の表示
+		charpicsDAO cd = new charpicsDAO ();
 
-	int b =cd.health(userid);
-	String c_name = cd.pic(b, userid);
+		int b =cd.health(userid);
+		String c_name = cd.pic(b, userid);
 
-	// リクエストスコープに格納するよ
-	request.setAttribute("c_name",c_name);
+		// リクエストスコープに格納するよ
+		request.setAttribute("c_name",c_name);
 
 		//目標達成度を取り出す
 		banksDAO bankDAO = new banksDAO ();
 
 		int goals = gd.select(userid);
-	System.out.println(goals);
+		System.out.println(goals);
 		int banks = bankDAO.select(userid);
 		System.out.println("banks");
 
