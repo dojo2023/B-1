@@ -18,7 +18,7 @@
     <h2><c:out value="${resultGoals.title}" /></h2>
 
     <!--↓　目標達成か失敗かの画像　-->
-    <img src="/${char_pic}">
+	<img src="./img/characters/${c_name}">
 
 
     <p>次の目標を決めませんか？</p>
