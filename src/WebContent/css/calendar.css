@@ -141,22 +141,27 @@
 #under td,th {
 	 color: #000; /* テキスト色 */
 }
-#char {
-	width: 960px;
+.char {
+	width: 600px;
+	height: 240px;
+	margin: 0 auto;
 	position: relative;
-}
-#charpic {
-	top: 0;
-  	left: 0;
 
 }
-#backpic {
+.backpic {
+  	position: absolute;
+	left: 0;
 	top: 0;
-  	left: 0;
 }
+.charpic {
+  	position: absolute;
+	top: 0;
+	left: 200px;
+}
+
 
 .area {
-  max-width: 960px;
+  max-width: 600px;
   /* background: #fff; */
   padding:50px 20px;
   	margin: auto; /* 中央寄せ */

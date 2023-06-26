@@ -70,23 +70,6 @@ public class calendarServlet extends HttpServlet {
 			System.out.println("何日" + daysa);
 			System.out.println("ｍYINT" + myInt);
 
-		// ヘルスを取り出す
-			charpicsDAO cdaohealth = new charpicsDAO();
-			int health = cdaohealth.health(userid);
-			System.out.println("ヘルスさん"+health);
-
-		// キャラ画像を取り出す
-			charpicsDAO cdaoCharpic = new charpicsDAO();
-			String charpic = cdaoCharpic.pic(health, userid);
-			System.out.println("キャラ画像さん"+charpic);
-			charpic="aki.png";
-
-		// キャラ背景画像を取り出す
-			charpicsDAO cdaoBackpic = new charpicsDAO();
-			String backpic = cdaoBackpic.pic(health, userid);
-			System.out.println("キャラ背景画像さん"+backpic);
-			backpic="blue.jpg";
-
 		// 貯金額を出す
 			banksDAO bnkDAO = new banksDAO();
 			int banks = bnkDAO.select(userid);
@@ -95,6 +78,37 @@ public class calendarServlet extends HttpServlet {
 			goalsDAO gDAO = new goalsDAO();
 			int goals = gDAO.select(userid);
 			System.out.println(goals);
+
+			// ヘルスを取り出す
+						charpicsDAO cdaohealth = new charpicsDAO();
+						int health = cdaohealth.health(userid);
+						System.out.println("ヘルスさん"+health);
+			// キャラ画像を取り出す
+				charpicsDAO cdaoCharpic = new charpicsDAO();
+				String charpic = cdaoCharpic.pic(health, userid);
+				System.out.println("キャラ画像さん"+charpic);
+				charpic="aki.png";
+			// キャラ背景画像を取り出す
+				//目標達成度を取り出す
+				int gratio = banks / goals * 100;
+				if(gratio >= 100) {
+					gratio = 100;
+				}
+				// 目標達成度から背景画像を表示
+				String backpic;
+				if(gratio <= 25) {
+					backpic="blue1.png";
+				}
+				else if(gratio <= 50) {
+					backpic="blue2.png";
+				}
+				else if(gratio <= 75) {
+					backpic="blue3.png";
+				}
+				else{
+					backpic="blue4.png";
+				}
+				System.out.println("キャラ背景画像さん"+backpic);
 
 
 			// データを格納する
