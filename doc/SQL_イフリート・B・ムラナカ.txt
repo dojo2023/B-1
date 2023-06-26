@@ -96,7 +96,7 @@ INSERT INTO goals (g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) V
 <キャラクターステータステーブル>
 CREATE TABLE characters(
 id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-user_id varchar(20) NOT NULL UNIQUE,
+user_id varchar(20) NOT NULL ,
 char_id varchar(20) NOT NULL,
 created_at timestamp DEFAULT CURRENT_TIMESTAMP,
 update_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -107,7 +107,7 @@ INSERT INTO characters (user_id,char_id) values('海田ふうと','2');
 INSERT INTO characters (user_id,char_id) values('低田しんのすけ','3');
 INSERT INTO characters (user_id,char_id) values('ooguro','4');
 INSERT INTO characters (user_id,char_id) values('01020304','5');
-
+INSERT INTO characters (user_id,char_id) values('aa','2');
 
 
 <キャラクターイメージテーブル>
