@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.banksDAO;
+import dao.charpicsDAO;
 import dao.goalsDAO;
-import dao.resultGoalsDAO;
 /**
  * Servlet implementation class resultGoalsServlet
  */
@@ -37,14 +37,12 @@ public class resultGoalsServlet extends HttpServlet {
 		//セッションスコープにあるuseridを取得
 		String userid = (String)session.getAttribute("userid");
 
-			//目標達成、失敗　テキストと画像を取り出す
+			//目標達成、失敗　テキストを取り出す
 			banksDAO bnkDAO = new banksDAO();
 			goalsDAO gDAO = new goalsDAO();
-			resultGoalsDAO rgd = new resultGoalsDAO ();
 
 			int goals = gDAO.select(userid);
 			int banks = bnkDAO.select(userid);
-			String charpic = rgd.getcharpic(userid);
 
 			int gratio = banks / goals * 100;
 
@@ -56,6 +54,17 @@ public class resultGoalsServlet extends HttpServlet {
 			else{
 				 result ="目標失敗";
 			}
+			//リクエストスコープ
+			request.setAttribute("result",result);
+
+			//目標成功、失敗　画像を取り出す
+			charpicsDAO cd = new charpicsDAO ();
+
+			int b =cd.health(userid);
+			String c_name = cd.pic(b, userid);
+
+			//リクエストスコープ
+			request.setAttribute("c_name",c_name);
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
