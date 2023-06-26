@@ -24,14 +24,14 @@
 <p><c:out value="${points}" />pt</p>
 
 <table>
-<!-- <c:forEach var="e" items="${itemList}"> -->
+<c:forEach var="e" items="${Dress}">
  <tr>
  	<!-- 装飾品の画像 -->
  	<td><img src="./img/items/${e.itempic}"><br>
 
  	<!-- ラジオボタンと必要なポイント数の表示 -->
  </tr>
-<!-- </c:forEach> -->
+</c:forEach>
 </table>
 
 <form method="post" action="/ifrit/dressServlet" class="" >
