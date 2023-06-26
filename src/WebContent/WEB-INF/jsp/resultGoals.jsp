@@ -14,8 +14,8 @@
     <header>
         <h1>かけいぼっち</h1>
     </header>
-    <!--↓　目標達成か失敗かの変数　-->
-    <h2><c:out value="${resultGoals.title}" /></h2>
+    <!--↓　目標達成か失敗かのテキスト　-->
+    <h2><c:out value="${result}" /></h2>
 
     <!--↓　目標達成か失敗かの画像　-->
 	<img src="./img/characters/${c_name}">
