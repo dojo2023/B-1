@@ -48,7 +48,7 @@ public class resultGoalsServlet extends HttpServlet {
 
 			String result;
 
-			if(gratio == 100){
+			if(gratio >= 100){
 				 result ="目標達成";
 			}
 			else{
@@ -62,6 +62,13 @@ public class resultGoalsServlet extends HttpServlet {
 
 			int b =cd.health(userid);
 			String c_name = cd.pic(b, userid);
+
+//			if( >= 100){
+//				 result ="";
+//			}
+//			else{
+//				 result ="img墓";
+//			}
 
 			//リクエストスコープ
 			request.setAttribute("c_name",c_name);
