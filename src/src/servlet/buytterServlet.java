@@ -78,7 +78,19 @@ public class buytterServlet extends HttpServlet {
 		// requestでもらった値をUTF-8に変換してるよ
 			request.setCharacterEncoding("UTF-8");
 
-//			int countsan = 6;
+	// 更新ボタンが押された時の処理
+			if (request.getParameter("Submit").equals("&#x21BA") || request.getParameter("Submit").equals("戻る")) {
+				  System.out.println("更新の処理通ってるよ");
+				  // buytterDAOのオブジェクト宣言
+				  buytterDAO objDao = new buytterDAO();
+
+				  List<Buytters> buyeetList= objDao.select();
+
+				  // 並び変えた投稿をリクエストスコープに格納する
+				  request.setAttribute("buyeetList", buyeetList);
+				  System.out.println("更新の処理通ってるよ");
+			}
+
 
 	// 投稿(バイート)ボタン押された時の処理
 
@@ -107,7 +119,6 @@ public class buytterServlet extends HttpServlet {
 				//photoを送信したファイルをパートオブジェクトで取得
 					System.out.println("110");
 
-
 					//photoを送信したファイルをパートオブジェクトで取得
 					Part part = request.getPart("postPic");
 					System.out.println("113");
@@ -126,44 +137,40 @@ public class buytterServlet extends HttpServlet {
 
 					System.out.println("画像パス２photo；"+photo);
 
+				// buytterDAOのオブジェクト宣言
+				buytterDAO objDao = new buytterDAO();
+				if(objDao.insert(new Buytters(user_name, b_comment, photo))) {
+					System.out.println("成功");
 
-			// buytterDAOのオブジェクト宣言
-			buytterDAO objDao = new buytterDAO();
-			if(objDao.insert(new Buytters(user_name, b_comment, photo))) {
-				System.out.println("成功");
+				}
+				else {
+					System.out.println("失敗");
+				}
 
+				// TL画面と同じ処理
+				// buytterDAOのオブジェクト宣言
+				objDao = new buytterDAO();
+
+				List<Buytters> buyeetList= objDao.select();
+
+				// 並び変えた投稿をリクエストスコープに格納する
+				request.setAttribute("buyeetList", buyeetList);
 			}
-			else {
-				System.out.println("失敗");
-			}
 
-			// TL画面と同じ処理
-			// buytterDAOのオブジェクト宣言
-			  objDao = new buytterDAO();
-
-			  List<Buytters> buyeetList= objDao.select();
-
-			  // 並び変えた投稿をリクエストスコープに格納する
-			  request.setAttribute("buyeetList", buyeetList);
-			}
-
-	//
 	// 検索ボタン押された時の処理
-
 			if (request.getParameter("Submit").equals("検索ボタン")) {
 
-			// リクエストパラメータを取得する
-			String b_comment = request.getParameter("searchBox");
+				// リクエストパラメータを取得する
+				String b_comment = request.getParameter("searchBox");
 
-			// buytterDAOのオブジェクト宣言
-			buytterDAO objDao = new buytterDAO();
-			List<Buytters> buyeetList = objDao.search(new Buytters(b_comment));
+				// buytterDAOのオブジェクト宣言
+				buytterDAO objDao = new buytterDAO();
+				List<Buytters> buyeetList = objDao.search(new Buytters(b_comment));
 
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("buyeetList", buyeetList);
-		}
+				// 検索結果をリクエストスコープに格納する
+				request.setAttribute("buyeetList", buyeetList);
+			}
 
-	//
 	// nice buyボタン押された時の処理
 			if (request.getParameter("Submit").equals("nice buy!!")) {
 		System.out.println("139さん");
@@ -191,10 +198,8 @@ public class buytterServlet extends HttpServlet {
 				  request.setAttribute("buyeetList", buyeetList);
 			}
 
-
 		// 処理が終わったらTL画面にフォワードする
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/buytter.jsp");
 			    dispatcher.forward(request, response);
-
 	}
 }
