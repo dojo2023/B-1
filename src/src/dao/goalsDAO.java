@@ -398,25 +398,32 @@ public Timestamp getupdateat(String userid) {
 					System.out.println("87");
 				}
 
-				if (idpws.getUserpw() != null && !.getUserpw().equals("")) {
-					pStmt.setString(2, idpws.getUserpw());
+				if (goals.getGavailable() != 0){
+					pStmt.setInt(2, goals.getGavailable());
 					System.out.println("92");
 				}
 				else {
 					pStmt.setString(2, "");
 					System.out.println("96");
 				}
-				if (idpws.getUsername() != null && !idpws.getUsername().equals("")) {
-					pStmt.setString(3, idpws.getUsername());
+				if (goals.getGlimit() != null) {
+					pStmt.setString(3, goals.getGlimit());
 					System.out.println("100");
 				}
-
 				else {
 					pStmt.setString(3, "");
 					System.out.println("105");
 
 				}
+				if (goals.getGwant() != null) {
+					pStmt.setString(4, goals.getGwant());
+					System.out.println("100");
+				}
+				else {
+					pStmt.setString(4, "");
+					System.out.println("105");
 
+				}
 				System.out.println("109");
 
 				// SQL文を実行する

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,33 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.idpwsDAO;
-import dao.paymentsDAO;
-import dao.buyttersDAO;
-import dao.goalsDAO;
 import dao.charactersDAO;
-import dao.charpicsDAO;
-import dao.nicebuycountsDAO;
-import dao.pointsDAO;
-import dao.historysDAO;
-import dao.itemspicsDAO;
-import dao.itemsDAO;
-import dao.banksDAO;
-import model.Idpws;
-import model.Payments;
-import model.Result;
-import model.Buytters;
-import model.LoginUser;
-import model.Calendar;
-import model.CalendarDate;
-import model.Room;
-import model.Achievement;
-import model.Ranking;
-import model.ResultGoals;
-import model.Character;
 import model.PictureBook;
-import model.Result;
-import model.DressUp;
 
 /**
  * Servlet implementation class dressServlet
@@ -58,16 +34,23 @@ public class picturebookServlet extends HttpServlet {
 				response.sendRedirect("/Ifrit/loginServlet");
 				return;
 			}
-			//ユーザの保有ポイントをDAOで持ってくる
+			System.out.println("図鑑来た");
+			// スコープのuserid
+			String userid = (String)session.getAttribute("userid");
 
-			//装飾品の画像をDAOで持ってくる
+			//図鑑のキャラクター画像を持ってくる
+			charactersDAO pbpicDAO = new charactersDAO();
+			List<PictureBook> PictureBook = pbpicDAO.select(userid);
+			System.out.println(PictureBook);
 
-			//装飾品の値段をDAOで持ってくる
+			//格納する
+			request.setAttribute("userid",
+					PictureBook);
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
 		        request.getRequestDispatcher
-		            ("/WEB-INF/jsp/picturebook.jsp");
+		            ("/WEB-INF/jsp/pictureBook.jsp");
 		    dispatcher.forward(request, response);
 		  }
 
@@ -84,32 +67,6 @@ public class picturebookServlet extends HttpServlet {
 			return;
 		}
 
-
-		// 着替えるボタン押下
-		// リクエストパラメータを取得する （入力された値を受け取り、変数に格納する）
-		request.setCharacterEncoding("UTF-8");
-		String dressup = request.getParameter("dressup");
-
-		// 処理を行う （SQLを動作させるDAO）
-		// 訂正必要！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-		itemspicsDao ipicDao= new itemspicsDao(); //インスタンス化したもの
-		if (ipicDao.isOK(new ipic(userid, userpw))) {	//
-
-
-		// 購入ボタン押下
-		// リクエストパラメータを取得する （入力された値を受け取り、変数に格納する）
-		request.setCharacterEncoding("UTF-8");
-		String buy = request.getParameter("buy");
-
-		// 処理を行う （SQLを動作させるDAO）
-		// 訂正必要！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
-		itemspicsDao ipicDao= new itemspicsDao(); //インスタンス化したもの
-		if (ipicDao.isOK(new ipic(userid, userpw))) {	//
-
-
-
-
-
 	    // フォワード
 	    RequestDispatcher dispatcher =
 	        request.getRequestDispatcher
@@ -117,5 +74,3 @@ public class picturebookServlet extends HttpServlet {
 	    dispatcher.forward(request, response);
 	  }
 	}
-
-}
