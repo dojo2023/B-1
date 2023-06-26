@@ -70,6 +70,10 @@ public class roomServlet extends HttpServlet {
 
 		int gratio = banks / goals * 100;
 
+		if(gratio >= 100) {
+			gratio = 100;
+		}
+
 		// リクエストスコープに格納するよ
 		request.setAttribute("gratio",gratio);
 
