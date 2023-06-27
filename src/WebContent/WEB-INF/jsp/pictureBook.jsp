@@ -5,39 +5,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!-- ↓共通部分（ｃｓｓとタイトル名は変更してください）-->
 <title>図鑑|かけいぼっち</title>
 <link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/payment.css">
+<link rel="stylesheet" href="css/pictureBook.css">
 </head>
 <body>
 
-<header>
 
 
 <h2>図鑑</h2>
 
 <!-- table使い方把握できてないのでSCCの時に合わせて変えてくださいごめんなさい
 　　　　キャラクターの画像と番号表示 -->
-<table>
-<c:forEach var="e" items="${userid}" >
+<table class="rank">
+<c:forEach var="e" items="${userid}" varStatus="i">
+<c:if test="${(i.index+1)%4==0}" var="flg"/>
+<c:if test="${!flg}">
+<c:if test="${(i.index+1)%4==1}">
 <tr>
+</c:if>
 <td>
-		<img src="./img/characters/${e.charpic}"><br>
+<img src="./img/characters/${e.charpic}"style = "max-width:250px;">
+<c:out value="${e.charid}"/>
+
+
+</td>
+<c:if test="${flg}">
+<td>
+<img src="./img/characters/${e.charpic}"style = "max-width:250px;">
+<c:out value="${e.charid}"/>
 </td>
 </tr>
+</c:if>
+
+</c:if>
 </c:forEach>
 </table>
 
 <input type="button" onclick="history.back()" value="部屋に戻る">
 <!-- <input type="submit" value="部屋に戻る"> -->
-
-</header>
-
-<!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
-<title>Insert title here</title>
-</head>
 
 <!-- ↓共通部分 -->
 <footer>
@@ -46,4 +54,7 @@
 <!-- ↑共通部分 -->
 
 </body>
+<style>
+
+</style>
 </html>

@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@charset "UTF-8";
+.rank {
+	width: 530px;                /* 横幅指定 */
+	height: 250px;               /* 横幅指定 */
+	/* background:#fff; */
+	box-shadow:0 0 5px #ddd;
+	border-spacing: 8px 8px;
+}
+/**/
+/*テーブルボーダー*/
+.rank td,tr {
+	border:1.5px dotted #ddd;
+}

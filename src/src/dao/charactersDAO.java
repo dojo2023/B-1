@@ -27,7 +27,7 @@ public class charactersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select char_pic from charpics as p  join characters as c on c.char_id = p.char_id where c.user_id = ? and c_health = '0'";
+			String sql = "select char_pic, p.char_id from charpics as p  join characters as c on c.char_id = p.char_id where c.user_id = ? and c_health = '0'";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
@@ -41,12 +41,16 @@ public class charactersDAO {
 			while (i<15) {
 				if(rs.next()) {
 					PictureBook card = new PictureBook(
-							rs.getString("char_pic"));
+							rs.getString("char_pic"),
+							rs.getInt("char_id")
+							);
 					pblist.add(card);
 					System.out.println(rs.getString("char_pic"));
+					System.out.println(rs.getInt("char_id"));
+
 				}else {
 					PictureBook card = new PictureBook(
-							"nazo.png");
+							"nazo.png",999);
 					pblist.add(card);
 					System.out.println("charDAO:51");
 
