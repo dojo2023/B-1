@@ -143,8 +143,8 @@
 }
 .char {
 	max-width: 600px;
-	max-height: 250px;
-	margin: 0 auto;
+	height: 230px;
+/*	margin: 0 auto; */
 	position: relative;
 
 }

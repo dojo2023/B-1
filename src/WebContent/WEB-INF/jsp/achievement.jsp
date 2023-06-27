@@ -15,7 +15,7 @@
 <body>
 <!-- ヘッダー ここから -->
 <header>
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 <nav class="menu">
 <ul>
 	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
@@ -52,7 +52,7 @@
     <th>現在の貯金額</th> <th>目標貯金額</th>
  </tr>
  <tr>
- 	<td><c:out value="${acv.bbank}" />円</td> <td><c:out value="${acv.ggoal}" />円</td>
+ 	<td class="TextTyping"><c:out value="${acv.bbank}" />円</td> <td class="TextTyping"><c:out value="${acv.ggoal}" />円</td>
  </tr>
 </table>
 
@@ -61,7 +61,7 @@
     <th>支出合計</th>
  </tr>
  <tr>
- 	<td><c:out value="${acv.paymoney}" />円</td>
+ 	<td class="TextTyping"><c:out value="${acv.paymoney}" />円</td>
  </tr>
 </table>
 
@@ -70,7 +70,7 @@
     <th>現在のポイント数</th>
  </tr>
  <tr>
- 	<td><c:out value="${acv.pointpm}" />pt</td>
+ 	<td class="TextTyping"><c:out value="${acv.pointpm}" />pt</td>
  </tr>
 </table>
 </div><!-- paytb -->
@@ -97,6 +97,11 @@ datasValue = [
 ];
 </script>
 <!-- ↑収支グラフのデータ取得 ここまで -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 <script src="js/achievement.js"></script>
 </body>
 

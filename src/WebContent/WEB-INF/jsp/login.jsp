@@ -13,14 +13,14 @@
 <body>
 <!-- ヘッダー ここから -->
 <header>
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 </header>
 <!-- ヘッダー ここまで -->
 <!-- 共通部分 ここまで -->
 
 
-<h2>ログイン</h2>
-
+<h2 class="TextTyping">ログイン</h2>
+<span class="label label-danger">${message}</span>
 <form method="post" action="/Ifrit/loginServlet" class="" >
 <label>
 ID<br>
@@ -36,9 +36,9 @@ ID<br>
 <input type="submit" name="" value="ログイン">
 </form>
 
-<a href = "/Ifrit/registerServlet">初めての方はこちら</a>
+<a href = "/Ifrit/registerServlet" class="TextTyping">初めての方はこちら</a>
 
-<p>チュートリアル動画</p>
+<p class="TextTyping">チュートリアル動画</p>
 <!-- 動画 -->
 <video controls>
 <source src="videos/dog.mp4"></video>
@@ -48,5 +48,10 @@ ID<br>
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- 共通部分 ここまで -->
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
+</body>
 </html>

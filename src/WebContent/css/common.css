@@ -44,3 +44,19 @@ table {
     text-align:center;
 }
 
+/* タイピング風文字の表示 */
+
+.TextTyping span {
+	display: none;
+}
+
+/*文字列後ろの線の設定*/
+.TextTyping::after {
+ /*	content: "|";     文字の最後に縦線入れるなら*/
+	animation: typinganime .8s ease infinite;
+}
+
+@keyframes typinganime{
+	from{opacity:0}
+	to{opacity:1}
+}

@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 <nav class="menu">
 <ul>
 	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
@@ -36,9 +36,9 @@
 <!--↓ランキング一覧をクラス型に格納して、それを受けわたして、すべての値をループ  -->
 <c:forEach var="e" items="${rankList}">
 <tr>
-<td><c:out value="${rank}" />位</td>
-<td>ID:<c:out value="${e.username}" /></td>
-<td><c:out value="${e.point}" />pt</td>
+<td class="TextTyping"><c:out value="${rank}" />位</td>
+<td class="TextTyping">ID:<c:out value="${e.username}" /></td>
+<td class="TextTyping"><c:out value="${e.point}" />pt</td>
 <td><img src="./img/characters/${e.pic}"style = "max-width:250px;"></td>
 </tr>
 <c:set value="${rank + 1}" var="rank"></c:set>>
@@ -47,9 +47,9 @@
 
 <div class="score">
 <!--↓あなたのrank  -->
-<p>あなたは<c:out value="${you}"/>位</p>
+<p class="TextTyping">あなたは<c:out value="${you}"/>位</p>
 <!-- 累計ポイント出力  -->
-<p><c:out value="${point}" />ptです</p>
+<p class="TextTyping"><c:out value="${point}" />ptです</p>
 </div>
 
 <!-- ↓共通部分 -->
@@ -58,6 +58,10 @@
 </footer>
 <!-- ↑共通部分 -->
 
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 </html>

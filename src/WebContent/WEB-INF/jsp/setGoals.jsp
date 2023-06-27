@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 </header>
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
 
@@ -81,7 +81,7 @@
 </table>
 </form>
 
-<p>チュートリアル動画</p>
+<p class="TextTyping">チュートリアル動画</p>
 <!-- 動画 -->
 <video controls>
 <source src="videos/dog.mp4"></video>
@@ -92,6 +92,10 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 -->
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 </html>

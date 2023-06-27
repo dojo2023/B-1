@@ -17,7 +17,7 @@
 <!-- ヘッダーここから -->
 <!-- 1, 共通機能のヘッダー -->
 <header>
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 <nav class="menu">
 <ul>
 	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
@@ -149,6 +149,7 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script src=./js/common.js></script>
 <script src="./js/buytter.js"></script>
 </body>
 </html>
