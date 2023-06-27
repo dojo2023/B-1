@@ -70,7 +70,7 @@ public class picturebookServlet extends HttpServlet {
 	    // フォワード
 	    RequestDispatcher dispatcher =
 	        request.getRequestDispatcher
-	            ("/WEB-INF/jsp/dress.jsp");
+	            ("/WEB-INF/jsp/pictureBook.jsp");
 	    dispatcher.forward(request, response);
 	  }
 	}
