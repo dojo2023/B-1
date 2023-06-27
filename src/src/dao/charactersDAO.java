@@ -17,7 +17,11 @@ public class charactersDAO {
 		Connection conn = null;
 
 		List<PictureBook> pblist = new ArrayList<PictureBook>();
-		int i = 0;
+		List<PictureBook> waitlist = new ArrayList<PictureBook>();
+		int wait = 0;
+		int i = 1;
+		String si ="";
+
 
 		try {
 			// JDBCドライバを読み込む
@@ -27,7 +31,7 @@ public class charactersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select char_pic, p.char_id from charpics as p  join characters as c on c.char_id = p.char_id where c.user_id = ? and c_health = '0'";
+			String sql = "select char_pic, p.char_id from charpics as p  join characters as c on c.char_id = p.char_id where c.user_id = ? and c_health = '0' group by p.char_id";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(servletから取得したuserid(11.のString userid)をSQLに入れる)
@@ -39,15 +43,23 @@ public class charactersDAO {
 
 			// 結果表をコレクションにコピーする
 			while (i<15) {
+				int j=999;
+				String k = Integer.valueOf(i).toString();
 				if(rs.next()) {
-					PictureBook card = new PictureBook(
+					j = rs.getInt("char_id");
+					si = Integer.valueOf(j).toString();
+					waitlist.add(new PictureBook(
 							rs.getString("char_pic"),
-							rs.getInt("char_id")
-							);
-					pblist.add(card);
-					System.out.println(rs.getString("char_pic"));
-					System.out.println(rs.getInt("char_id"));
+							rs.getInt("char_id")));
+					rs.getInt("char_id");
+					System.out.println("char_id;charDAO"+j);
+					System.out.println("si;charDAO:"+si);
+					System.out.println("k;charDAO:"+k);
 
+				}
+				if(si.equals(k)) {
+					pblist.add(waitlist.get(wait));
+					wait++;
 				}else {
 					PictureBook card = new PictureBook(
 							"nazo.png",999);
@@ -55,6 +67,7 @@ public class charactersDAO {
 					System.out.println("charDAO:51");
 
 				}
+				System.out.println("i:::"+i);
 				i++;
 			}
 		} catch (SQLException e) {
