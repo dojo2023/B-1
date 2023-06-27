@@ -24,14 +24,14 @@
 <tr>
 <td>
 	<label>目標貯金額<br>
-	<input type="text" name="ggoal" placeholder="目標貯金額を入力してね">
+	<input type="text" name="ggoal" placeholder="例：50000">円
 	</label>
 </td>
 </tr>
 <tr>
 <td>
 	<label>使用可能額(家賃・光熱費など固定費は除く)<br>
-	<input type="text" name="gavailable" placeholder="目標期間中の使用可能額を入力してね">
+	<input type="text" name="gavailable" placeholder="例：100000">円
 	</label>
 </td>
 </tr>
