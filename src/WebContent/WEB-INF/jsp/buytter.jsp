@@ -51,7 +51,7 @@
 	<!-- ↓６(リロードボタン)↓ -->
 	<div class="reload">
 
-			<input type="submit" value="&#x21BA" name="Submit">
+			<input type="button" onclick="window.location.reload();" value="&#x21BA" name="Submit">
 
 	</div>
 	<!-- ↑６(リロードボタン)おわ↑ -->
@@ -95,7 +95,6 @@
 		<form method="POST" action="/Ifrit/buytterServlet"enctype="multipart/form-data">
 
 	<table class="buyeet">
-		<tr><td><input type="submit" value="戻る" name="Submit"></td></tr>
 		<tr><td>投稿コメント</td></tr>
 		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
 		<tr><td>投稿画像</td></tr>
@@ -112,9 +111,6 @@
 		<form method="POST" action="/Ifrit/buytterServlet">
 
 	<table class="search">
-		<tr>
-		<td><input type="submit" value="戻る" name="Submit"></td>
-		</tr>
 		<tr>
 		<td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
 		<td><input type ="submit" name="Submit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td>
