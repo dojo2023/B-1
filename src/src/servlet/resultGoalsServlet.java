@@ -46,6 +46,12 @@ public class resultGoalsServlet extends HttpServlet {
 
 			int gratio = banks / goals * 100;
 
+			//目標成功、失敗　画像を取り出す
+			charpicsDAO cd = new charpicsDAO ();
+
+			int b =cd.health(userid);
+			String c_name = cd.pic(b, userid);
+
 			String result;
 
 			System.out.println("gratio:"+gratio);
@@ -54,22 +60,10 @@ public class resultGoalsServlet extends HttpServlet {
 			}
 			else{
 				 result ="目標失敗";
+//				 c_name = "墓.png";
 			}
 			//リクエストスコープ
 			request.setAttribute("result",result);
-
-			//目標成功、失敗　画像を取り出す
-			charpicsDAO cd = new charpicsDAO ();
-
-			int b =cd.health(userid);
-			String c_name = cd.pic(b, userid);
-
-//			if( >= 100){
-//				 result ="";
-//			}
-//			else{
-//				 result ="img墓";
-//			}
 
 			//リクエストスコープ
 			request.setAttribute("c_name",c_name);
