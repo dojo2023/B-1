@@ -53,7 +53,7 @@
 </table>
 <table id="char">
  <tr>
- 	<td class="char"><img class="backpic" src="./img/characters/${wnt.backpic}" style = "max-width:600px;">
+ 	<td class="char"><img class="backpic" src="./img/backpic/${wnt.backpic}" style = "max-width:600px;">
  				     <img class="charpic" src="./img/characters/${wnt.charpic}" style = "max-width:200px;">
  	</td>
  </tr>
