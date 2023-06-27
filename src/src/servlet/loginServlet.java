@@ -101,7 +101,14 @@ public class loginServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}else {
+		}else {								// ログイン失敗
+			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+			request.setAttribute("message", "IDまたはパスワードが違います");
+
+
+
+
+			// ログインページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
 
