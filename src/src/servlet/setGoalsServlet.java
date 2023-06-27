@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.goalsDAO;
+import dao.healthsDAO;
+import dao.paymentsDAO;
 import model.Result;
 import model.SetGoals;
 /**
@@ -60,6 +62,29 @@ public class setGoalsServlet extends HttpServlet {
 	//useridを取得
 	String userid = (String) session.getAttribute("userid");
 	System.out.println(userid);
+	goalsDAO gd =  new goalsDAO();
+
+	healthsDAO hd = new healthsDAO();
+	if(hd.delete(userid)) {
+		System.out.println("ヘルス削除");
+	}
+	System.out.println("ヘルス削除失敗");
+
+	//ペイメント削除
+	paymentsDAO pd = new paymentsDAO();
+	if(pd.delete(userid)){
+		System.out.println("payment削除");
+	}
+	System.out.println("paymetn削除go");
+
+	//goals削除
+	if(gd.delete(userid)){
+		System.out.println("goals削除");
+	}
+	System.out.println("goals削除go");
+
+
+
 	// リクエストパラメータを取得する
 	String goal = request.getParameter("ggoal");
 	int ggoal = Integer.parseInt(goal);
@@ -75,7 +100,7 @@ public class setGoalsServlet extends HttpServlet {
 
 
 	// 登録処理を行う
-	goalsDAO gd =  new goalsDAO();
+
 //	boolean check = gd.setGoal(new Goals(ggoal,gavailable,limit,want));
 //
 //	if(check) {

@@ -13,8 +13,6 @@ import javax.servlet.http.HttpSession;
 import dao.banksDAO;
 import dao.charpicsDAO;
 import dao.goalsDAO;
-import dao.healthsDAO;
-import dao.paymentsDAO;
 /**
  * Servlet implementation class resultGoalsServlet
  */
@@ -66,34 +64,13 @@ public class resultGoalsServlet extends HttpServlet {
 			}
 			else{
 				 result ="目標失敗";
-				 c_name = "Ifrit＿grave.png";
+				 c_name = "a.png";
 			}
 			//リクエストスコープ
 			request.setAttribute("result",result);
 
 			//リクエストスコープ
 			request.setAttribute("c_name",c_name);
-
-			//ヘルス削除
-			healthsDAO hd = new healthsDAO();
-			if(hd.delete(userid)) {
-				System.out.println("ヘルス削除");
-			}
-			System.out.println("ヘルス削除失敗");
-
-			//ペイメント削除
-			paymentsDAO pd = new paymentsDAO();
-			if(pd.delete(userid)){
-				System.out.println("payment削除");
-			}
-			System.out.println("paymetn削除go");
-
-			//goals削除
-			if(gDAO.delete(userid)){
-				System.out.println("goals削除");
-			}
-			System.out.println("goals削除go");
-
 
 		    // フォワード
 		    RequestDispatcher dispatcher =
