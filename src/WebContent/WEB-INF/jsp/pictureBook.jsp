@@ -15,7 +15,7 @@
 
 
 
-<h2>図鑑</h2>
+<h2 class="TextTyping">図鑑</h2>
 
 <!-- table使い方把握できてないのでSCCの時に合わせて変えてくださいごめんなさい
 　　　　キャラクターの画像と番号表示 -->
@@ -52,7 +52,11 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 -->
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 <style>
 

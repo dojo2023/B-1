@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <h1>かけいぼっち</h1>
+        <h1 class="TextTyping">かけいぼっち</h1>
     </header>
     <!--↓　目標達成か失敗かのテキスト　-->
     <h2><c:out value="${result}" /></h2>
@@ -22,7 +22,7 @@
 	<img src="./img/characters/${c_name}"style = "max-width:250px;">
 
 
-    <p>次の目標を決めませんか？</p>
+    <p class="TextTyping">次の目標を決めませんか？</p>
 
     <input type="button" onclick="location.href='/Ifrit/setGoalsServlet'" value="はい">
     <input type="button" onclick="location.href='/Ifrit/loginServlet'" value="いいえ">
@@ -30,6 +30,11 @@
     <footer>
         <p>&copy;Ifrit.B</p>
     </footer>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 </html>
 

@@ -12,12 +12,12 @@
 </head>
 <body>
 <header>
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 </header>
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
 </head>
 <body>
-<h2><img src=""></h2>
+<h2 class="TextTyping">新規登録</h2>
 <form method="POST" action="/Ifrit/registerServlet">
 <table>
 <tr>
@@ -47,6 +47,10 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 -->
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 </html>

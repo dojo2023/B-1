@@ -14,11 +14,11 @@
 
 <body>
 <header>
-    <h1>かけいぼっち</h1>
+	<h1 class="TextTyping">かけいぼっち</h1>
 </header>
 <div id="container">
 <form method="POST" action="/Ifrit/roomServlet">
-<h2><c:out value="${cname}" />の部屋</h2>
+<h2 class="TextTyping"><c:out value="${cname}" />の部屋</h2>
 </form>
 <div id='exam1'>
 <nav id="n1">
@@ -41,18 +41,18 @@
 <!--↓　キャラステータス　-->
 <div id='exam3'>
 
-<table>
+<table class="">
     <tr>
-        <td>目標達成度：<c:out value="${gratio}" />%</td>
+        <td class="TextTyping">目標達成度：<c:out value="${gratio}" />%</td>
     </tr>
     <tr>
-        <td>出会って<c:out value="${meet}" />日目</td>
+        <td class="TextTyping">出会って<c:out value="${meet}" />日目</td>
     </tr>
     <tr>
-        <td>状態：<c:out value="${health}" /></td>
+        <td class="TextTyping">状態：<c:out value="${health}" /></td>
     </tr>
     <tr>
-        <td>コメント：<c:out value="${comment}" /></td>
+        <td class="TextTyping">コメント：<c:out value="${comment}" /></td>
     </tr>
 
 </table>
@@ -79,9 +79,11 @@
 <footer>
     <p>&copy;Ifrit.B</p>
 </footer>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
-<script src=./js/room.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 </html>
 

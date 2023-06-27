@@ -15,7 +15,7 @@
 
 <header>
 
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 <nav class="menu">
 <ul>
 	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
@@ -31,14 +31,14 @@
 
 <!-- ↑共通部分（ｃｓｓとタイトル名は変更してください）ここまで -->
 <div class="area">
-
 <h2 class="date"><c:out value="${today}"/></h2>
 <form method="POST" action="/Ifrit/paymentServlet">
 <table>
 	<tr>
-	<td>今日使えるお金：<c:out value="${gavailable}"/>円</td>
+	<td class="TextTyping">今日使えるお金：<c:out value="${gavailable}"/>円</td>
 </tr>
 <tr><td>
+
 
 <input type="hidden" name="payment_date" value="${today}">
 <select name="paymentCategory">
@@ -75,7 +75,7 @@
 </div><!-- paylist -->
 
 
-<p>支出の合計<c:out value="${paymoney}"/>円</p>
+<p class="TextTyping">支出の合計<c:out value="${paymoney}"/>円</p>
 </div>
 
 <!-- ↓共通部分 -->
@@ -83,6 +83,10 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 -->
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 </html>

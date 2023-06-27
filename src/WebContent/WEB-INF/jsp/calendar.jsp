@@ -15,7 +15,7 @@
 </head>
 <body>
 <header>
-<h1>かけいぼっち</h1>
+<h1 class="TextTyping">かけいぼっち</h1>
 <nav class="menu">
 <ul>
 	<li><a href="/Ifrit/calendarServlet">カレンダー</a></li>
@@ -47,7 +47,8 @@
 <div id="under"> <!-- カレンダー下のテーブル -->
 <table>
 <tr>
- 	<td>目標:<c:out value="${wnt.gwant}" /></td><td>残り<c:out value="${wnt.until}" />日</td>
+ 	<td class="TextTyping">目標:<c:out value="${wnt.gwant}" /></td>
+ 	<td class="TextTyping">残り<c:out value="${wnt.until}" />日</td>
  </tr>											<!-- 達成日までの残り日数はglimit - 今日 -->
 </table>
 <table id="char">
@@ -59,7 +60,8 @@
 </table>
 <table>
  <tr>
- 	<td>現在の貯金額<c:out value="${wnt.bbank}" /></td><td>目標金額<c:out value="${wnt.ggoals}" /></td>
+ 	<td class="TextTyping">現在の貯金額<c:out value="${wnt.bbank}" /></td>
+ 	<td class="TextTyping">目標金額<c:out value="${wnt.ggoals}" /></td>
  </tr>
 </table>
 </div>
@@ -75,8 +77,11 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 -->
-
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 <script src="./js/calendar.js"></script>
 </body>
 </html>

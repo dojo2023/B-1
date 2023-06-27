@@ -19,11 +19,11 @@
 
 <!-- メイン ここから -->
 <div id="container">
-<h2><c:out value="${names}" />の部屋</h2>
+<h2 class="TextTyping"><c:out value="${names}" />の部屋</h2>
 </div>
-<h3>着せ替えショップ</h3>
+<h3 class="TextTyping">着せ替えショップ</h3>
 
-<p><c:out value="${points}" />pt</p>
+<p class="TextTyping"><c:out value="${points}" />pt</p>
 
 <table class="rank">
  <tr>
@@ -46,7 +46,7 @@
 <br>
 </form>
 
-<a href="/Ifrit/roomServlet">お部屋にもどる</a>
+<a href="/Ifrit/roomServlet" class="TextTyping">お部屋にもどる</a>
 
 
 
@@ -57,6 +57,12 @@
 <p>&copy;Ifrit.B</p>
 </footer>
 <!-- ↑共通部分 ここまで -->
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src=./js/common.js></script>
 </body>
 
 </html>
