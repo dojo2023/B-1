@@ -24,7 +24,6 @@
 	<li><a href="/Ifrit/roomServlet">お部屋</a></li>
 	<li><a href="/Ifrit/rankingServlet">ランキング</a></li>
 	<li><a href="/Ifrit/loginServlet">ログアウト</a></li>
-	<li><a href="/Ifrit/resultGoalsServlet">目標達成</a></li>
 </ul>
 </nav>
 </header>
