@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Buytters;
 import model.Search;
 
 public class searchDAO {
@@ -83,7 +82,7 @@ public class searchDAO {
 
 // 次は投稿の処理！
 		// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-		public boolean insert(Buytters param) {
+		public boolean insert(Search param) {
 			Connection conn = null;
 	System.out.println("dao87さん");
 
@@ -100,10 +99,8 @@ public class searchDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1","sa","");
 
 				// SQL文を準備する
-				String sql = "insert into buytters (user_id, b_comment, b_pic) VALUES (?, ?, ?); "
-						+ "insert into nicebuycounts(buyte_id, created_at, buyte_count) select buytters.id, buytters.created_at, 0 from buytters order by id desc fetch next 1 rows only;";
+				String sql = "insert into historys (user_id, s_history) VALUES (?, ?); ";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-//				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 	System.out.println("dao104さん");
 
 				// SQL文を完成させる
@@ -119,15 +116,7 @@ public class searchDAO {
 				else {
 					pStmt.setString(2, "");
 				}
-				if (param.getB_pic() != null && !param.getB_pic().equals("")) {
-					pStmt.setString(3, param.getB_pic());
-				}
-				else {
-					pStmt.setString(3, "");
-				}
 	System.out.println("dao125さん");
-
-	System.out.println("dao136さん");
 
 				// SQL文を実行し、結果表を取得する
 				if (pStmt.executeUpdate() == 1) {

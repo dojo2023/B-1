@@ -63,6 +63,7 @@ public class buytterServlet extends HttpServlet {
 			String user_id=(String)session.getAttribute("userid");
 			System.out.println("ユーザーさん" +user_id);
 
+			// 検索履歴を最新5つ分持ってくるよ
 			searchDAO objDao2 = new searchDAO();
 			List<Search> searchHistoryList = objDao2.select(new Search(user_id));
 			System.out.println(searchHistoryList);
@@ -182,6 +183,19 @@ public class buytterServlet extends HttpServlet {
 
 				// 検索結果をリクエストスコープに格納する
 				request.setAttribute("buyeetList", buyeetList);
+
+				//セッションスコープにあるuseridを取得
+				HttpSession session = request.getSession();
+				String user_id=(String)session.getAttribute("userid");
+
+				// searchDAOのオブジェクト宣言
+				searchDAO objDao2 = new searchDAO();
+				if(objDao2.insert(new Search(user_id, b_comment))) {
+					System.out.println("成功");
+				}
+				else {
+					System.out.println("失敗");
+				}
 			}
 
 	// nice buyボタン押された時の処理

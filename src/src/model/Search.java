@@ -18,12 +18,20 @@ public class Search implements Serializable{
 		this.s_history = s_history;
 	}
 
-	// 検索用のコンストラクタも生成
+	// 履歴表示用のコンストラクタも生成
 	public Search(String user_id) {
 		super();
 		this.id = "";
 		this.user_id = user_id;
 		this.b_comment = "";
+		this.s_history = "";
+	}
+	// 検索用のコンストラクタも生成
+	public Search(String user_id, String b_comment) {
+		super();
+		this.id = "";
+		this.user_id = user_id;
+		this.b_comment = b_comment;
 		this.s_history = "";
 	}
 
