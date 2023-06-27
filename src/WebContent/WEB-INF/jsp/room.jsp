@@ -26,7 +26,7 @@
 		<li><a href="/Ifrit/calendarServlet"><img src="カレンダー画像" alt="カレンダーへ"></a></li>
 		<li><a href="/Ifrit/paymentServlet"><img src="支出入力画像" alt="支出入力へ"></a></li>
 		<li><a href="/Ifrit/achievementServlet"><img src="達成状況画像" alt="達成状況へ"></a></li>
-		<li><a href="/Ifrit/buytterServlet"><img src="Buytter画像" alt="Butterへ"></a></li>
+		<li><a href="/Ifrit/buytterServlet"><img src="Buytter画像" alt="Buytterへ"></a></li>
 	</ul>
 </nav>
 </div>
@@ -64,7 +64,7 @@
 
 <nav id="n2">
 	<ul id="g-navi2">
-		<li><a href="/Ifrit/dressServelet"><img src="着せ替えショップ画像" alt="着せ替えショップへ"></a></li>
+		<li><a href="/Ifrit/dressServlet"><img src="着せ替えショップ画像" alt="着せ替えショップへ"></a></li>
 		<li><a href="/Ifrit/picturebookServlet"><img src="図鑑画像" alt="図鑑へ"></a></li>
 			<!--↓　累計獲得ポイント表示　-->
 		<li>現在の<c:out value="${point_pm}" />PT</li>
