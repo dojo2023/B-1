@@ -64,7 +64,7 @@
 
 <nav id="n2">
 	<ul id="g-navi2">
-		<li><a href="/Ifrit/dressServelet"><img src="着せ替えショップ画像" alt="着せ替えショップへ"></a></li>
+		<li><a href="/Ifrit/dressServlet"><img src="着せ替えショップ画像" alt="着せ替えショップへ"></a></li>
 		<li><a href="/Ifrit/picturebookServlet"><img src="図鑑画像" alt="図鑑へ"></a></li>
 			<!--↓　累計獲得ポイント表示　-->
 		<li>現在の<c:out value="${point_pm}" />PT</li>
