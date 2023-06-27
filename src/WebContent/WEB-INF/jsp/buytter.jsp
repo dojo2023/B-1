@@ -108,24 +108,30 @@
 
 <!-- ↓１４，１８～２０(検索画面)↓ -->
 <div id="searchbox" class="area">
-		<form method="POST" action="/Ifrit/buytterServlet">
-
+	<form method="POST" action="/Ifrit/buytterServlet">
 	<table class="search">
 		<tr>
 		<td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
 		<td><input type ="submit" name="Submit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td>
 		</tr>
-		<tr>
-		<td><label>最近の検索</label></td>
-		</tr>
-		<tr>
-		<td><c:forEach var="e" items="${searchHistory}" >
-				<c:out value="${searchHistory}" />
-				</c:forEach></td>
-		</tr>
 	</table>
+	</form>
 
-		</form>
+	<p>最近の検索</p>
+	<!-- 投稿が無かった時の処理 -->
+	<c:if test="${empty searchHistoryList}" >
+		<p>データはありません。</p>
+	</c:if>
+
+	<c:forEach var="e" items="${searchHistoryList}" >
+	<table class="history">
+		<tr>
+			<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.s_history}" /></label></form></td>
+		</tr>
+
+	</table>
+	</c:forEach>
+
 <!-- searchbox --></div>
 <!-- ↑１４，１８～２０(検索画面)おわ↑ -->
 

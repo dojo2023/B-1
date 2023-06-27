@@ -17,8 +17,10 @@ import javax.servlet.http.Part;
 import dao.buytterDAO;
 import dao.idpwsDAO;
 import dao.nicebuyDAO;
+import dao.searchDAO;
 import model.Buytters;
 import model.Nicebuy;
+import model.Search;
 @WebServlet("/buytterServlet")
 @MultipartConfig(
 		maxFileSize = 1000000,
@@ -48,15 +50,26 @@ public class buytterServlet extends HttpServlet {
 		  // ログイン情報があれば、最終的にbuytter.jspにフォワードしたい
 		  // top画面はTL画面で、最新buyeet順(id降順)に表示
 
-		  // buytterDAOのオブジェクト宣言
-		  buytterDAO objDao = new buytterDAO();
+			// buytterDAOのオブジェクト宣言
+			buytterDAO objDao = new buytterDAO();
+			List<Buytters> buyeetList= objDao.select();
+			// 並び変えた投稿をリクエストスコープに格納する
+			request.setAttribute("buyeetList", buyeetList);
 
-		  List<Buytters> buyeetList= objDao.select();
+			// requestでもらった値をUTF-8に変換してるよ
+			request.setCharacterEncoding("UTF-8");
+			//セッションスコープにあるuseridを取得
+			session = request.getSession();
+			String user_id=(String)session.getAttribute("userid");
+			System.out.println("ユーザーさん" +user_id);
 
-		  // 並び変えた投稿をリクエストスコープに格納する
-		  request.setAttribute("buyeetList", buyeetList);
+			searchDAO objDao2 = new searchDAO();
+			List<Search> searchHistoryList = objDao2.select(new Search(user_id));
+			System.out.println(searchHistoryList);
+			// 並び変えた検索履歴をリクエストスコープに格納する
+			request.setAttribute("searchHistoryList", searchHistoryList);
 
-		// buytter.jspにフォワードするよ
+			// buytter.jspにフォワードするよ
 		    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/buytter.jsp");
 			    dispatcher.forward(request, response);
 		  }
@@ -79,17 +92,17 @@ public class buytterServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 
 	// 更新ボタンが押された時の処理
-			if (request.getParameter("Submit").equals("&#x21BA") || request.getParameter("Submit").equals("戻る")) {
-				  System.out.println("更新の処理通ってるよ");
-				  // buytterDAOのオブジェクト宣言
-				  buytterDAO objDao = new buytterDAO();
-
-				  List<Buytters> buyeetList= objDao.select();
-
-				  // 並び変えた投稿をリクエストスコープに格納する
-				  request.setAttribute("buyeetList", buyeetList);
-				  System.out.println("更新の処理通ってるよ");
-			}
+//			if (request.getParameter("Submit").equals("&#x21BA")) {
+//				  System.out.println("更新の処理通ってるよ");
+//				  // buytterDAOのオブジェクト宣言
+//				  buytterDAO objDao = new buytterDAO();
+//
+//				  List<Buytters> buyeetList= objDao.select();
+//
+//				  // 並び変えた投稿をリクエストスコープに格納する
+//				  request.setAttribute("buyeetList", buyeetList);
+//				  System.out.println("更新の処理通ってるよ");
+//			}
 
 
 	// 投稿(バイート)ボタン押された時の処理
