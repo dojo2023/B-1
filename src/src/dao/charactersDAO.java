@@ -17,6 +17,7 @@ public class charactersDAO {
 		Connection conn = null;
 
 		List<PictureBook> pblist = new ArrayList<PictureBook>();
+		int i = 0;
 
 		try {
 			// JDBCドライバを読み込む
@@ -37,11 +38,20 @@ public class charactersDAO {
 			System.out.println("dao37");
 
 			// 結果表をコレクションにコピーする
-			while (rs.next()) {
-				PictureBook card = new PictureBook(
-						rs.getString("char_pic"));
-				pblist.add(card);
-				System.out.println(rs.getString("char_pic"));
+			while (i<15) {
+				if(rs.next()) {
+					PictureBook card = new PictureBook(
+							rs.getString("char_pic"));
+					pblist.add(card);
+					System.out.println(rs.getString("char_pic"));
+				}else {
+					PictureBook card = new PictureBook(
+							"nazo.png");
+					pblist.add(card);
+					System.out.println("charDAO:51");
+
+				}
+				i++;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
