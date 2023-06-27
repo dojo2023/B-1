@@ -20,7 +20,7 @@
 
 
 <h2>ログイン</h2>
-
+<span class="label label-danger">${message}</span>
 <form method="post" action="/Ifrit/loginServlet" class="" >
 <label>
 ID<br>
