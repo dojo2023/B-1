@@ -319,18 +319,23 @@ public List<Payments> list(String userid) {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/MYBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 			// SQL文を準備する
 			String sql = "delete from payments where user_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+			System.out.println("payDAO：327");
 
 			// SQL文を完成させる
 			pStmt.setString(1, userid);
+			System.out.println("payDAO：331");
+
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
+				System.out.println("payDAO：337");
+
 			}
 		}
 		catch (SQLException e) {
@@ -350,6 +355,7 @@ public List<Payments> list(String userid) {
 				}
 			}
 		}
+		System.out.println("payDAO：358");
 
 		// 結果を返す
 		return result;

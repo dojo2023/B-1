@@ -534,18 +534,22 @@ public Timestamp getupdateat(String userid) {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/MYBC", "sa", "");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 				// SQL文を準備する
 				String sql = "delete from goals where user_id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
+				System.out.println("goaDAO：542");
 
 				// SQL文を完成させる
 				pStmt.setString(1, userid);
+				System.out.println("goaDAO：546");
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
 					result = true;
+					System.out.println("goaDAO：551");
+
 				}
 			}
 			catch (SQLException e) {
@@ -565,6 +569,7 @@ public Timestamp getupdateat(String userid) {
 					}
 				}
 			}
+			System.out.println("goaDAO：572");
 
 			// 結果を返す
 			return result;

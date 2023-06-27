@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import dao.banksDAO;
 import dao.charpicsDAO;
 import dao.goalsDAO;
+import dao.healthsDAO;
+import dao.paymentsDAO;
 /**
  * Servlet implementation class resultGoalsServlet
  */
@@ -37,12 +39,16 @@ public class resultGoalsServlet extends HttpServlet {
 		//セッションスコープにあるuseridを取得
 		String userid = (String)session.getAttribute("userid");
 
+		System.out.println("resultG：userid:"+userid);
 			//目標達成、失敗　テキストを取り出す
 			banksDAO bnkDAO = new banksDAO();
 			goalsDAO gDAO = new goalsDAO();
 
 			int goals = gDAO.select(userid);
+			System.out.println("resultG：48");
+
 			int banks = bnkDAO.select(userid);
+			System.out.println("resultG：51");
 
 			int gratio = banks / goals * 100;
 
@@ -60,13 +66,34 @@ public class resultGoalsServlet extends HttpServlet {
 			}
 			else{
 				 result ="目標失敗";
-//				 c_name = "墓.png";
+				 c_name = "Ifrit＿grave.png";
 			}
 			//リクエストスコープ
 			request.setAttribute("result",result);
 
 			//リクエストスコープ
 			request.setAttribute("c_name",c_name);
+
+			//ヘルス削除
+			healthsDAO hd = new healthsDAO();
+			if(hd.delete(userid)) {
+				System.out.println("ヘルス削除");
+			}
+			System.out.println("ヘルス削除失敗");
+
+			//ペイメント削除
+			paymentsDAO pd = new paymentsDAO();
+			if(pd.delete(userid)){
+				System.out.println("payment削除");
+			}
+			System.out.println("paymetn削除go");
+
+			//goals削除
+			if(gDAO.delete(userid)){
+				System.out.println("goals削除");
+			}
+			System.out.println("goals削除go");
+
 
 		    // フォワード
 		    RequestDispatcher dispatcher =

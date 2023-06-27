@@ -101,18 +101,23 @@ public class healthsDAO {
 					Class.forName("org.h2.Driver");
 
 					// データベースに接続する
-					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/MYBC", "sa", "");
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/B1", "sa", "");
 
 					// SQL文を準備する
 					String sql = "delete from healths where user_id=?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
+					System.out.println("healthsDAO：109");
+
 
 					// SQL文を完成させる
 					pStmt.setString(1, userid);
+					System.out.println("healthsDAO：114");
+
 
 					// SQL文を実行する
 					if (pStmt.executeUpdate() == 1) {
 						result = true;
+						System.out.println("healthsDAO：120");
 					}
 				}
 				catch (SQLException e) {
@@ -132,6 +137,8 @@ public class healthsDAO {
 						}
 					}
 				}
+				System.out.println("healthsDAO：140");
+
 
 				// 結果を返す
 				return result;
