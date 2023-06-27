@@ -7,31 +7,37 @@
 <head>
 <meta charset="UTF-8"><!-- ↓共通部分 -->
 <title>着せ替え|かけいぼっち</title>
+<link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/dress.css">
 </head>
 <body>
 <!-- ヘッダー ここから -->
 <header>
-<h2><c:out value="${names}" />の部屋</h2>
 </header>
 <!-- ヘッダー ここまで -->
 <!-- 共通部分 ここまで -->
 
 <!-- メイン ここから -->
-
+<div id="container">
+<h2><c:out value="${names}" />の部屋</h2>
+</div>
 <h3>着せ替えショップ</h3>
 
 <p><c:out value="${points}" />pt</p>
 
-<table>
-<c:forEach var="e" items="${Dress}">
+<table class="rank">
  <tr>
- 	<!-- 装飾品の画像 -->
- 	<td><img src="./img/items/${e.itempic}"><br>
+<c:forEach var="e" items="${Dress}">
 
+ 	<!-- 装飾品の画像 -->
+
+ 	<td><label>
  	<!-- ラジオボタンと必要なポイント数の表示 -->
- </tr>
+ 	<input type = "radio"name="check"value="${e.itempic}"id="radio"><img src="./img/items/${e.itempic}"style = "max-width:250px;">
+ 	</label></td>
+
 </c:forEach>
+ </tr>
 </table>
 
 <form method="post" action="/ifrit/dressServlet" class="" >
@@ -40,7 +46,7 @@
 <br>
 </form>
 
-<input type="button" onclick="window.location.reload();" value="部屋に戻る" name="cansell">
+<a href="/Ifrit/roomServlet">お部屋にもどる</a>
 
 
 

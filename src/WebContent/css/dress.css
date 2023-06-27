@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.rank {
+	width: 500px;                /* 横幅指定 */
+	height: 250px;               /* 横幅指定 */
+	/* background:#fff; */
+	box-shadow:0 0 5px #ddd;
+	border-spacing: 8px 0px;
+}
+/**/
+/*テーブルボーダー*/
+.rank td,tr {
+	border:1.5px dotted #ddd;
+}
+/*radioボタン中央寄せ*/
+#radio{
+	margin:auto;
+}
