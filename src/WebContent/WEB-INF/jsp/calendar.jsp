@@ -60,8 +60,8 @@
 </table>
 <table>
  <tr>
- 	<td class="TextTyping">現在の貯金額<c:out value="${wnt.bbank}" /></td>
- 	<td class="TextTyping">目標金額<c:out value="${wnt.ggoals}" /></td>
+ 	<td class="TextTyping">現在の貯金額<c:out value="${wnt.bbank}" />円</td>
+ 	<td class="TextTyping">目標金額<c:out value="${wnt.ggoals}" />円</td>
  </tr>
 </table>
 </div>
