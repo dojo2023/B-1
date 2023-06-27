@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/room.css">
 
+<style>* { outline: 1px solid #FF0000; }</style>
+
 </head>
 
 <body>
@@ -23,10 +25,10 @@
 <div id='exam1'>
 <nav id="n1">
 	<ul id="g-navi1">
-		<li><a href="/Ifrit/calendarServlet"><img src="カレンダー画像" alt="カレンダーへ"></a></li>
-		<li><a href="/Ifrit/paymentServlet"><img src="支出入力画像" alt="支出入力へ"></a></li>
-		<li><a href="/Ifrit/achievementServlet"><img src="達成状況画像" alt="達成状況へ"></a></li>
-		<li><a href="/Ifrit/buytterServlet"><img src="Buytter画像" alt="Buytterへ"></a></li>
+		<li id="roomli"><a href="/Ifrit/calendarServlet"><img src="/Ifrit/img/button/calendar.png" width="80" height="80" alt="カレンダーへ"></a></li>
+		<li id="roomli"><a href="/Ifrit/paymentServlet"><img src="/Ifrit/img/button/money.png" width="80" height="80" alt="支出入力へ"></a></li>
+		<li id="roomli"><a href="/Ifrit/achievementServlet"><img src="/Ifrit/img/button/goals.png" width="80" height="80" alt="達成状況へ"></a></li>
+		<li id="roomli"><a href="/Ifrit/buytterServlet"><img src="/Ifrit/img/button/buytter.png" width="80" height="80" alt="Buytterへ"></a></li>
 	</ul>
 </nav>
 </div>
@@ -34,7 +36,7 @@
 <div id='exam2'>
 <main id="main-area">
 <!--↓　状態にあったキャラ画像表示　-->
-<img src="./img/characters/${c_name}">
+<img src="./img/characters/${c_name}" width="500">
 
 </div>
 
@@ -64,13 +66,13 @@
 
 <nav id="n2">
 	<ul id="g-navi2">
-		<li><a href="/Ifrit/dressServlet"><img src="着せ替えショップ画像" alt="着せ替えショップへ"></a></li>
-		<li><a href="/Ifrit/picturebookServlet"><img src="図鑑画像" alt="図鑑へ"></a></li>
+		<li id="roomli"><a href="/Ifrit/dressServlet"><img src="/Ifrit/img/button/dress.png" width="80" height="80" alt="着せ替えショップへ"></a></li>
+		<li id="roomli"><a href="/Ifrit/picturebookServlet"><img src="/Ifrit/img/button/book.png" width="80" height="80" alt="図鑑へ"></a></li>
 			<!--↓　累計獲得ポイント表示　-->
-		<li>現在の<c:out value="${point_pm}" />PT</li>
+		<li id="roomli"><br>現在のポイント<br><c:out value="${point_pm}" />PT</li>
 			<!--↓　ランキング表示　-->
-		<li>ランキング<a href="/Ifrit/rankingServlet" id="ranking"><img src="ランキング画像" alt="ランキングへ"></a></li>
-		<li><form method="POST" action="/Ifrit/roomServlet"><input type="submit" value="" id="portion" name="submit"></form></li>
+		<li id="roomli"><a href="/Ifrit/rankingServlet" id="ranking"><img src="/Ifrit/img/button/ranking.png" width="80" height="80" alt="ランキングへ"></a></li>
+		<li id="roomli"><form method="POST" action="/Ifrit/roomServlet"><input type="submit" value="" id="portion" width="80" height="80" name="submit"></form></li>
 	</ul>
 </nav>
 

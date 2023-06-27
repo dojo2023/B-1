@@ -1,20 +1,35 @@
 @charset "UTF-8";
 @charset "UTF-8";
 
+#roomli {
+	width: 100px;
+	height: 80px;
+	text-align:center;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius:10px;
+}
 #n1 {
-	top:130px;
-	text-align: left;
+	top:80px;
+	left: 0;
 	position:fixed;
-	width: 15%;
+
 	padding: 10px;
+	width:60px;
+    height:60px;
 }
 
 #n2 {
-	top:130px;
-	left: 1080px;
-	text-align: left;
+	top:80px;
+	right: 150px;
+
 	position:fixed;
-	width: 15%;
+	padding: 10px;
+    width:60px;
+    max-height:60px;
 }
 
 li {
@@ -22,8 +37,17 @@ li {
 }
 
 #main-area {
-  max-width: 960px;
-  padding:50px 20px;
+  	max-width: 500px;
+  	padding:50px 20px;
   	margin: auto; /* 中央寄せ */
 }
 
+#portion {
+	border: 0px;
+    width:80px;
+    height:80px;
+    background: url(/Ifrit/img/button/portion.png) left top no-repeat;
+}
+#portion:hover{
+	cursor: pointer;
+}
