@@ -72,7 +72,7 @@
 		<li id="roomli"><br>現在のポイント<br><c:out value="${point_pm}" />PT</li>
 			<!--↓　ランキング表示　-->
 		<li id="roomli"><a href="/Ifrit/rankingServlet" id="ranking"><img src="/Ifrit/img/button/ranking.png" width="80" height="80" alt="ランキングへ"></a></li>
-		<li id="roomli"><form method="POST" action="/Ifrit/roomServlet"><input type="submit" value="" id="portion" width="80" height="80" name="submit"></form></li>
+		<li id="roomli"><form method="POST" action="/Ifrit/roomServlet"><input type="submit" value="回復" id="portion" width="80" height="80" name="submit"></form></li>
 	</ul>
 </nav>
 
