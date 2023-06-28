@@ -51,3 +51,9 @@ li {
 #portion:hover{
 	cursor: pointer;
 }
+
+
+.sbox {
+	    border: 2px solid #fff;
+	    		border-spacing: 15px 5px;
+}

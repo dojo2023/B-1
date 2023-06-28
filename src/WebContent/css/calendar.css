@@ -90,8 +90,9 @@
 }
 
 #calendar table tr td:hover{
-    background-color: #e4bcdf;
+    background-color: #fff;
     border-color: #000;
+    color: #000
 }
 
 /*ボタン*/
@@ -100,8 +101,8 @@
 }
 #next-prev-button button{
     cursor: pointer;
-    color: #000;
-	background-color:#ffffff;
+    color: #fff;
+	background-color:#000;
 		 border: 2px solid #000;
     border-radius: 10px;
     font-size: 1rem;
@@ -109,8 +110,9 @@
     margin: 1rem 0;
 }
 #next-prev-button button:hover{
-    background-color: #FFDBED;
+    background-color: #fff;
     border-color: #000;
+    color: #fff;
 }
 #prev {
     float: left;

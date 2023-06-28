@@ -43,7 +43,7 @@
 <!--↓　キャラステータス　-->
 <div id='exam3'>
 
-<table class="">
+<table class="sbox">
     <tr>
         <td class="TextTyping">目標達成度：<c:out value="${gratio}" />%</td>
     </tr>
