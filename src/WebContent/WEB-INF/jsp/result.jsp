@@ -16,7 +16,7 @@
 <!--↓登録成功か失敗かの変数  -->
 <h1>${result.title}</h1>
 <!--↓どこに戻るかのURL指定  -->
-<h2><a href="${result.backTo}">リターン</a></h2>
+<h2><a href="${result.backTo}">次へ進む</a></h2>
 <footer>
 <p>&copy;Ifrit.B</p>
 </footer>

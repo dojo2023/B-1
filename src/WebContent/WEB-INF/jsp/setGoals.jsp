@@ -83,8 +83,8 @@
 
 <p class="TextTyping">チュートリアル動画</p>
 <!-- 動画 -->
-<video controls>
-<source src="videos/dog.mp4"></video>
+<video controls controls width="250">
+<source src="videos/tutorial.mp4"></video>
 
 
 <!-- ↓共通部分 -->

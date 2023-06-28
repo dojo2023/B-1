@@ -43,8 +43,8 @@ ID<br>
 
 <p class="TextTyping" id="tutorial">このアプリの使い方</p>
 <!-- 動画 -->
-<video controls>
-<source src="videos/dog.mp4"></video>
+<video controls controls width="250">
+<source src="videos/tutorial.mp4"></video>
 
 <!-- 共通部分 ここから -->
 <footer>
