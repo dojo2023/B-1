@@ -89,19 +89,22 @@ public class calendarServlet extends HttpServlet {
 				System.out.println("キャラ画像さん"+charpic);
 			// キャラ背景画像を取り出す
 				//目標達成度を取り出す
-				int gratio = banks / goals * 100;
+				int gratio = banks * 100 / goals;
+				System.out.println("gratioさん1"+gratio);
+				System.out.println(banks * 100 / goals);
 				if(gratio >= 100) {
 					gratio = 100;
 				}
+				System.out.println("gratioさん2"+gratio);
 				// 目標達成度から背景画像を表示
 				String backpic;
 				if(gratio <= 25) {
 					backpic="blue1.png";
 				}
-				else if(gratio <= 50) {
+				else if(gratio > 25 && gratio <= 50) {
 					backpic="blue2.png";
 				}
-				else if(gratio <= 75) {
+				else if(gratio > 50 && gratio <= 75) {
 					backpic="blue3.png";
 				}
 				else{

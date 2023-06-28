@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 /*tabの形状*/
 .tab{
@@ -63,8 +64,16 @@ a{
 
 .area h2{
   font-size:1.3rem;
-  margin:0 0 20px 10px;
+  vertical-align: middle;
+
 }
+/*.h2 #logo {
+	height: 100px;
+	line-height: 100px;
+}*/
+ h2 img {
+ 	vertical-align: middle;
+ }
 
 .area li{ /* タブメニューの範囲内の背景 */
   padding: 10px;
@@ -122,3 +131,16 @@ opacity: 0;
 	    transform: translateY(0);
 	}
 }
+
+/* #nicebuy {
+	color: #000000;
+	font-family: 'DotGothic16', sans-serif;
+}
+#buyeet {
+	color: #ffffff;
+	font-family: 'DotGothic16', sans-serif;
+}
+#search {
+	color: #000000;
+	font-family: 'DotGothic16', sans-serif;
+}*/

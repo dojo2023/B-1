@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/Ifrit/css/common.css">
 <link rel="stylesheet" href="/Ifrit/css/buytter.css">
 
-<!--  <style>* { outline: 1px solid #FF0000; }</style>  -->
+  <style>* { outline: 1px solid #FF0000; }</style>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 <!-- 1, 共通機能のヘッダーおわ -->
 <!-- ヘッダーここまで -->
 <!-- ↓２, サブタイトル(Buytterロゴ画像)↓ -->
-<h2><img src="/Ifrit/img/???/???.png" alt="Buytter"></h2>
+<h2><label id="logo">Buytter</label><img src="/Ifrit/img/button/buytter.png" width="80px" alt="Buytter"></h2>
 <!-- メインここから -->
 <main>
 <!-- ↓３,４,５(TLと投稿と検索のボタン)↓ -->
@@ -51,7 +51,7 @@
 	<!-- ↓６(リロードボタン)↓ -->
 	<div class="reload">
 
-			<input type="button" onclick="window.location.reload();" value="&#x21BA" name="Submit">
+			<input class="button" type="button" onclick="window.location.reload();" value="&#x21BA" name="Submit">
 
 	</div>
 	<!-- ↑６(リロードボタン)おわ↑ -->
@@ -77,7 +77,7 @@
 				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ" width="250px"></label></form></td>
 			</tr>
 			<tr>
-				<td><form method="POST" action="/Ifrit/buytterServlet"><input type="hidden" name="Submit2" value="${e.id}"><input type="submit" name="Submit" value="nice buy!!"></form></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><input type="hidden" name="Submit2" value="${e.id}"><input type="submit" name="Submit" value="nice buy!!" id="nicebuy"></form></td>
 				<td><form method="POST" action="/Ifrit/buytterServlet"><c:out value="${e.buyte_sum}" /></form></td>
 			</tr>
 
@@ -99,7 +99,7 @@
 		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
 		<tr><td>投稿画像</td></tr>
 		<tr><td><input type="file" name="postPic" accept="image/*"required></td></tr>
-		<tr><td><input type="submit" value="バイートする" name="Submit"></td></tr>
+		<tr><td><input class="button" type="submit" value="バイートする" name="Submit" id="buyeet"></td></tr>
 	</table>
 
 		</form>
@@ -112,7 +112,7 @@
 	<table class="search">
 		<tr>
 		<td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
-		<td><input type ="submit" name="Submit" value="検索ボタン" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td>
+		<td><input class="button" type ="submit" name="Submit" value="検索ボタン" id="search" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td>
 		</tr>
 	</table>
 	</form>

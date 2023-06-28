@@ -70,7 +70,7 @@ public class roomServlet extends HttpServlet {
 		int banks = bankDAO.select(userid);
 		System.out.println("banks");
 
-		int gratio = banks / goals * 100;
+		int gratio = banks * 100 / goals;
 
 		if(gratio >= 100) {
 			gratio = 100;
