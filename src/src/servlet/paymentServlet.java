@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.goalsDAO;
+import dao.healthsDAO;
 import dao.paymentsDAO;
 import model.Payments;
 
@@ -203,6 +204,14 @@ public class paymentServlet extends HttpServlet {
 			paySumG = paySumG + paymoneyG;
 			//今日使えるお金の更新
 			myIntG = myIntG - paymoneyG;
+			if(myIntG<0) {
+				healthsDAO hd = new healthsDAO();
+				if (hd.unheal(userid)) {
+					System.out.println("健康悪化成功");
+				} else {
+					System.out.println("健康悪化失敗");
+				}
+			}
 ////			daypm = request.getParameter("Submit2");
 //
 //			sdaypm = daypmm.replace("-", "/");
