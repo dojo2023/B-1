@@ -4,20 +4,30 @@ import java.io.Serializable;
 
 
 public class Ranking implements Serializable{
+	private String userid;
 	private String username;
 	private int point;
 	private String pic;
 
-	public Ranking(String username, int point, String pic) {
+	public Ranking(String username, int point, String pic,String userid) {
 		super();
 		this.username = username;
 		this.point = point;
 		this.pic = pic;
+		this.userid = userid;
 	}
-	public Ranking(String username, int point) {
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public Ranking(String username, int point,String userid) {
 		super();
 		this.username = username;
 		this.point = point;
+		this.userid = userid;
 	}
 
 	public String getUsername() {

@@ -58,7 +58,7 @@ public class rankingServlet extends HttpServlet {
 			System.out.println("53");
 			Ranking rank = rankList.get(i);
 			System.out.println("55");
-			String username = rank.getUsername();
+			String username = rank.getUserid();
 			System.out.println("username"+username);
 			System.out.println("userid:"+userid);
 
