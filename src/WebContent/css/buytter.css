@@ -14,7 +14,7 @@
 }
 /*liにactiveクラスがついた時の形状*/
 .tab li.active a{
-  background:#fff;
+  background:#696969;
 }
 
 
@@ -59,7 +59,6 @@ a{
   width:100%;
   max-width: 960px;
   margin:30px auto;
-
 }
 
 .area h2{

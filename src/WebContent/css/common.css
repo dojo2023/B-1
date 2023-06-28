@@ -10,6 +10,9 @@ html {
 a:link,a:visited,a:hover,a:active {
 	color:#F0F0F0;
 }
+a {
+	 text-decoration: none;
+}
 
 
 body {
