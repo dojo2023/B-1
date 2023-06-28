@@ -1,1 +1,23 @@
 @charset "UTF-8";
+
+.set {
+	    border: 2px solid #fff;
+	    margin-top: 70px;
+		border-spacing: 15px 15px;
+		font-weight:bold;
+}
+
+.set th.td {
+	border-spacing: 15px 0px;
+}
+
+#tutorial2 {
+	border: 2px solid #fff;
+	border-radius:10px;
+    text-decoration: none;
+        outline: none;
+        	width: 150px;
+        	    margin: auto;
+        	    margin-top: 250px;
+        	    margin-bottom: 20px;
+}

@@ -11,12 +11,11 @@
 </head>
 <body>
 <header>
-<h1 class="TextTyping">かけいぼっち</h1>
 </header>
 <!--↓登録成功か失敗かの変数  -->
-<h1>${result.title}</h1>
+<h1 class="TextTyping">${result.title}</h1>
 <!--↓どこに戻るかのURL指定  -->
-<h2><a href="${result.backTo}">次へ進む</a></h2>
+<p class="TextTyping"><a href="${result.backTo}">次へ進む</a></p>
 <footer>
 <p>&copy;Ifrit.B</p>
 </footer>
