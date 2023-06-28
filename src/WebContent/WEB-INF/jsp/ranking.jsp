@@ -37,7 +37,7 @@
 <c:forEach var="e" items="${rankList}">
 <tr>
 <td class="TextTyping"><c:out value="${rank}" />位</td>
-<td class="TextTyping">ID:<c:out value="${e.username}" /></td>
+<td class="TextTyping">ユーザー名:<c:out value="${e.username}" /></td>
 <td class="TextTyping"><c:out value="${e.point}" />pt</td>
 <td><img src="./img/characters/${e.pic}"style = "max-width:250px;"></td>
 </tr>

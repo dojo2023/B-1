@@ -85,11 +85,15 @@ public class pointsDAO {
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 			System.out.println("dao36");
+			//ユーザー名取得
+			idpwsDAO idao = new idpwsDAO();
 			// 結果表をコレクションにコピーする
 			while (i<5 && rs.next()) {
+				String user_name =idao.getName(rs.getString("user_id"));
 				Ranking rank = new Ranking(
-				rs.getString("user_id"),
-				rs.getInt("sum(point_pm)")
+						user_name,
+				rs.getInt("sum(point_pm)"),
+				rs.getString("user_id")
 				);
 				rankList.add(rank);
 				i++;
