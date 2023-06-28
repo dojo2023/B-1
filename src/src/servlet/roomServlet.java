@@ -209,7 +209,7 @@ public class roomServlet extends HttpServlet {
 		healthsDAO hd = new healthsDAO();
 		//病気を治すボタンの処理。
 		System.out.println("ボタン押したとき"+request.getParameter("submit"));
-		if (request.getParameter("submit").equals("回復")) {
+		if (request.getParameter("submit").equals("")) {
 			if(hd.he(userid) != 0) {
 				pd.healP(userid);
 				System.out.println("healP::");

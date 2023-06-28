@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
 /*全体*/
 .wrapper{
     max-width: 600px;
@@ -69,18 +71,22 @@
 /*前月の日付*/
 #calendar table tr td #Submit1 {
     color: #717171;
+	font-family: 'DotGothic16', sans-serif;
 }
 /*後月の日付*/
 #calendar table tr td #Submit2 {
     color: #717171;
+ 	font-family: 'DotGothic16', sans-serif;
 }
 /*本日*/
 #calendar table tr td #Submit3 {
 	color: #ffffff;
     background-color: #D65E72;
+	font-family: 'DotGothic16', sans-serif;
 }
 #calendar table tr td #Submit4 {
 	color: #ffffff;
+	font-family: 'DotGothic16', sans-serif;
 }
 
 #calendar table tr td:hover{
