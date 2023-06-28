@@ -128,14 +128,14 @@ public class paymentServlet extends HttpServlet {
 			System.out.println("p61");
 			//合計の出力
 			wa = payDAO.sum(userid, daypm);
-			Integer goukei = (Integer)wa;
+			Integer goukei = (Integer) wa;
 			System.out.println("合計:" + goukei);
 
 			//合計をリクエストスコープに格納する
 			request.setAttribute("paymoney", goukei);
 			//今日使える金額を計算し、格納
 			myInt = myInt - wa;
-			Integer myint = (Integer)myInt;
+			Integer myint = (Integer) myInt;
 			request.setAttribute("gavailable", myint);
 			// フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/payment.jsp");
@@ -155,7 +155,7 @@ public class paymentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		doGet(request, response);
+		//		doGet(request, response);
 
 		HttpSession session = request.getSession();
 		//セッションスコープにあるuseridを取得
@@ -168,6 +168,9 @@ public class paymentServlet extends HttpServlet {
 		int payMoney = Integer.parseInt(paymoney);
 		System.out.println(category);
 		System.out.println(paymoney);
+//		if(paymoney != null) {
+
+
 		// 検索処理を行う
 		paymentsDAO payDAO = new paymentsDAO();
 		boolean check = payDAO.insert(new Payments(category, payMoney), userid, daypmm);
@@ -190,7 +193,7 @@ public class paymentServlet extends HttpServlet {
 			//いったん例として日時指定してやる。
 			//		 リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
-//			daypm = request.getParameter("Submit2");
+			//			daypm = request.getParameter("Submit2");
 
 			sdaypm = daypmm.replace("-", "/");
 			System.out.println("送られてきた値" + sdaypm);
@@ -277,5 +280,13 @@ public class paymentServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-	}
+//		}else
+//		{ // ログイン失敗
+//			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+//			request.setAttribute("Payment_message", "金額が記入されていません");
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/payment.jsp");
+//			dispatcher.forward(request, response);
+//			System.out.println("p67");
+		}
+
 }
