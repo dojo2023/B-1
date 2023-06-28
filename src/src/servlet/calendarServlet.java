@@ -87,7 +87,6 @@ public class calendarServlet extends HttpServlet {
 				charpicsDAO cdaoCharpic = new charpicsDAO();
 				String charpic = cdaoCharpic.pic(health, userid);
 				System.out.println("キャラ画像さん"+charpic);
-				charpic="aki.png";
 			// キャラ背景画像を取り出す
 				//目標達成度を取り出す
 				int gratio = banks / goals * 100;
