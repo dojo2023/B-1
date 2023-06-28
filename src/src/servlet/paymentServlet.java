@@ -128,14 +128,14 @@ public class paymentServlet extends HttpServlet {
 			System.out.println("p61");
 			//合計の出力
 			wa = payDAO.sum(userid, daypm);
-			Integer goukei = (Integer) wa;
+			Integer goukei = (Integer)wa;
 			System.out.println("合計:" + goukei);
 
 			//合計をリクエストスコープに格納する
 			request.setAttribute("paymoney", goukei);
 			//今日使える金額を計算し、格納
 			myInt = myInt - wa;
-			Integer myint = (Integer) myInt;
+			Integer myint = (Integer)myInt;
 			request.setAttribute("gavailable", myint);
 			// フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/payment.jsp");
@@ -155,7 +155,7 @@ public class paymentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//		doGet(request, response);
+//		doGet(request, response);
 
 		HttpSession session = request.getSession();
 		//セッションスコープにあるuseridを取得
@@ -166,11 +166,9 @@ public class paymentServlet extends HttpServlet {
 		String paymoney = request.getParameter("paymoney");
 		String daypmm = request.getParameter("payment_date");
 		int payMoney = Integer.parseInt(paymoney);
-		System.out.println(category);
-		System.out.println(paymoney);
-//		if(paymoney != null) {
-
-
+		System.out.println("categoryの値は:"+category);
+		System.out.println("dpaymoenyの値は:"+paymoney);
+		System.out.println("daypmmの値は:"+daypmm);
 		// 検索処理を行う
 		paymentsDAO payDAO = new paymentsDAO();
 		boolean check = payDAO.insert(new Payments(category, payMoney), userid, daypmm);
@@ -181,67 +179,79 @@ public class paymentServlet extends HttpServlet {
 			System.out.println("失敗");
 		}
 		System.out.println("userid:" + userid);
-		String date;
-		int wa;
-		String sdaypm;
-		String goalday;
-		String gdaypm;
-		int gavailable;
 		try {
-			//取得したリンクから、年月日を取得し、それをもとにDBから探す。
-			//String date =request.getParameter("submit");
-			//いったん例として日時指定してやる。
-			//		 リクエストパラメータを取得する
+//			//取得したリンクから、年月日を取得し、それをもとにDBから探す。
+//			//String date =request.getParameter("submit");
+//			//いったん例として日時指定してやる。
+//			//		 リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
-			//			daypm = request.getParameter("Submit2");
+			System.out.println("paymentS:");
+			//今日使えるお金
+			String myInt = request.getParameter("gavailable");
+			System.out.println("paymentS:myInt:"+myInt);
+			int myIntG = Integer.parseInt(myInt);
+			//支出の合計
+			System.out.println("paymentS:194:");
+			String paySum = request.getParameter("payment_sum");
+			System.out.println("paymentS:paySum:"+paySum);
+			int paySumG = Integer.parseInt(paySum);
+			//今記入された値
+			System.out.println("paymentS:199:");
+			int paymoneyG =Integer.parseInt(paymoney);
+			System.out.println("paymentS:199:"+paymoneyG);
+			//合計更新
+			paySumG = paySumG + paymoneyG;
+			//今日使えるお金の更新
+			myIntG = myIntG - paymoneyG;
+////			daypm = request.getParameter("Submit2");
+//
+//			sdaypm = daypmm.replace("-", "/");
+//			System.out.println("送られてきた値" + sdaypm);
+//			//		SimpleDateFormat kata = new SimpleDateFormat("yyyy/MM/dd");
+//			System.out.println("58");
+//			Date nowday = DateFormat.getDateInstance().parse(sdaypm);
+//			System.out.println(nowday);
+//			//日時計算用に変更
+//			SimpleDateFormat daykata = new SimpleDateFormat("yyyy/MM/dd");
+//			System.out.println("63");
+//			//目標日を取得
+//			goalsDAO gd = new goalsDAO();
+//			System.out.println("7070");
+//			goalday = gd.getlimit(userid);
+//			System.out.println("goalday:" + goalday);
+//			gdaypm = goalday.replace("-", "/");
+//			//先頭２文字大文字から小文字に変換
+//			//		String str = "ABCDEFG";
+//			gdaypm = gdaypm.substring(0, 2).toLowerCase() + gdaypm.substring(2);
+//			//		str = str.substring(0,2).toLowerCase()+str.substring(2);
+//			System.out.println("gdaypm1:" + gdaypm);
+//			//		System.out.println("str:"+str);
+//			gdaypm = gdaypm.substring(0, 8) + gdaypm.substring(gdaypm.length() - 2).toLowerCase();
+//			//		str = str.substring(0,6)+str.substring(str.length()-2).toLowerCase();
+//			System.out.println("gdaypm2:" + gdaypm);
+//			//		System.out.println("str2:"+str);
+//			Date day = DateFormat.getDateInstance().parse(gdaypm);
+//			System.out.println("67");
+//			System.out.println(day);
+//			//ふたつを計算
+//			long ndate = nowday.getTime();
+//			System.out.println("71");
+//			long gdate = day.getTime();
+//			System.out.println("73");
+//			long oneday = 1000 * 60 * 60 * 24;
+//			System.out.println("75");
+//			long daysa = (gdate - ndate) / oneday;
+//			System.out.println("77");
+//			int myInt = Math.toIntExact(daysa);
+//			System.out.println("79");
+//
+//			System.out.println("何日" + daysa);
+//			System.out.println("ｍYINT" + myInt);
+//
+//			//使用可能額取得
+//			gavailable = Integer.parseInt(gd.getavailable(userid));
 
-			sdaypm = daypmm.replace("-", "/");
-			System.out.println("送られてきた値" + sdaypm);
-			//		SimpleDateFormat kata = new SimpleDateFormat("yyyy/MM/dd");
-			System.out.println("58");
-			Date nowday = DateFormat.getDateInstance().parse(sdaypm);
-			System.out.println(nowday);
-			//日時計算用に変更
-			SimpleDateFormat daykata = new SimpleDateFormat("yyyy/MM/dd");
-			System.out.println("63");
-			//目標日を取得
-			goalsDAO gd = new goalsDAO();
-			System.out.println("7070");
-			goalday = gd.getlimit(userid);
-			System.out.println("goalday:" + goalday);
-			gdaypm = goalday.replace("-", "/");
-			//先頭２文字大文字から小文字に変換
-			//		String str = "ABCDEFG";
-			gdaypm = gdaypm.substring(0, 2).toLowerCase() + gdaypm.substring(2);
-			//		str = str.substring(0,2).toLowerCase()+str.substring(2);
-			System.out.println("gdaypm1:" + gdaypm);
-			//		System.out.println("str:"+str);
-			gdaypm = gdaypm.substring(0, 8) + gdaypm.substring(gdaypm.length() - 2).toLowerCase();
-			//		str = str.substring(0,6)+str.substring(str.length()-2).toLowerCase();
-			System.out.println("gdaypm2:" + gdaypm);
-			//		System.out.println("str2:"+str);
-			Date day = DateFormat.getDateInstance().parse(gdaypm);
-			System.out.println("67");
-			System.out.println(day);
-			//ふたつを計算
-			long ndate = nowday.getTime();
-			System.out.println("71");
-			long gdate = day.getTime();
-			System.out.println("73");
-			long oneday = 1000 * 60 * 60 * 24;
-			System.out.println("75");
-			long daysa = (gdate - ndate) / oneday;
-			System.out.println("77");
-			int myInt = Math.toIntExact(daysa);
-			System.out.println("79");
-
-			System.out.println("何日" + daysa);
-			System.out.println("ｍYINT" + myInt);
-
-			//使用可能額取得
-			gavailable = Integer.parseInt(gd.getavailable(userid));
-
-			myInt = gavailable / myInt;
+//			gavailable = gavailable / myInt;
 
 			//		//フォーマット指定
 			//		SimpleDateFormat last = new SimpleDateFormat("yyyy-MM-dd");
@@ -254,21 +264,20 @@ public class paymentServlet extends HttpServlet {
 			List<Payments> paymentsList = payDAO.search(userid, daypmm);
 
 			System.out.println();
-			// 検索結果をリクエストスコープに格納する
-
-			//			System.out.println("p61");
-			//合計の出力
-			wa = payDAO.sum(userid, daypmm);
-			Integer goukei = new Integer(wa);
-			//			System.out.println("合計:" + goukei);
-
-			//合計をリクエストスコープに格納する
+//			// 検索結果をリクエストスコープに格納する
+//
+//			//			System.out.println("p61");
+//			//合計の出力
+//			wa = payDAO.sum(userid, p);
+//			Integer goukei = new Integer(wa);
+//			//			System.out.println("合計:" + goukei);
+//
+//			//合計をリクエストスコープに格納する
 
 			//今日使える金額を計算し、格納
-			myInt = myInt - wa;
-			Integer myint = new Integer(myInt);
+			Integer myint = (Integer)myIntG;
 
-			request.setAttribute("paymoney", goukei);
+			request.setAttribute("paymoney", paySumG);
 			request.setAttribute("paymentsList", paymentsList);
 			request.setAttribute("gavailable", myint);
 
@@ -280,13 +289,5 @@ public class paymentServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-//		}else
-//		{ // ログイン失敗
-//			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-//			request.setAttribute("Payment_message", "金額が記入されていません");
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/payment.jsp");
-//			dispatcher.forward(request, response);
-//			System.out.println("p67");
-		}
-
+	}
 }

@@ -38,7 +38,7 @@
 	<td class="TextTyping">今日使えるお金：<c:out value="${gavailable}"/>円</td>
 </tr>
 <tr><td>
-
+<input type="hidden" name="gavailable" value="${gavailable}">
 
 <input type="hidden" name="payment_date" value="${today}">
 <select name="paymentCategory">
@@ -63,6 +63,7 @@
 </td>
 </tr>
 </table>
+<input type="hidden" name="payment_sum" value="${paymoney}">
 </form>
 <div id="paylist">
 <table>
