@@ -39,13 +39,15 @@ public class buytterDAO {
 
 		// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
-
+			//ユーザー名取得
+			idpwsDAO idao = new idpwsDAO();
 		// 結果表をコレクションにコピーする
 			// コレクションは可変長配列のやつの事だよ。
 			while (rs.next()) {
+				String user_name =idao.getName(rs.getString("user_id"));
 				Buytters card = new Buytters(
 				rs.getString("id"),
-				rs.getString("user_id"),
+				user_name,
 				rs.getString("b_comment"),
 				rs.getString("b_pic"),
 				rs.getString("created_at"),
