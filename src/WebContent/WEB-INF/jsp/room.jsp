@@ -36,7 +36,7 @@
 <div id='exam2'>
 <main id="main-area">
 <!--↓　状態にあったキャラ画像表示　-->
-<img src="./img/characters/${c_name}" width="500">
+<img src="./img/characters/${c_name}" width="400">
 
 </div>
 
