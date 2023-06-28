@@ -44,7 +44,7 @@
 </c:forEach>
 </table>
 
-<input type="button" onclick="history.back()" value="部屋に戻る">
+<a href="/Ifrit/roomServlet" class="TextTyping">部屋にもどる</a>
 <!-- <input type="submit" value="部屋に戻る"> -->
 
 <!-- ↓共通部分 -->

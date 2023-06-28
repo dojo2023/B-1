@@ -11,11 +11,11 @@
 </head>
 <body>
 
-<p>卵誕生動画</p>
+
 <video controls width="980" autoplay loop>
 <source src="videos/tamago.mp4"></video>
 
-<a href="/Ifrit/calendarServlet">次へ進む</a>
+<p><a href="/Ifrit/calendarServlet">次へ進む</a></p>
 <footer>
 <p>&copy;Ifrit.B</p>
 </footer>

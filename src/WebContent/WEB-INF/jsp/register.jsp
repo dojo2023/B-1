@@ -36,8 +36,8 @@
 <td>※一度登録したユーザ名は変更できません。</td>
 </tr>
 <tr>
-<td><input type="submit" name="regist" value="登録"></td>
-<td><input type="button" onclick="window.history.back();" value="戻る"></td>
+<td><input type="submit" name="regist" value="登録" class="button"></td>
+<td><input type="button" onclick="window.history.back();" value="戻る" class="button"></td>
 </tr>
 </table>
 

@@ -41,12 +41,12 @@
 </table>
 
 <form method="post" action="/ifrit/dressServlet" class="" >
-<input type="submit" name="dressup" value="着替える">
-<input type="submit" name="buy" value="購入">
+<input type="submit" name="dressup" value="着替える" class="button">
+<input type="submit" name="buy" value="購入" class="button">
 <br>
 </form>
 
-<a href="/Ifrit/roomServlet" class="TextTyping">お部屋にもどる</a>
+<a href="/Ifrit/roomServlet" class="TextTyping">部屋にもどる</a>
 
 
 

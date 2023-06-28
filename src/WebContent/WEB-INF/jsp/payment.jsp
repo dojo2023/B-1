@@ -55,7 +55,7 @@
 </select>
 </td>
 <td><input type="text" name="paymoney" required>円
-<input type="submit" value="登録"></td>
+<input type="submit" value="登録" class="button"></td>
 </tr>
 <tr>
 <td>

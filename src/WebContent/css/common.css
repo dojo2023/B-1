@@ -39,12 +39,39 @@ li {
     margin: auto;
     border: 2px solid #fff;
       border-radius:10px;
+  transition    : .3s;         /* なめらか変化 */
+}
+
+li:hover {
+  color         : #000;
+  background    : #fff;
+      border: 2px solid #000;
 }
 
 table {
 	/* テーブルタグ内真ん中寄せ */
     margin: auto;
     text-align:center;
+}
+
+.button {
+  display       : inline-block;
+    border: 2px solid #fff;
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : transparent;     /* 背景色     */
+  color         : #F0F0F0;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  font-family: 'DotGothic16', sans-serif;
+        border-radius:10px;
+}
+.button:hover {
+  color         : #000;
+  background    : #fff;
+  font-family: 'DotGothic16', sans-serif;
+      border: 2px solid #000;
 }
 
 /* タイピング風文字の表示 */

@@ -36,7 +36,7 @@ ID<br>
 </label>
 
 <br>
-<input type="submit" name="" value="ログイン">
+<input type="submit" name="" value="ログイン" class="button">
 </form>
 <br>
 <a href = "/Ifrit/registerServlet" class="TextTyping">▶初めての方はこちら</a>

@@ -75,7 +75,7 @@
 </tr>
 <tr>
 <td>
-	<input type="submit" value="とうろく">
+	<input type="submit" value="登録" class="button">
 </td>
 </tr>
 </table>

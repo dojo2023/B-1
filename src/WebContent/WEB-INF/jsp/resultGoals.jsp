@@ -24,8 +24,8 @@
 
     <p class="TextTyping">次の目標を決めませんか？</p>
 
-    <input type="button" onclick="location.href='/Ifrit/setGoalsServlet'" value="はい">
-    <input type="button" onclick="location.href='/Ifrit/loginServlet'" value="いいえ">
+    <input type="button" onclick="location.href='/Ifrit/setGoalsServlet'" value="はい" class="button">
+    <input type="button" onclick="location.href='/Ifrit/loginServlet'" value="いいえ" class="button">
 
     <footer>
         <p>&copy;Ifrit.B</p>
