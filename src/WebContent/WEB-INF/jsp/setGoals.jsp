@@ -20,7 +20,7 @@
 
 </head>
 <form method="POST" action="/Ifrit/setGoalsServlet">
-<table>
+<table class="set">
 <tr>
 <td>
 	<label>目標貯金額<br>
@@ -81,7 +81,7 @@
 </table>
 </form>
 
-<p class="TextTyping">チュートリアル動画</p>
+<p class="TextTyping" id="tutorial2">このアプリの使い方</p>
 <!-- 動画 -->
 <video controls controls width="250">
 <source src="videos/tutorial.mp4"></video>
