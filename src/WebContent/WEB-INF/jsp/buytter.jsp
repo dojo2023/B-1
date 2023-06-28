@@ -64,17 +64,17 @@
 
 	<c:forEach var="e" items="${buyeetList}" >
 
-
+<div class="box fadeUpTrigger">
 		<table class="TL">
 			<tr>
-				<td><form method="POST" action="/Ifrit/buytterServlet"><label>ID:<c:out value="${e.user_id}" /></label></form></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.user_id}" /></label></form></td>
 				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.created_at}" /></label></form></td>
 			</tr>
 			<tr>
 				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.b_comment}" /></label></form></td>
 			</tr>
 			<tr>
-				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ"style = "max-width:250px;"></label></form></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ" width="250px"></label></form></td>
 			</tr>
 			<tr>
 				<td><form method="POST" action="/Ifrit/buytterServlet"><input type="hidden" name="Submit2" value="${e.id}"><input type="submit" name="Submit" value="nice buy!!"></form></td>
@@ -82,7 +82,7 @@
 			</tr>
 
 		</table>
-
+</div>
 
 	</c:forEach>
 
@@ -149,6 +149,7 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src=./js/common.js></script>
 <script src="./js/buytter.js"></script>
 </body>
