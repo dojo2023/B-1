@@ -11,9 +11,12 @@
 </head>
 
 <body>
+<div id="wrapper">
+<canvas id="particle"></canvas>
+<!--/wrapper--></div>
 <!-- ヘッダー ここから -->
 <header>
-<h1 class="TextTyping">かけいぼっち</h1>
+<!-- <h1 class="TextTyping">かけいぼっち</h1> -->
 </header>
 <!-- ヘッダー ここまで -->
 <!-- 共通部分 ここまで -->
@@ -35,10 +38,10 @@ ID<br>
 <br>
 <input type="submit" name="" value="ログイン">
 </form>
+<br>
+<a href = "/Ifrit/registerServlet" class="TextTyping">▶初めての方はこちら</a>
 
-<a href = "/Ifrit/registerServlet" class="TextTyping">初めての方はこちら</a>
-
-<p class="TextTyping">チュートリアル動画</p>
+<p class="TextTyping" id="tutorial">このアプリの使い方</p>
 <!-- 動画 -->
 <video controls>
 <source src="videos/dog.mp4"></video>
@@ -52,6 +55,8 @@ ID<br>
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+<script src=./js/particleText.js></script><!--https://github.com/55Kaerukun/particleText.jsからダウンロードして使用-->
 <script src=./js/common.js></script>
+<script src=./js/login.js></script>
 </body>
 </html>
