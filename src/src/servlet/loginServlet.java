@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.goalsDAO;
 import dao.idpwsDAO;
+import dao.loginsDAO;
 import dao.pointsDAO;
 import model.Idpws;
 
@@ -81,8 +82,13 @@ public class loginServlet extends HttpServlet {
 				System.out.println("ログインポイント失敗");
 			}
 
-//			//ログイン履歴
-//			loginsDAO lgd = new loginsDAO();
+			//ログイン履歴
+			loginsDAO lgd = new loginsDAO();
+			if(lgd.insert(userid)) {
+				System.out.println("ログイン履歴成功");
+			}else {
+				System.out.println("ログイン履歴失敗");
+			}
 //			if(lgd.insert(userid)){
 //				System.out.println("ログインポイント成功");
 //			}else {
