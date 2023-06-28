@@ -66,7 +66,7 @@
 
 <nav id="n2">
 	<ul id="g-navi2">
-		<li id="roomli"><a href="/Ifrit/dressServlet"><img src="/Ifrit/img/button/dress.png" width="80" height="80" alt="着せ替えショップへ"></a></li>
+		<li id="roomli"><a href="/Ifrit/dressServlet"><img src="/Ifrit/img/button/shop.png" width="80" height="80" alt="着せ替えショップへ"></a></li>
 		<li id="roomli"><a href="/Ifrit/picturebookServlet"><img src="/Ifrit/img/button/book.png" width="80" height="80" alt="図鑑へ"></a></li>
 			<!--↓　累計獲得ポイント表示　-->
 		<li id="roomli"><br>現在のポイント<br><c:out value="${point_pm}" />PT</li>
