@@ -5,6 +5,7 @@
 	height: 250px;               /* 横幅指定 */
 	/* background:#fff; */
 	box-shadow:0 0 5px #ddd;
+	    border: 2px solid #fff;
 }
 
 .score {
@@ -14,6 +15,8 @@
 	box-shadow:0 0 5px #ddd;
 	    margin: auto;
     text-align:center;
+        border: 2px solid #fff;
+        margin-top: 10px;
 }
 
 .rank td,tr {
