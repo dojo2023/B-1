@@ -196,6 +196,12 @@ public class buytterServlet extends HttpServlet {
 				else {
 					System.out.println("失敗");
 				}
+				// 検索履歴を最新5つ分持ってくるよ
+				searchDAO objDao3 = new searchDAO();
+				List<Search> searchHistoryList = objDao3.select(new Search(user_id));
+				System.out.println(searchHistoryList);
+				// 並び変えた検索履歴をリクエストスコープに格納する
+				request.setAttribute("searchHistoryList", searchHistoryList);
 			}
 
 	// nice buyボタン押された時の処理
