@@ -103,7 +103,7 @@ public class loginServlet extends HttpServlet {
 
 		}else {								// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("message", "IDまたはパスワードが違います");
+			request.setAttribute("message", "※IDまたはパスワードが違います");
 
 
 
