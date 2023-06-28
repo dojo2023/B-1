@@ -261,4 +261,79 @@ INSERT INTO healths (user_id,health_pm) values('海田ふうと','1');
 INSERT INTO healths (user_id,health_pm) values('海田ふうと','1');
 INSERT INTO healths (user_id,health_pm) values('ooguro','1');
 
+[ゆでじろう用ダミーデータ]
+INSERT INTO idpws (user_id,user_pw,user_name) VALUES('togashi','togatoga','ゆでじろう');
 
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','800','togashi','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','400','togashi','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('外食費','1800','togashi','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('ペット費用','4000','togashi','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('日用品','200','togashi','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('娯楽費','8800','togashi','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','800','togashi','2023-06-21');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','400','togashi','2023-06-22');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('外食費','1800','togashi','2023-06-22');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('ペット費用','4000','togashi','2023-06-22');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('日用品','200','togashi','2023-06-22');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('娯楽費','8800','togashi','2023-06-22');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','800','togashi','2023-06-23');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','400','togashi','2023-06-23');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('外食費','1800','togashi','2023-06-23');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('ペット費用','4000','togashi','2023-06-24');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('日用品','200','togashi','2023-06-24');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('娯楽費','8800','togashi','2023-06-24');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','800','togashi','2023-06-24');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','400','togashi','2023-06-24');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('外食費','1800','togashi','2023-06-24');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('ペット費用','4000','togashi','2023-06-25');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('日用品','200','togashi','2023-06-25');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('娯楽費','8800','togashi','2023-06-26');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','800','togashi','2023-06-26');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','400','togashi','2023-06-27');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('外食費','1800','togashi','2023-06-27');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('ペット費用','4000','togashi','2023-06-28');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('日用品','200','togashi','2023-06-28');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('娯楽費','8800','togashi','2023-06-29');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','800','togashi','2023-06-29');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('交通費','400','togashi','2023-06-30');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('外食費','3800','togashi','2023-06-30);
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('ペット費用','4000','togashi','2023-06-30');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('日用品','400','togashi','2023-06-30');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('娯楽費','8800','togashi','2023-06-30');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('衣服','5400','togashi','2023-06-30');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('医療費','1800','togashi','2023-06-30);
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','400','togashi','2023-06-30');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('食費','100','togashi','2023-06-30');
+INSERT INTO payments (pay_category,pay_money,user_id,pay_date) VALUES('娯楽費','800','togashi','2023-06-30');
+
+INSERT INTO goals (g_goal,g_limit,g_want,g_wantpic,c_name,user_id,g_available) VALUES('1000000','2023-08-31','PRADAのカバン','PRADA.png','ゆでじろうっち','togashi','2000000');
+
+INSERT INTO characters (user_id,char_id) values('togashi','1');
+INSERT INTO characters (user_id,char_id) values('togashi','9');
+
+INSERT INTO charpics (char_id,char_pic,c_health) values('9','itibi.png','0');
+INSERT INTO charpics (char_id,char_pic,c_health) values('9','itibi.png','1');
+INSERT INTO charpics (char_id,char_pic,c_health) values('9','itibi.png','2');
+INSERT INTO charpics (char_id,char_pic,c_health) values('9','itibi.png','3');
+INSERT INTO charpics (char_id,char_pic,c_health) values('10','nibi.png','0');
+INSERT INTO charpics (char_id,char_pic,c_health) values('11','sanbi.png','0');
+INSERT INTO charpics (char_id,char_pic,c_health) values('12','kyuubi.png','0');
+
+INSERT INTO points (user_id,point_pm) values('togashi','1000');
+
+INSERT INTO historys (user_id,s_history) values('togashi','グッチ');
+INSERT INTO historys (user_id,s_history) values('togashi','コーチ');
+INSERT INTO historys (user_id,s_history) values('togashi','美女');
+INSERT INTO historys (user_id,s_history) values('togashi','写真好き');
+INSERT INTO historys (user_id,s_history) values('togashi','居酒屋');
+
+INSERT INTO items (user_id,item_id) values('togashi','1');
+
+INSERT INTO banks (user_id,b_bank) values('togashi','30000');
+INSERT INTO banks (user_id,b_bank) values('togashi','61000');
+INSERT INTO banks (user_id,b_bank) values('togashi','80000');
+INSERT INTO banks (user_id,b_bank) values('togashi','9000');
+
+INSERT INTO healths (user_id,health_pm) values('togashi','1');
+INSERT INTO healths (user_id,health_pm) values('togashi','1');
+INSERT INTO healths (user_id,health_pm) values('togashi','1');
