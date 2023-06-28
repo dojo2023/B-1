@@ -19,6 +19,7 @@ public class searchDAO {
 		Connection conn = null;
 		// return用オブジェクトの生成
 		List<Search> searchHistoryList = new ArrayList<Search>();
+		int i = 0;
 
 		try {
 		// JDBCドライバを読み込む
@@ -45,7 +46,7 @@ public class searchDAO {
 			// コレクションは可変長配列のやつの事だよ。
 			while (rs.next()) {
 				Search card = new Search(
-				rs.getString("s_history")
+				rs.getString("s_history"),i
 				);
 				System.out.println("1s_historyさん"+rs.getString("s_history"));
 				searchHistoryList.add(card);
