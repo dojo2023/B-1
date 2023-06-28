@@ -54,11 +54,13 @@
 	<option value="娯楽費">娯楽費</option>
 </select>
 </td>
-<td><input type="text" name="paymoney">円
+<td><input type="text" name="paymoney" required>円
 <input type="submit" value="登録"></td>
-
-
-
+</tr>
+<tr>
+<td>
+<span class="label label-danger">${Payment_message}</span>
+</td>
 </tr>
 </table>
 </form>
