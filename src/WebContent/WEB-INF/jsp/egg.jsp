@@ -15,7 +15,7 @@
 <video controls width="980" autoplay loop>
 <source src="videos/tamago.mp4"></video>
 
-<p><a href="/Ifrit/calendarServlet">次へ進む</a></p>
+<p><a href="/Ifrit/roomServlet">次へ進む</a></p>
 <footer>
 <p>&copy;Ifrit.B</p>
 </footer>
