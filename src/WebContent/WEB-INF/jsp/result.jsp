@@ -15,14 +15,13 @@
 <!--↓登録成功か失敗かの変数  -->
 <h1 class="TextTyping">${result.title}</h1>
 <!--↓どこに戻るかのURL指定  -->
-<p class="TextTyping"><a href="${result.backTo}">次へ進む</a></p>
+<p><a href="${result.backTo}" class="TextTyping">次へ進む</a></p>
 <footer>
 <p>&copy;Ifrit.B</p>
 </footer>
-<script
+<script>
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-<script src=./js/common.js></script>
 </body>
 </html>

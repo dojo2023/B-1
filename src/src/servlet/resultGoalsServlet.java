@@ -61,6 +61,7 @@ public class resultGoalsServlet extends HttpServlet {
 			System.out.println("gratio:"+gratio);
 			if(gratio >= 100){
 				 result ="目標達成";
+				 c_name="Dragooon.png";
 			}
 			else{
 				 result ="目標失敗";
