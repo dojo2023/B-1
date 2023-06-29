@@ -51,7 +51,7 @@
 	<!-- ↓６(リロードボタン)↓ -->
 	<div class="reload">
 
-			<input class="button" type="button" onclick="window.location.reload();" value="&#x21BA" name="Submit">
+			<input type="button" onclick="window.location.reload();" value="&#x21BA" name="Submit" class="button">
 
 	</div>
 	<!-- ↑６(リロードボタン)おわ↑ -->
@@ -71,13 +71,11 @@
 				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.created_at}" /></label></form></td>
 			</tr>
 			<tr>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ" width="250px"></label></form></td>
 				<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.b_comment}" /></label></form></td>
 			</tr>
 			<tr>
-				<td><form method="POST" action="/Ifrit/buytterServlet"><label><img src="./upload/${e.b_pic}" alt="画像のっふぁ" width="250px"></label></form></td>
-			</tr>
-			<tr>
-				<td><form method="POST" action="/Ifrit/buytterServlet"><input type="hidden" name="Submit2" value="${e.id}"><input type="submit" name="Submit" value="nice buy!!" id="nicebuy"></form></td>
+				<td><form method="POST" action="/Ifrit/buytterServlet"><input type="hidden" name="Submit2" value="${e.id}"><input type="submit" name="Submit" value="nice buy!!" id="nicebuy" class="button"></form></td>
 				<td><form method="POST" action="/Ifrit/buytterServlet"><c:out value="${e.buyte_sum}" /></form></td>
 			</tr>
 
@@ -95,11 +93,11 @@
 		<form method="POST" action="/Ifrit/buytterServlet"enctype="multipart/form-data">
 
 	<table class="buyeet">
-		<tr><td>投稿コメント</td></tr>
-		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね"></td></tr>
-		<tr><td>投稿画像</td></tr>
-		<tr><td><input type="file" name="postPic" accept="image/*"required></td></tr>
-		<tr><td><input class="button" type="submit" value="バイートする" name="Submit" id="buyeet"></td></tr>
+		<tr><td>コメント</td></tr>
+		<tr><td><input type="text" name="postComment" placeholder="コメントを入力してね" class="button"></td></tr>
+		<tr><td>画像</td></tr>
+		<tr><td><input type="file" name="postPic" accept="image/*"required class="button"><br></td></tr>
+		<tr><td><input type="submit" value="バイートする" name="Submit" id="buyeet" class="button"></td></tr>
 	</table>
 
 		</form>
@@ -112,25 +110,26 @@
 	<table class="search">
 		<tr>
 		<td><input type="text" name="searchBox" placeholder="キーワードを入力してね"></td>
-		<td><input class="button" type ="submit" name="Submit" value="検索ボタン" id="search" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索"></td>
+		<td><input type ="submit" name="Submit" value="検索ボタン" id="search" width="100" height="40" src="/Ifrit/img/???/???.png" alt=" 検索" class="button"></td>
 		</tr>
 	</table>
 	</form>
-
-	<p>最近の検索</p>
+<div id="hbox">
+	<p>＜最近の検索＞</p>
 	<!-- 投稿が無かった時の処理 -->
-	<c:if test="${empty searchHistoryList}" >
+	<c:if test="${empty searchHistoryList}">
 		<p>データはありません。</p>
 	</c:if>
 
-	<c:forEach var="e" items="${searchHistoryList}" >
-	<table class="history">
+	<c:forEach var="e" items="${searchHistoryList}">
+	<table>
 		<tr>
 			<td><form method="POST" action="/Ifrit/buytterServlet"><label><c:out value="${e.s_history}" /></label></form></td>
 		</tr>
 
 	</table>
 	</c:forEach>
+</div>
 
 <!-- searchbox --></div>
 <!-- ↑１４，１８～２０(検索画面)おわ↑ -->

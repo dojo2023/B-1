@@ -144,3 +144,30 @@ opacity: 0;
 	color: #000000;
 	font-family: 'DotGothic16', sans-serif;
 }*/
+
+#hbox {
+	width: 500px;                /* 横幅指定 */
+	height: 250px;               /* 横幅指定 */
+	/* background:#fff;*/
+	box-shadow:0 0 5px #ddd;
+	    border: 2px solid #fff;
+	    margin: auto;
+	    margin-top: 50px;
+}
+
+/* タイピング風文字の表示 */
+
+p span {
+	display: none;
+}
+
+/*文字列後ろの線の設定*/
+p::after {
+ /*	content: "|";     文字の最後に縦線入れるなら*/
+	animation: typinganime .8s ease infinite;
+}
+
+@keyframes typinganime{
+	from{opacity:0}
+	to{opacity:1}
+}
