@@ -41,12 +41,12 @@ public class eggServlet extends HttpServlet {
 			int num = rand.nextInt(3);
 			int char_id=0;
 			if(num==0) {
-				char_id = 1;
+				char_id = 9;
 			}else if(num == 1) {
-				char_id = 2;
+				char_id = 9;
 			}else if(num == 2) {
 //				char_id = 3;
-				char_id = 1;
+				char_id = 9;
 			}
 			if(cd.setC(userid,char_id)) {
 				System.out.println("卵成功");
